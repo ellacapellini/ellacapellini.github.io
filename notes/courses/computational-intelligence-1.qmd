@@ -1,0 +1,10 @@
+---
+title: "Computational Intelligence 1"
+date: 2026-02-24
+description: >
+  Notes and exercises from the course INF535, Computational Intelligence 1.
+repo: https://github.com/ellacapellini/Computational-Intelligence-1-
+categories: [Course]
+---
+
+Notes and exercises are kept in [the repository](https://github.com/ellacapellini/Computational-Intelligence-1-).

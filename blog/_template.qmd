@@ -1,0 +1,10 @@
+---
+title: "__TITLE__"
+date: __DATE__
+description: >
+  One or two sentences that make someone want to read the post.
+categories: [Ideas]
+# draft: true            # uncomment to keep this post off the live site
+---
+
+Write the post here, in Markdown.

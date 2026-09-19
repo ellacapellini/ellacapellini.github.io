@@ -1,0 +1,22 @@
+---
+title: "Adapting Vib2Sound to missing accelerometer cues"
+date: 2026-06-02
+description: >
+  Vib2Sound separates overlapping zebra finch vocalisations using body-mounted
+  accelerometers and multichannel microphones. This project asks how the model can
+  stay robust when the accelerometer signal is partly or entirely missing, and which
+  strategies best preserve separation performance.
+categories: [Speech ML, Neuroscience]
+repo: https://github.com/ellacapellini/Vib2Sound
+paper: https://doi.org/10.1101/2025.05.08.652866
+---
+
+Vib2Sound was introduced by Akahoshi, Wang, Cheng, Zai and Hahnloser (2025). The
+**Paper** link above is that original work; the **Code** link is this extension.
+
+**Research question.** How can the separation model be made robust to missing or
+degraded accelerometer signals, and what strategies best preserve separation
+performance under partial or total cue absence?
+
+Carried out at the Institute of Neuroinformatics (University of Zurich and ETH Zurich),
+in the Hahnloser Lab.

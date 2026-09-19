@@ -1,0 +1,15 @@
+---
+title: "Linear B Diachronic Phonological Mapper"
+date: 2025-11-19
+description: >
+  An interactive web tool for transcribing, analysing and visualising the phonological
+  evolution of Linear B (Mycenaean Greek, c. 1450 to 1200 BCE) into Classical Greek
+  (c. 800 to 400 BCE).
+categories: [Digital humanities, Ancient Greek]
+repo: https://github.com/ellacapellini/Linear-B-Diachronic-Phonological-Mapper
+---
+
+The tool transcribes Linear B syllabograms, segments words into stems and endings,
+generates inflected forms for a lemma, and animates the sound changes that lead
+to Classical Greek on a timeline. Its rule engine covers more than ten ordered
+sound changes, such as loss of the digamma and the splits of the labiovelars.

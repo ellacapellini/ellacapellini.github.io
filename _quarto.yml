@@ -1,0 +1,74 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - index.html            # your willow entrance, copied to the site untouched
+
+website:
+  title: "Ella Capellini"
+  site-url: https://ellacapellini.github.io
+  description: "Formal modelling and reliable evaluation of learned systems. Bayesian statistics, speech ML, neuroscience, Ancient Greek and Linear B."
+  favicon: assets/favicon.svg
+  open-graph: true
+  draft-mode: gone          # pages with `draft: true` are left out of the live site
+  back-to-top-navigation: false
+
+  # The top bar mirrors the tablets on the willow. The site title links back to the tree.
+  navbar:
+    search: true
+    left:
+      - text: Research
+        href: research/index.qmd
+      - text: Notes
+        menu:
+          - text: All notes
+            href: notes/index.qmd
+          - text: University courses
+            href: notes/courses/index.qmd
+          - text: Videos & lectures
+            href: notes/videos/index.qmd
+          - text: Books
+            href: notes/books/index.qmd
+          - text: Articles & papers
+            href: notes/papers/index.qmd
+      - text: Blog
+        href: blog/index.qmd
+      - text: Code
+        href: https://github.com/ellacapellini
+      - text: CV
+        href: cv/index.qmd
+
+  page-footer:
+    left: "Ella Capellini"
+    right:
+      - icon: github
+        href: https://github.com/ellacapellini
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/ella-capellini/
+        aria-label: LinkedIn
+
+format:
+  html:
+    lang: en
+    theme:
+      light: [default, styles/light.scss, styles/shared.scss]
+      dark:  [default, styles/dark.scss,  styles/shared.scss]
+    respect-user-color-scheme: true     # follows the OS setting, like the entrance
+    template-partials:
+      - _partials/title-block.html    # heading of every page: date, abstract, links, tablets
+    date-format: "MMMM YYYY"
+    include-in-header: assets/head.html
+    include-after-body: assets/shuffle.html
+    html-math-method: katex             # fast maths; change to `mathjax` if you need exotic LaTeX
+    link-external-icon: false
+    link-external-newwindow: true
+    smooth-scroll: true
+    code-copy: true
+    code-overflow: wrap
+    fig-align: center
+    grid:
+      body-width: 740px
+      sidebar-width: 240px
+      margin-width: 250px
+      gutter-width: 2.5rem

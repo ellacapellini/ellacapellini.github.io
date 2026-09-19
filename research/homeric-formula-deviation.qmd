@@ -1,0 +1,24 @@
+---
+title: "Formulaic pattern-breaking in the Iliad"
+date: 2025-12-14
+description: >
+  Does Homer break formulaic patterns at emotionally significant moments? An
+  information-theoretic analysis of the Iliad measures how surprising each formula is
+  given its context, and asks whether high-surprisal deviations cluster at narrative
+  climaxes such as deaths and armour exchanges. Work in progress.
+categories: [Digital humanities, Psycholinguistics]
+repo: https://github.com/ellacapellini/homeric-formula-deviation
+---
+
+**Idea.** When an audience expects one formula and hears another, the prediction error
+makes that moment stand out. The project tests whether Homer uses this on purpose,
+in the way Dante's *-ice* rhyme quietly evokes Beatrice in Inferno V.
+
+**Method.** Surprisal is $-\log_2 P(\text{formula} \mid \text{context})$. Formulae are
+extracted from the Perseus text of the *Iliad*, collected into a vocabulary, and
+scored for deviation; the results can be explored in an interactive plot.
+
+**Preliminary results.** Across 581 character mentions in 15,683 lines, about 23% show
+a deviation. High-surprisal cases include the formula at Hector's death and the armour
+formula when Patroclus wears Achilles' armour. These are early findings; the
+correlation with narrative structure still has to be established.

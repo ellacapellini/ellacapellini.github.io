@@ -1,0 +1,11 @@
+---
+title: "Computational Neuroscience: Biophysical Modelling"
+date: 2026-01-08
+description: >
+  Assignments, notes and exercises from NEU246, Computational Neuroscience:
+  Biophysical Modelling (2025/26).
+repo: https://github.com/ellacapellini/neu246-Computational-Neuroscience-Biophysical-Modelling-
+categories: [Course]
+---
+
+Assignments, notes and exercises are kept in [the repository](https://github.com/ellacapellini/neu246-Computational-Neuroscience-Biophysical-Modelling-).

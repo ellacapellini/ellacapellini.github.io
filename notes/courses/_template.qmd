@@ -1,0 +1,18 @@
+---
+title: "__TITLE__"
+date: __DATE__
+description: >
+  One or two sentences: what the course covers and what these notes are.
+toc: true                # table of contents beside the notes; set to false to hide
+# repo: https://github.com/ellacapellini/REPO-NAME
+# pdf: notes.pdf         # put the PDF in this folder
+# draft: true            # uncomment to keep this page off the live site
+---
+
+## Lecture 1
+
+Write your notes in Markdown. Maths works: $p(\theta \mid y) \propto p(y \mid \theta)\, p(\theta)$.
+
+$$
+\hat{\theta} = \arg\max_\theta \; p(y \mid \theta)
+$$

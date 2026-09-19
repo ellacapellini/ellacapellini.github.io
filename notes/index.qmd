@@ -1,0 +1,27 @@
+---
+title: "Notes & Courses & Resources"
+subtitle: "Course notes, and notes on what I watch, read and study."
+listing:
+  contents:
+    - "courses/*.qmd"
+    - "!courses/index.qmd"
+    - "courses/*/index.qmd"
+    - "videos/*.qmd"
+    - "!videos/index.qmd"
+    - "videos/*/index.qmd"
+    - "books/*.qmd"
+    - "!books/index.qmd"
+    - "books/*/index.qmd"
+    - "papers/*.qmd"
+    - "!papers/index.qmd"
+    - "papers/*/index.qmd"
+  type: custom
+  template: ../_templates/entries.ejs.md
+  sort: "date desc"
+  date-format: "MMM YYYY"
+  fields: [date, title, description, author, categories, repo, paper, demo, slides, pdf, source]
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  page-size: 50
+---

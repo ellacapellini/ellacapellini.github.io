@@ -1,0 +1,39 @@
+<script>
+/* Titles in the lists scramble into Greek letters for a moment, then settle: the same
+   effect as the tablets on the entrance. Hover or keyboard focus only; off if the visitor
+   has asked their system for reduced motion.
+   Listens on the whole document, because Quarto re-creates list entries after the page loads. */
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var greek = 'αβγδεζηθικλμνξοπρστυφχψω', FRAMES = 14;
+
+  function run(a) {
+    var final = a.dataset.final || (a.dataset.final = a.textContent);
+    var box = a.closest('.listing-title');
+    a.setAttribute('aria-label', final);              // screen readers never hear the scramble
+    clearInterval(a._t);
+    box.style.minHeight = box.offsetHeight + 'px';    // no layout jumping while letters change width
+    var f = 0;
+    a._t = setInterval(function () {
+      f++;
+      var out = '';
+      for (var i = 0; i < final.length; i++)
+        out += (!/[A-Za-z]/.test(final[i]) || i < final.length * f / FRAMES)
+          ? final[i] : greek[(Math.random() * greek.length) | 0];
+      a.textContent = out;
+      if (f >= FRAMES) { clearInterval(a._t); a.textContent = final; box.style.minHeight = ''; }
+    }, 32);
+  }
+
+  function titleLink(node) { return node && node.closest ? node.closest('.listing-title a') : null; }
+
+  document.addEventListener('pointerover', function (e) {
+    var a = titleLink(e.target);
+    if (a && !a.contains(e.relatedTarget)) run(a);
+  });
+  document.addEventListener('focusin', function (e) {
+    var a = titleLink(e.target);
+    if (a && a.matches(':focus-visible')) run(a);
+  });
+})();
+</script>

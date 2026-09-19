@@ -1,0 +1,44 @@
+/*-- scss:defaults --*/
+// Palette taken from entrance.html: the lake at first light.
+$font-family-sans-serif: "Cardo", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+$font-family-monospace: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+$font-size-base: 1.2rem;
+$line-height-base: 1.65;
+$headings-font-weight: 400;
+$headings-line-height: 1.15;
+
+$body-bg: #E9EDE3;
+$body-color: #2A2B22;
+$text-muted: #59604F;
+$link-color: #3D6041;
+$link-hover-color: #294A2D;
+$primary: #5C775A;
+$border-color: rgba(42, 43, 34, .16);
+
+$navbar-bg: $body-bg;
+$navbar-fg: $body-color;
+$navbar-hl: $link-color;
+$footer-bg: $body-bg;
+$footer-fg: $text-muted;
+
+$code-color: #6A4B24;
+$code-bg: rgba(60, 58, 48, .07);
+$code-block-bg: #DFE5D7;
+
+// Callouts in the palette (instead of Bootstrap blue)
+$callout-color-note: #4F6B4E;
+$callout-color-tip: #5E8A7A;
+$callout-color-important: #8C4A3A;
+$callout-color-caution: #A9782F;
+$callout-color-warning: #B0603A;
+
+/*-- scss:rules --*/
+:root {
+  --paper: #E9EDE3;
+  --stem:  #5C775A;
+  --clay:  #D9C8A5;
+  --ink:   #2C2920;
+  --soft:  #59604F;
+  --focus: #2F5D8A;
+  --hair:  rgba(42, 43, 34, .16);
+}

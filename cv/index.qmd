@@ -1,0 +1,55 @@
+---
+title: "CV"
+subtitle: "Ella Capellini"
+---
+
+<!--
+  HOW THIS PAGE WORKS
+  Each entry is a "term" (the date, on the left) followed by a line starting with ":" (the details, on the right).
+  Keep the blank line between entries. Replace everything in [square brackets], and delete what you don't need.
+
+  To offer a PDF too: put it in this folder, e.g. cv/Ella-Capellini-CV.pdf, and remove the comment marks around the link below.
+-->
+
+<!-- [Download as PDF](Ella-Capellini-CV.pdf) -->
+
+::: {.cv}
+
+## Education
+
+[2024 – now]
+:   **[Degree, programme]**, ETH Zürich and University of Zürich  
+    [One line: focus, thesis, or notable courses.]
+
+[Year – Year]
+:   **[Earlier degree]**, [University]
+
+## Research
+
+[Year – now]
+:   **[Position or project]**, [Lab or institution]  
+    [What you did, in one or two lines.]
+
+## Projects
+
+2026
+:   **Adapting Vib2Sound to missing accelerometer cues**  
+    Robust separation of overlapping zebra finch vocalisations. [Code](https://github.com/ellacapellini/Vib2Sound)
+
+2025
+:   **Formulaic pattern-breaking in the Iliad**  
+    Information-theoretic analysis of Homeric formulae. [Code](https://github.com/ellacapellini/homeric-formula-deviation)
+
+2025
+:   **Linear B Diachronic Phonological Mapper**  
+    Interactive tool for the phonological evolution of Mycenaean into Classical Greek. [Code](https://github.com/ellacapellini/Linear-B-Diachronic-Phonological-Mapper)
+
+## Skills
+
+Programming
+:   [e.g. Python, MATLAB, R]
+
+Languages
+:   [e.g. Italian, English, Ancient Greek]
+
+:::

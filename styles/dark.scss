@@ -1,0 +1,43 @@
+/*-- scss:defaults --*/
+// The same lake at night (dark values from entrance.html).
+$font-family-sans-serif: "Cardo", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+$font-family-monospace: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+$font-size-base: 1.2rem;
+$line-height-base: 1.65;
+$headings-font-weight: 400;
+$headings-line-height: 1.15;
+
+$body-bg: #1C2D2A;
+$body-color: #DCE6DA;
+$text-muted: #9DB2A4;
+$link-color: #B4D3B0;
+$link-hover-color: #D3E8D0;
+$primary: #7BA88E;
+$border-color: rgba(220, 230, 218, .18);
+
+$navbar-bg: $body-bg;
+$navbar-fg: $body-color;
+$navbar-hl: $link-color;
+$footer-bg: $body-bg;
+$footer-fg: $text-muted;
+
+$code-color: #E4CFA0;
+$code-bg: rgba(0, 0, 0, .22);
+$code-block-bg: #15241F;
+
+$callout-color-note: #8FB08A;
+$callout-color-tip: #86BBAA;
+$callout-color-important: #D08A78;
+$callout-color-caution: #D6AE68;
+$callout-color-warning: #D9926A;
+
+/*-- scss:rules --*/
+:root {
+  --paper: #1C2D2A;
+  --stem:  #5F8C77;
+  --clay:  #C9B891;
+  --ink:   #1F1B13;
+  --soft:  #9DB2A4;
+  --focus: #8FBFEA;
+  --hair:  rgba(220, 230, 218, .18);
+}

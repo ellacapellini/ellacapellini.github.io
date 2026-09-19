@@ -1,0 +1,35 @@
+---
+title: "An example post, and a tour of what you can write"
+date: 2026-09-19
+description: >
+  Maths, code, footnotes and callouts, all in one place. Delete this file when you
+  write your first real post. It is marked as a draft, so it never appears on the live site.
+categories: [Example]
+draft: true
+---
+
+Posts are plain Markdown. Inline maths sits in a sentence, like $p(\theta \mid y) \propto p(y \mid \theta)\,p(\theta)$,
+and display maths gets its own line:
+
+$$
+\mathrm{surprisal}(x) = -\log_2 P(x \mid \text{context})
+$$
+
+A footnote is easy to add.[^1] Code is highlighted, and readers get a copy button:
+
+```python
+import math
+
+def surprisal(p: float) -> float:
+    """Information content, in bits, of an event with probability p."""
+    return -math.log2(p)
+```
+
+::: {.callout-note}
+## A callout
+Useful for a caveat, a definition, or a warning.
+:::
+
+> A quotation looks like this.
+
+[^1]: Like this one. It appears at the bottom of the page.

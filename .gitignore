@@ -1,0 +1,8 @@
+/_site/
+/.quarto/
+/.jupyter_cache/
+*_cache/
+.DS_Store
+__pycache__/
+
+**/*.quarto_ipynb

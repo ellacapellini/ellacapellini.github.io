@@ -1,0 +1,106 @@
+/*-- scss:rules --*/
+
+/* ---------- reading ---------- */
+body { font-kerning: normal; text-rendering: optimizeLegibility; }
+h1, h2, h3, h4, h5, h6 { font-weight: 400; }
+h2 { font-size: 1.75rem; margin-top: 2.2em; border-bottom: 0; padding-bottom: 0; }
+h3 { font-size: 1.35rem; font-style: italic; }
+strong, b { font-weight: 700; }
+a { text-decoration-thickness: 1px; text-underline-offset: .2em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+::selection { background: var(--clay); color: var(--ink); }
+blockquote, .blockquote {
+  border-left: 2px solid var(--stem); padding-left: 1.1rem; margin-left: 0; color: var(--soft); font-style: italic;
+}
+
+/* ---------- top bar ---------- */
+.navbar { border-bottom: 0; box-shadow: none; }
+.navbar-brand .navbar-title { font-size: 1.3rem; }
+.navbar .nav-link { font-size: 1.08rem; }
+.navbar .dropdown-menu { border-radius: 0; border-color: var(--hair); background: var(--paper); }
+.nav-footer { border-top: 0; }
+
+/* ---------- page heading ---------- */
+#title-block-header { margin-bottom: 2.4rem; }
+h1.title {
+  font-size: clamp(2.1rem, 4.4vw, 3rem); line-height: 1.08; letter-spacing: .005em; margin-bottom: .2em;
+}
+.quarto-title .subtitle {
+  font-style: italic; color: var(--soft); font-size: 1.2rem; line-height: 1.4; max-width: 34rem; margin-bottom: 0;
+}
+#title-block-header .page-date, #title-block-header .page-author {
+  font-style: italic; color: var(--soft); font-size: 1.1rem; margin: .5rem 0 0;
+}
+#title-block-header.quarto-title-block.default .description { max-width: 36rem; margin-top: 1.2rem; font-size: 1.2rem; line-height: 1.6; font-style: normal; color: inherit; }
+#title-block-header.quarto-title-block.default .description p { margin-bottom: .5em; }
+#title-block-header .page-links { display: flex; flex-wrap: wrap; gap: 0 1.4em; font-size: 1.1rem; }
+#title-block-header .page-links a {
+  margin-top: .5rem; color: var(--bs-link-color); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .22em;
+}
+#title-block-header .quarto-categories { display: flex; flex-wrap: wrap; gap: .45em; margin-top: 1rem; }
+#title-block-header .quarto-categories .quarto-category {
+  text-transform: none; font-size: .92rem; line-height: 1.2; opacity: 1; margin: 0;
+  padding: .32em 1.2em .38em; border: 0; border-radius: 0; color: var(--ink); background: var(--clay);
+  clip-path: polygon(8% 0, 92% 0, 100% 50%, 92% 100%, 8% 100%, 0 50%);
+}
+
+/* ---------- lists (Research, Blog, Notes) ----------
+   date on the left, then title, abstract, links, and topic tablets.
+   (`div.quarto-post` is repeated so these rules beat Quarto's own list styles.) */
+.entries div.quarto-post {
+  display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); column-gap: 1.6rem; align-items: baseline;
+  padding: 0 0 2.4rem; margin: 0; border: 0;
+}
+.entries div.quarto-post .metadata { grid-column: 1; grid-row: 1; order: 0; flex: none; padding: 0; margin: 0; }
+.entries div.quarto-post .body     { grid-column: 2; grid-row: 1; order: 0; flex: none; min-width: 0; }
+.entries div.quarto-post .listing-date { font-style: italic; color: var(--soft); font-size: 1rem; white-space: nowrap; }
+.entries div.quarto-post .body h3.listing-title {
+  font-size: 1.65rem; font-style: normal; line-height: 1.2; margin: 0 0 .3em;
+}
+.entries div.quarto-post .listing-title a { color: inherit; text-decoration: none; }
+.entries div.quarto-post .listing-title a:hover,
+.entries div.quarto-post .listing-title a:focus-visible { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+.entries div.quarto-post .listing-author { font-style: italic; color: var(--soft); margin: 0 0 .35em; }
+.entries div.quarto-post .listing-description { max-width: 36rem; margin: 0 0 .75em; font-size: 1.08rem; line-height: 1.6; }
+.entries div.quarto-post .listing-description p { margin: 0 0 .5em; }
+.entries div.quarto-post .listing-links { display: flex; flex-wrap: wrap; gap: .2em 1.4em; margin: 0 0 .2em; font-size: 1.08rem; }
+.entries div.quarto-post .listing-links a {
+  color: var(--bs-link-color); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .22em;
+}
+.entries div.quarto-post .listing-links a:hover { text-decoration-thickness: 2px; }
+.entries .listing-empty { font-style: italic; color: var(--soft); }
+
+/* topic tablets: the same shape as the ones hanging on the willow */
+.entries div.quarto-post .listing-categories { display: flex; flex-wrap: wrap; gap: .45em; padding: 0; margin: .85em 0 0; }
+.entries div.quarto-post .listing-categories .listing-category {
+  text-transform: none; font-size: .92rem; line-height: 1.2; letter-spacing: 0;
+  padding: .32em 1.2em .38em; margin: 0; border: 0; border-radius: 0;
+  color: var(--ink); background: var(--clay); cursor: pointer;
+  clip-path: polygon(8% 0, 92% 0, 100% 50%, 92% 100%, 8% 100%, 0 50%);
+}
+.entries div.quarto-post .listing-categories .listing-category:hover { filter: brightness(1.07); }
+.quarto-listing-category .category { font-size: 1rem; }
+
+@media (max-width: 575.98px) {
+  .entries div.quarto-post { grid-template-columns: minmax(0, 1fr); row-gap: .1rem; }
+  .entries div.quarto-post .metadata { grid-column: 1; grid-row: 1; padding: 0 0 .15rem; }
+  .entries div.quarto-post .body     { grid-column: 1; grid-row: 2; }
+}
+
+/* ---------- CV: dates on the left, details on the right ---------- */
+.cv dl { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); column-gap: 1.6rem; row-gap: 1.15rem; margin: 0 0 2.2rem; }
+.cv dt { grid-column: 1; font-weight: 400; font-style: italic; color: var(--soft); padding-top: .05em; }
+.cv dd { grid-column: 2; margin: 0; }
+.cv dd p { margin: 0 0 .25em; }
+@media (max-width: 575.98px) {
+  .cv dl { grid-template-columns: minmax(0, 1fr); row-gap: .1rem; }
+  .cv dt, .cv dd { grid-column: 1; }
+  .cv dd { margin-bottom: 1rem; }
+}
+
+/* ---------- footer ---------- */
+.nav-footer { font-size: 1rem; color: var(--soft); }
+.nav-footer a { color: var(--soft); }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }

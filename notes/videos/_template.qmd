@@ -1,0 +1,13 @@
+---
+title: "__TITLE__"
+date: __DATE__
+author: Speaker name
+description: >
+  One or two sentences on what the talk is about and why it is worth watching.
+source: https://
+categories: [Video]
+toc: false
+# draft: true            # uncomment to keep this page off the live site
+---
+
+Your notes on the video, in Markdown.

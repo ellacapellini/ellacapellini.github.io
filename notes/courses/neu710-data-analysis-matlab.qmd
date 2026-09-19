@@ -1,0 +1,10 @@
+---
+title: "Neuroscientific Data Analysis with MATLAB"
+date: 2026-03-02
+description: >
+  Materials from NEU710, Neuroscientific Data Analysis with MATLAB.
+repo: https://github.com/ellacapellini/neu710-Neuroscientific-Data-Analysis-with-MATLAB
+categories: [Course]
+---
+
+Materials are kept in [the repository](https://github.com/ellacapellini/neu710-Neuroscientific-Data-Analysis-with-MATLAB).

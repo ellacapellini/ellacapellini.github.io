@@ -1,0 +1,15 @@
+---
+title: "__TITLE__"
+date: __DATE__
+author: First Author, Second Author
+description: >
+  A two-sentence summary: the question, and the main result.
+paper: https://
+categories: [Paper]
+toc: true
+# draft: true            # uncomment to keep this page off the live site
+---
+
+## Summary
+
+## Notes

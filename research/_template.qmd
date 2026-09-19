@@ -1,0 +1,16 @@
+---
+title: "__TITLE__"
+date: __DATE__
+description: >
+  The abstract. Two or three sentences: the question, the method, what you found.
+categories: [Speech ML]
+# Links appear under the abstract. Uncomment the ones you have:
+# repo: https://github.com/ellacapellini/REPO-NAME
+# paper: https://
+# demo: https://
+# slides: https://
+# pdf: my-paper.pdf
+# draft: true        # uncomment to keep this page off the live site
+---
+
+The longer write-up goes here, in Markdown. Delete this whole part if the abstract says enough.

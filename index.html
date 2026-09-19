@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Ella Capellini</title>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ---------- palette: first light over a lake, and the same lake at night ---------- */
+:root {
+  --sky-top: #C3D1D0;  --sky-bot: #E9EDE3;
+  --bark: #3B3A30;     --stem: #5C775A;
+  --leaf-a: #6E8F6B;   --leaf-b: #8FAA83;   --leaf-c: #B4C6A2;
+  --clay: #D9C8A5;     --ink: #2C2920;
+  --text: #2A2B22;     --text-soft: #59604F;
+  --focus: #2F5D8A;
+  --font: "Cardo", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sky-top: #0C171B;  --sky-bot: #1C2D2A;
+    --bark: #070D0F;     --stem: #5F8C77;
+    --leaf-a: #4F7C6B;   --leaf-b: #7BA88E;   --leaf-c: #B4D3B0;
+    --clay: #C9B891;     --ink: #1F1B13;
+    --text: #DCE6DA;     --text-soft: #9DB2A4;
+    --focus: #8FBFEA;
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+html { background: var(--sky-bot); }
+body {
+  overflow: hidden;
+  touch-action: none;               /* a finger drag is wind, not scroll */
+  font-family: var(--font);
+  color: var(--text);
+  background: linear-gradient(to bottom, var(--sky-top), var(--sky-bot) 78%);
+}
+
+canvas { position: fixed; inset: 0; pointer-events: none; }
+#tree  { z-index: 1; }
+#intro { z-index: 5; }
+.js #tree { opacity: 0; transition: opacity 1800ms ease; }
+.js #tree.show { opacity: 1; }
+.js #tree.instant { transition: none; }
+
+.mist {
+  position: fixed; left: 0; right: 0; bottom: 0; height: 28vh; z-index: 2;
+  background: linear-gradient(to top, var(--sky-bot) 30%, transparent);
+  pointer-events: none;
+}
+
+/* name + tagline (home) and back/see-all (inside a branch) share the bottom-left corner */
+.id, .crumb {
+  position: fixed; z-index: 3;
+  left: calc(env(safe-area-inset-left, 0px) + clamp(20px, 4vw, 56px));
+  bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(20px, 4vh, 44px));
+  max-width: min(36rem, calc(100vw - 40px));
+}
+.id h1 {
+  margin: 0 0 .3em; font-weight: 400; line-height: 1.05; letter-spacing: .005em;
+  font-size: clamp(30px, 4.2vw, 52px);
+}
+.id p { margin: 0; min-height: 1.5em; line-height: 1.5; font-size: clamp(16px, 1.3vw + 8px, 19px); }
+.id .l2 { font-style: italic; color: var(--text-soft); }
+.js .id { opacity: 0; transition: opacity 1000ms ease; }
+.js body.on .id { opacity: 1; }
+.js body.deep .id { opacity: 0; pointer-events: none; }
+
+.crumb {
+  z-index: 6; display: flex; flex-direction: column; align-items: flex-start; gap: .55em;
+  font-size: clamp(17px, 1.3vw + 9px, 20px); line-height: 1.35;
+  opacity: 0; visibility: hidden; transition: opacity 400ms ease, visibility 0s 400ms;
+}
+body.crumb-on .crumb { opacity: 1; visibility: visible; transition: opacity 800ms ease; }
+.crumb button, .crumb a {
+  font: inherit; color: var(--text); background: none; border: 0; padding: 0; margin: 0;
+  text-align: left; cursor: pointer;
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .22em;
+}
+.crumb .quiet { color: var(--text-soft); font-style: italic; text-decoration: none; }
+.crumb :focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+
+.typing::after {
+  content: ""; display: inline-block; width: 1px; height: 1em; margin-left: 2px;
+  background: currentColor; vertical-align: -.12em; animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- tablets (Linear B "palm-leaf" tablets) ---------- */
+#tablets { position: fixed; inset: 0; z-index: 4; pointer-events: none; }
+.js #tablets { visibility: hidden; }
+.js body.on #tablets { visibility: visible; }
+
+.tablet {
+  position: absolute; left: 0; top: 0; display: block;
+  color: var(--ink); text-decoration: none; text-align: center;
+  font-size: clamp(14px, 1.1vw + 9px, 19px); line-height: 1.2;
+  transform-origin: 50% 0; will-change: transform, opacity;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .18));
+  opacity: 0;                        /* JS sets opacity every frame */
+}
+.tablet::before {                    /* the little ring the strand ties through */
+  content: ""; position: absolute; top: -6px; left: 50%; width: 7px; height: 7px;
+  margin-left: -3.5px; border: 1.5px solid var(--stem); border-radius: 50%;
+}
+.slab {
+  display: block; max-width: 9.5em; padding: .45em 1.1em .55em; text-wrap: balance;
+  clip-path: polygon(6% 0, 94% 0, 100% 50%, 94% 100%, 6% 100%, 0 50%);
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 .62em, rgba(70, 50, 20, .14) .62em calc(.62em + 1px)),
+    var(--clay);
+  transition: filter 200ms ease;
+}
+.tablet:hover .slab, .tablet:focus-visible .slab { filter: brightness(1.08); }
+.tablet:focus-visible { outline: 2px solid var(--focus); outline-offset: 5px; }
+
+.ns { position: fixed; top: 24px; left: 24px; display: flex; flex-wrap: wrap; gap: 1.2em; z-index: 6; }
+.ns a { color: var(--text); }
+
+@media (prefers-reduced-motion: reduce) { .typing::after { animation: none; } }
+</style>
+</head>
+<body>
+
+<canvas id="tree" aria-hidden="true"></canvas>
+<div class="mist" aria-hidden="true"></div>
+
+<header class="id">
+  <h1>Ella Capellini</h1>
+  <p class="sr">Formal modelling and reliable evaluation of learned systems. Bayesian statistics, speech ML, neuroscience, Ancient Greek and Linear B.</p>
+  <p id="l1" aria-hidden="true"></p>
+  <p id="l2" class="l2" aria-hidden="true"></p>
+</header>
+
+<div class="crumb" id="crumb">
+  <button type="button" id="back">Back</button>
+  <a id="all" href="#"></a>
+</div>
+
+<nav id="tablets" aria-label="Sections"></nav>
+<noscript>
+  <nav class="ns" aria-label="Sections">
+    <a href="research/">Research</a><a href="notes/">Notes &amp; Courses &amp; Resources</a><a href="blog/">Blog</a>
+    <a href="https://github.com/ellacapellini">Code</a><a href="cv/">CV</a>
+  </nav>
+</noscript>
+
+<canvas id="intro" aria-hidden="true"></canvas>
+
+<script>
+(() => {
+'use strict';
+
+/* =====================================================================
+   EDIT ME — everything you'd want to change lives in this block.
+   A section with `children` zooms in and grows a new branch when clicked;
+   without `children` it simply opens its page. Children can have children too.
+   ===================================================================== */
+const CONFIG = {
+  tagline: 'Formal modelling & reliable evaluation of learned systems',
+  phrases: ['Bayesian statistics', 'Speech ML', 'Neuroscience',
+            'Ancient Greek & Linear B', 'probably on a trail somewhere'],   // last one stays on screen
+  sections: [
+    { label: 'Research', href: 'research/' },
+    { label: 'Notes & Courses & Resources', href: 'notes/', children: [
+        { label: 'University courses', href: 'notes/courses/' },
+        { label: 'Videos & lectures',  href: 'notes/videos/' },
+        { label: 'Books',              href: 'notes/books/' },
+        { label: 'Articles & papers',  href: 'notes/papers/' },
+    ]},
+    { label: 'Blog', href: 'blog/' },
+    { label: 'Code', href: 'https://github.com/ellacapellini', external: true },
+    { label: 'CV',   href: 'cv/' },
+  ],
+};
+/* ===================================================================== */
+
+const $ = s => document.querySelector(s);
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const eio = v => v < .5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2;
+const approach = (v, t, d) => v < t ? Math.min(t, v + d) : Math.max(t, v - d);
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- colours come from the CSS variables, so dark mode just works ---------- */
+const rootStyle = getComputedStyle(document.documentElement);
+let C = {};
+function readColors() {
+  const g = n => rootStyle.getPropertyValue(n).trim();
+  C = { bark: g('--bark'), stem: g('--stem'), text: g('--text'),
+        leaves: [g('--leaf-a'), g('--leaf-b'), g('--leaf-c')] };
+  if (stack.length) paintBranches(stack[0]);
+}
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', readColors);
+
+/* ---------- state ---------- */
+const cv = $('#tree'), ctx = cv.getContext('2d'), nav = $('#tablets');
+let W = 0, H = 0, DPR = 1;
+const stack = [];                       // scenes: [home tree, branch, sub-branch, ...]
+let busy = false, wantDepth = 0, hist = 0, afterSettle = null, tabStart = 0;
+const SEG = 13, G = 0.32, DAMP = 0.98, ITER = 6, STIFF = 0.014, K = 0.07;
+let mx = -1e4, my = -1e4, lx = null, ly = null, mvx = 0, mvy = 0, gust = 0;
+const top = () => stack[stack.length - 1];
+
+/* home tree: limbs as cubic Béziers in viewport fractions — trunk at the right edge,
+   crown arching left, so the bottom-left stays free for your name */
+const LIMBS = [
+  { p: [[1.03, .34], [.92, .03], [.46, -.04], [-.04, .11]], w0: .032, w1: .003, wt: .60 },
+  { p: [[1.00, .36], [.90, .15], [.66, .11], [.34, .21]],   w0: .016, w1: .002, wt: .25 },
+  { p: [[.99, .24],  [.86, .07], [.74, .02], [.55, .04]],   w0: .012, w1: .002, wt: .15 },
+];
+const BOTTOMS     = [.58, .42, .66, .50, .74, .36];   // how far each home tablet hangs (fraction of height)
+const SUB_BOTTOMS = [.50, .64, .44, .72, .57];
+
+function bez(p, t) {
+  const u = 1 - t, a = u*u*u, b = 3*u*u*t, c = 3*u*t*t, d = t*t*t;
+  return { x: a*p[0][0] + b*p[1][0] + c*p[2][0] + d*p[3][0],
+           y: a*p[0][1] + b*p[1][1] + c*p[2][1] + d*p[3][1] };
+}
+function sampleLimb(L) { L.s = []; for (let i = 0; i <= 160; i++) L.s.push(bez(L.pa, i / 160)); }
+
+/* ---------- tablets ---------- */
+const scrambleChars = 'αβγδεζηθικλμνξοπρστυφχψω';
+function scramble(el, final) {
+  if (RM) return;
+  clearInterval(el._t);
+  let f = 0; const total = 14;
+  el._t = setInterval(() => {
+    f++;
+    let out = '';
+    for (let i = 0; i < final.length; i++)
+      out += (!/[A-Za-z]/.test(final[i]) || i < final.length * f / total)
+        ? final[i] : scrambleChars[(Math.random() * scrambleChars.length) | 0];
+    el.textContent = out;
+    if (f >= total) { clearInterval(el._t); el.textContent = final; }
+  }, 32);
+}
+function fixWidth(a) { a.style.width = ''; a.style.width = a.offsetWidth + 'px'; }   // scramble never changes width
+
+function makeTablet(node, sc, idx) {
+  const a = document.createElement('a');
+  a.className = 'tablet'; a.href = node.href; a.setAttribute('aria-label', node.label);
+  if (node.external) { a.target = '_blank'; a.rel = 'noopener'; }
+  const s = document.createElement('span'); s.className = 'slab'; s.textContent = node.label;
+  a.appendChild(s); nav.appendChild(a); fixWidth(a);
+  a.addEventListener('pointerenter', () => scramble(s, node.label));
+  a.addEventListener('focus', () => { if (a.matches(':focus-visible')) scramble(s, node.label); });
+  a.addEventListener('click', e => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;     // let "open in new tab" work
+    if (busy) { e.preventDefault(); return; }
+    if (node.children && sc === top()) { e.preventDefault(); openNode(sc, idx); }
+    /* otherwise: follow the link (a page, or the title tablet of an open branch = the full list) */
+  });
+  return a;
+}
+
+/* ---------- scenes ---------- */
+function newScene(parent, nodes) {
+  return { parent, child: null, nodes, limbs: [], strands: [], cats: [], back: [], front: [],
+           e: 0, eT: 0, g: parent ? 0 : 1, gT: 1, focus: { x: 0, y: 0 }, dest: { x: 0, y: 0 },
+           focusIdx: -1, branches: null };
+}
+
+function makeStrand(ax, ay, len, o = {}) {
+  const n = Math.max(4, Math.round(len / SEG) + 1);
+  const s = { n, m: n, ax, ay, t: 0, vis: 1, ph: Math.random() * 6.28, back: !!o.back, cat: !!o.cat, rot: 0,
+    x: new Float32Array(n), y: new Float32Array(n), px: new Float32Array(n), py: new Float32Array(n),
+    lc: new Uint8Array(n), ll: new Float32Array(n), la: new Float32Array(n) };
+  for (let i = 0; i < n; i++) {
+    s.x[i] = s.px[i] = ax + (Math.random() - .5) * 2;
+    s.y[i] = s.py[i] = ay + i * SEG;
+    const r = Math.random();
+    s.lc[i] = r < .35 ? 0 : r < .75 ? 1 : 2;
+    s.ll[i] = Math.random() < .9 ? 8 + Math.random() * 7 : 0;
+    s.la[i] = .22 + Math.random() * .38;
+  }
+  return s;
+}
+
+/* hang filler strands from the limbs, then one long strand + tablet per node */
+function populate(sc, o) {
+  const total = sc.limbs.reduce((a, L) => a + L.wt, 0);
+  let made = 0, tries = 0;
+  while (made < o.nFill && tries++ < o.nFill * 8) {
+    let r = Math.random() * total, L = sc.limbs[0];
+    for (const l of sc.limbs) { if ((r -= l.wt) <= 0) { L = l; break; } }
+    const idx = (Math.random() * L.s.length) | 0, pt = L.s[idx], t = idx / (L.s.length - 1);
+    if (pt.x < o.xmin || pt.x > o.xmax || t < o.tmin) continue;
+    const bottom = H * (o.fill[0] + o.fill[1] * Math.pow(Math.random(), .75));
+    const s = makeStrand(pt.x, pt.y, Math.max(70, bottom - pt.y), { back: Math.random() < .35 });
+    s.t = t; sc.strands.push(s); made++;
+  }
+  const k = sc.nodes.length, L0 = sc.limbs[0], j0 = Math.floor(o.tmin * (L0.s.length - 1));
+  sc.nodes.forEach((node, i) => {
+    const tx = lerp(o.catRange[0], o.catRange[1], k > 1 ? i / (k - 1) : .5);
+    let bj = j0, bd = 1e9;
+    for (let j = j0; j < L0.s.length; j++) { const d = Math.abs(L0.s[j].x - tx); if (d < bd) { bd = d; bj = j; } }
+    const pt = L0.s[bj];
+    const s = makeStrand(pt.x, pt.y, Math.max(120, H * o.bottoms[i % o.bottoms.length] - pt.y), { cat: true });
+    s.t = bj / (L0.s.length - 1); s.idx = i; s.el = makeTablet(node, sc, i);
+    sc.cats.push(s);
+  });
+  sc.back = sc.strands.filter(s => s.back);
+  sc.front = sc.strands.filter(s => !s.back);
+}
+
+function buildRoot() {
+  nav.innerHTML = '';
+  stack.length = 0; wantDepth = 0; busy = false; afterSettle = null;
+  document.body.classList.remove('deep', 'crumb-on');
+  const sc = newScene(null, CONFIG.sections);
+  sc.limbs = LIMBS.map(L => ({ pa: L.p.map(([x, y]) => [x * W, y * H]), w0: L.w0, w1: L.w1, wt: L.wt }));
+  sc.limbs.forEach(sampleLimb);
+  populate(sc, { nFill: clamp(Math.round(W / 8), 46, 150), xmin: 0, xmax: W * .97, tmin: 0,
+                 fill: [.46, .38], catRange: [W * .14, W * .78], bottoms: BOTTOMS });
+  stack.push(sc);
+  paintBranches(sc);
+}
+
+/* a branch that grows out of the clicked tablet and sweeps to the right */
+function buildBranch(parent, idx) {
+  const node = parent.nodes[idx], sc = newScene(parent, node.children);
+  const x0 = parent.dest.x, y0 = parent.dest.y, x1 = W * .95, Ln = x1 - x0;
+  sc.limbs = [{ pa: [[x0, y0], [x0 + .30 * Ln, y0 - .07 * H], [x0 + .65 * Ln, y0 - .04 * H], [x1, y0 + .05 * H]],
+                w0: .016, w1: .0025, wt: 1 }];
+  sc.limbs.forEach(sampleLimb);
+  populate(sc, { nFill: clamp(Math.round(Ln / 9), 20, 80), xmin: x0, xmax: x1, tmin: .06,
+                 fill: [.36, .36], catRange: [x0 + .20 * Ln, x0 + .90 * Ln], bottoms: SUB_BOTTOMS });
+  return sc;
+}
+
+/* limbs: painted once for the home tree, redrawn as they grow for branches */
+function drawLimbs(c, sc, upto) {
+  c.strokeStyle = C.bark; c.lineCap = 'round';
+  const scale = Math.max(W, 900);
+  for (const L of sc.limbs) {
+    const N = L.s.length - 1, lim = Math.floor(N * upto);
+    for (let i = 0; i < lim; i++) {
+      c.lineWidth = Math.max(1.5, lerp(L.w0, L.w1, Math.pow(i / N, .8)) * scale);
+      c.beginPath(); c.moveTo(L.s[i].x, L.s[i].y); c.lineTo(L.s[i + 1].x, L.s[i + 1].y); c.stroke();
+    }
+  }
+}
+function paintBranches(sc) {
+  const b = document.createElement('canvas');
+  b.width = W * DPR; b.height = H * DPR;
+  const g = b.getContext('2d'); g.setTransform(DPR, 0, 0, DPR, 0, 0);
+  g.strokeStyle = C.bark; g.lineCap = 'round';
+  const tw = clamp(W * .085, 30, 130), steps = 40;                   // trunk, tapering upwards
+  const q = t => { const u = 1 - t;
+    return [u*u*W*1.02 + 2*u*t*W*.99 + t*t*W*1.005, u*u*H*1.05 + 2*u*t*H*.62 + t*t*H*.32]; };
+  for (let i = 0; i < steps; i++) {
+    const a = q(i / steps), c = q((i + 1) / steps);
+    g.lineWidth = lerp(tw, tw * .55, i / steps);
+    g.beginPath(); g.moveTo(a[0], a[1]); g.lineTo(c[0], c[1]); g.stroke();
+  }
+  drawLimbs(g, sc, 1);
+  sc.branches = b;
+}
+
+/* ---------- opening and closing branches ---------- */
+function openNode(sc, idx) {
+  if (busy || sc !== top() || !sc.nodes[idx].children) return;
+  const cat = sc.cats[idx], n = cat.n;
+  sc.focusIdx = idx;
+  sc.focus = { x: cat.x[n - 1], y: cat.y[n - 1] };                    // freeze where the tablet was clicked
+  sc.dest  = { x: clamp(W * .13, 95, 200), y: H * .17 };              // where it flies to (top-left)
+  const child = buildBranch(sc, idx);
+  sc.child = child; stack.push(child);
+  sc.eT = 1; child.gT = 1;
+  document.body.classList.add('deep');
+  const node = sc.nodes[idx];
+  $('#all').textContent = 'See everything in ' + node.label; $('#all').href = node.href;
+  try { history.pushState({ ec: stack.length - 1 }, ''); hist = stack.length - 1; } catch (e) {}
+  wantDepth = stack.length - 1;
+  afterSettle = () => { document.body.classList.add('crumb-on'); if (child.cats[0]) child.cats[0].el.focus({ preventScroll: true }); };
+}
+function closeTop() {
+  if (busy || stack.length < 2) return;
+  const child = top(), par = child.parent;
+  par.eT = 0; child.gT = 0;
+  document.body.classList.remove('crumb-on');
+  if (stack.length === 2) document.body.classList.remove('deep');
+  afterSettle = () => { const c = par.cats[par.focusIdx]; if (c) c.el.focus({ preventScroll: true }); };
+}
+function goBack() {
+  if (stack.length < 2) return;
+  wantDepth = Math.max(0, stack.length - 2);
+  if (hist > 0) { try { history.back(); } catch (e) {} }
+}
+$('#back').addEventListener('click', goBack);
+addEventListener('keydown', e => { if (e.key === 'Escape') goBack(); });
+addEventListener('popstate', e => { wantDepth = (e.state && e.state.ec) || 0; hist = wantDepth; });
+
+/* ---------- camera: zoom about the clicked tablet, fade what's behind ---------- */
+const Zoom = () => clamp(W / 640, 1.7, 2.1);
+const compose = (a, b) => ({ s: a.s * b.s, tx: a.s * b.tx + a.tx, ty: a.s * b.ty + a.ty });   // b first, then a
+function frameTransform(i) {
+  let T = { s: 1, tx: 0, ty: 0 }, a = 1;
+  for (let j = i; j < stack.length - 1; j++) {
+    const sc = stack[j], e = eio(sc.e), s = lerp(1, Zoom(), e);
+    const dx = lerp(sc.focus.x, sc.dest.x, e), dy = lerp(sc.focus.y, sc.dest.y, e);
+    T = compose({ s, tx: dx - sc.focus.x * s, ty: dy - sc.focus.y * s }, T);
+    a *= lerp(1, .16, e);
+  }
+  T.a = a; return T;
+}
+
+function tween(dt) {
+  if (RM) dt *= 40;
+  for (const sc of stack) {
+    if (sc.child) sc.e = approach(sc.e, sc.eT, dt / (sc.eT > sc.e ? 1.1 : 1.0));
+    if (sc.parent) {
+      if (sc.gT === 1) { if (sc.parent.e > .3) sc.g = approach(sc.g, 1, dt / .9); }
+      else sc.g = approach(sc.g, 0, dt / .6);
+    }
+  }
+  const t = top();
+  if (t.parent && t.gT === 0 && t.g <= 0 && t.parent.e <= 0) {          // fully retracted: drop the branch
+    t.cats.forEach(s => s.el.remove());
+    t.parent.child = null; stack.pop();
+  }
+  const was = busy;
+  busy = stack.some(sc => (sc.child && sc.e !== sc.eT) || (sc.parent && sc.g !== sc.gT));
+  if (was && !busy && afterSettle) { const f = afterSettle; afterSettle = null; f(); }
+}
+
+/* ---------- physics: every strand is a Verlet rope, the pointer is the wind ---------- */
+function stepStrand(s, t, lmx, lmy, lvx, lvy, R, R2) {
+  const { x, y, px, py, n } = s;
+  const wa = (RM ? 0 : .05 * (Math.sin(t * .6 + s.ax * .003 + s.ph) * .5 + Math.sin(t * 1.7 + s.ax * .009 + s.ph * 2) * .25))
+           + gust * .12 * (.6 + .4 * Math.sin(t * 3 - s.ax * .004));
+  for (let i = 1; i < n; i++) {
+    const vx = (x[i] - px[i]) * DAMP, vy = (y[i] - py[i]) * DAMP;
+    px[i] = x[i]; py[i] = y[i];
+    x[i] += vx + wa; y[i] += vy + G;
+    if (y[i] < s.ay - 12) y[i] = s.ay - 12;               // never fly up over the limb
+    const dx = x[i] - lmx, dy = y[i] - lmy, d2 = dx * dx + dy * dy;
+    if (d2 < R2) { const f = 1 - Math.sqrt(d2) / R, ff = f * f * K; x[i] += lvx * ff; y[i] += lvy * ff * .5; }
+  }
+  for (let it = 0; it < ITER; it++) {
+    x[0] = s.ax; y[0] = s.ay;
+    for (let i = 0; i < n - 1; i++) {
+      const dx = x[i + 1] - x[i], dy = y[i + 1] - y[i];
+      const d = Math.hypot(dx, dy) || .0001, diff = (d - SEG) / d;
+      if (i === 0) { x[1] -= dx * diff; y[1] -= dy * diff; }
+      else { const h = .5 * diff; x[i] += dx * h; y[i] += dy * h; x[i + 1] -= dx * h; y[i + 1] -= dy * h; }
+    }
+  }
+  for (let i = 2; i < n; i++) {                            // bending stiffness: no kinks
+    x[i] += (2 * x[i - 1] - x[i - 2] - x[i]) * STIFF;
+    y[i] += (2 * y[i - 1] - y[i - 2] - y[i]) * STIFF;
+  }
+  x[0] = s.ax; y[0] = s.ay;
+}
+function stepAll(t, Ts) {
+  gust *= .992;
+  for (let i = 0; i < stack.length; i++) {
+    const sc = stack[i], T = Ts[i];
+    if (T.a < .02) continue;
+    const inv = 1 / T.s, lmx = (mx - T.tx) * inv, lmy = (my - T.ty) * inv;
+    const R = clamp(W * .12, 90, 170) * inv, R2 = R * R;
+    for (const s of sc.strands) stepStrand(s, t, lmx, lmy, mvx * inv, mvy * inv, R, R2);
+    for (const s of sc.cats)    stepStrand(s, t, lmx, lmy, mvx * inv, mvy * inv, R, R2);
+  }
+  mvx *= .9; mvy *= .9;
+}
+
+/* ---------- drawing ---------- */
+function drawStrands(list, alpha, stemW, leafW) {
+  if (!list.length || alpha < .01) return;
+  ctx.globalAlpha = alpha; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.strokeStyle = C.stem; ctx.lineWidth = stemW; ctx.beginPath();
+  for (const s of list) {
+    const { x, y, m } = s; if (m < 2) continue;
+    ctx.moveTo(x[0], y[0]);
+    for (let i = 1; i < m - 1; i++) ctx.quadraticCurveTo(x[i], y[i], (x[i] + x[i + 1]) / 2, (y[i] + y[i + 1]) / 2);
+    ctx.lineTo(x[m - 1], y[m - 1]);
+  }
+  ctx.stroke();
+  const paths = [new Path2D(), new Path2D(), new Path2D()];
+  for (const s of list) {
+    const { x, y, n, m, lc, ll, la } = s; if (m < 2) continue;
+    const end = Math.min(m - 1, s.cat ? n - 3 : n - 1);
+    for (let i = 2; i < end; i++) {
+      const L = ll[i]; if (!L) continue;
+      const a = Math.atan2(y[i + 1] - y[i - 1], x[i + 1] - x[i - 1]), o = la[i], p = paths[lc[i]];
+      p.moveTo(x[i], y[i]); p.lineTo(x[i] + Math.cos(a + o) * L,        y[i] + Math.sin(a + o) * L);
+      p.moveTo(x[i], y[i]); p.lineTo(x[i] + Math.cos(a - o * 1.3) * L * .8, y[i] + Math.sin(a - o * 1.3) * L * .8);
+    }
+  }
+  ctx.lineWidth = leafW;
+  for (let k = 0; k < 3; k++) { ctx.strokeStyle = C.leaves[k]; ctx.stroke(paths[k]); }
+  ctx.globalAlpha = 1;
+}
+
+function draw(Ts) {
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0); ctx.clearRect(0, 0, W, H);
+  for (let i = 0; i < stack.length; i++) {
+    const sc = stack[i], T = Ts[i];
+    if (T.a < .01) continue;
+    const gE = sc.parent ? eio(sc.g) : 1;
+    if (sc.parent) for (const list of [sc.strands, sc.cats]) for (const s of list) {   // strands grow down after the limb passes
+      s.vis = clamp((gE * 1.25 - s.t) * 2.2, 0, 1);
+      s.m = s.vis <= 0 ? 0 : Math.max(2, Math.round(s.vis * s.n));
+    }
+    ctx.setTransform(DPR * T.s, 0, 0, DPR * T.s, DPR * T.tx, DPR * T.ty);
+    drawStrands(sc.back,  .45 * T.a, .8, 2);
+    drawStrands(sc.front, T.a, 1.1, 2.4);
+    drawStrands(sc.cats,  T.a, 2, 2.4);
+    if (sc.branches) { ctx.globalAlpha = T.a; ctx.drawImage(sc.branches, 0, 0, W, H); ctx.globalAlpha = 1; }
+    else { ctx.globalAlpha = T.a; drawLimbs(ctx, sc, gE); ctx.globalAlpha = 1; }
+  }
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  updateTablets(Ts);
+}
+
+function place(s, px, py, rot, scale, alpha, inter) {
+  const el = s.el;
+  el.style.transform =
+    `translate(${px.toFixed(1)}px, ${py.toFixed(1)}px) translateX(-50%) rotate(${rot.toFixed(3)}rad) scale(${scale.toFixed(3)})`;
+  alpha = Math.round(alpha * 100) / 100;
+  if (alpha !== s._a) { el.style.opacity = alpha; s._a = alpha; }
+  if (inter !== s._i) { el.style.pointerEvents = inter ? 'auto' : 'none'; el.inert = !inter; s._i = inter; }
+}
+function updateTablets(Ts) {
+  const n = stack.length;
+  const showRoot = tabStart ? clamp((performance.now() - tabStart) / 1400, 0, 1) : 0;
+  for (let i = 0; i < n; i++) {
+    const sc = stack[i], T = Ts[i], isTop = i === n - 1, isPar = i === n - 2;
+    for (const s of sc.cats) {
+      const k = s.n, ex = s.x[k - 1], ey = s.y[k - 1];
+      s.rot += (-Math.atan2(ex - s.x[k - 3], ey - s.y[k - 3]) - s.rot) * .3;
+      if (!isTop && !isPar) { place(s, -999, -999, 0, 1, 0, false); continue; }
+      let px = T.s * ex + T.tx, py = T.s * ey + T.ty, rot = s.rot, scale = T.s, alpha, inter;
+      if (isTop) {
+        alpha = sc.parent ? clamp((s.vis - .85) / .15, 0, 1) : showRoot;
+        inter = !busy && alpha >= .99;
+      } else {
+        const e = eio(sc.e);
+        if (s.idx === sc.focusIdx) {           // the clicked tablet: flies to the corner and becomes the branch's title
+          px = lerp(px, sc.dest.x, e); py = lerp(py, sc.dest.y, e); rot = lerp(rot, 0, e); scale = 1;
+          alpha = 1; inter = !busy && sc.e >= 1;
+        } else { alpha = 1 - clamp(e * 3, 0, 1); inter = false; }
+      }
+      place(s, px, py, rot, scale, alpha, inter);
+    }
+  }
+}
+
+let last = performance.now(), acc = 0;
+function frame(now) {
+  const ms = Math.min(50, now - last); last = now; acc += ms;
+  tween(ms / 1000);
+  const Ts = stack.map((_, i) => frameTransform(i));
+  const STEP = 1000 / 60; let k = 0;
+  while (acc >= STEP && k++ < 3) { stepAll(now / 1000, Ts); acc -= STEP; }
+  draw(Ts);
+  if (!busy && stack.length - 1 > wantDepth) closeTop();
+  requestAnimationFrame(frame);
+}
+
+/* ---------- pointer = wind ---------- */
+addEventListener('pointermove', e => {
+  if (lx !== null) {
+    mvx = clamp(mvx * .4 + (e.clientX - lx) * .6, -35, 35);
+    mvy = clamp(mvy * .4 + (e.clientY - ly) * .6, -35, 35);
+  }
+  lx = mx = e.clientX; ly = my = e.clientY;
+}, { passive: true });
+addEventListener('pointerdown', e => { lx = mx = e.clientX; ly = my = e.clientY; }, { passive: true });
+document.documentElement.addEventListener('mouseleave', () => { mx = my = -1e4; lx = ly = null; });
+addEventListener('pointerup', e => { if (e.pointerType === 'touch') { mx = my = -1e4; lx = ly = null; } });
+
+/* ---------- sizing ---------- */
+function resize(force) {
+  const nw = innerWidth, nh = innerHeight;
+  const sameShape = nw === W && Math.abs(nh - H) < 120;          // mobile URL bar: don't rebuild
+  DPR = Math.min(devicePixelRatio || 1, 2);
+  cv.width = nw * DPR; cv.height = nh * DPR;
+  cv.style.width = nw + 'px'; cv.style.height = nh + 'px';
+  W = nw; H = nh;
+  if (force || !sameShape) buildRoot();
+}
+let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => resize(false), 150); });
+
+/* ---------- intro: your name dissolves in from specks, then blows away like leaves ---------- */
+function runIntro(onExit) {
+  return new Promise(resolve => {
+    const ic = $('#intro'), ictx = ic.getContext('2d');
+    ic.width = W * DPR; ic.height = H * DPR; ictx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+    const name = $('.id h1').textContent.trim();
+    const off = document.createElement('canvas'); off.width = W; off.height = H;
+    const o = off.getContext('2d');
+    const font = s => `400 ${s}px Cardo, "Palatino Linotype", Palatino, Georgia, serif`;
+    let fs = Math.min(W * .14, 160);
+    o.font = font(fs);
+    const w = o.measureText(name).width;
+    if (w > W * .86) { fs *= W * .86 / w; o.font = font(fs); }
+    o.textAlign = 'center'; o.textBaseline = 'middle'; o.fillStyle = '#000';
+    o.fillText(name, W / 2, H * .46);
+    const d = o.getImageData(0, 0, W, H).data;
+
+    const step = Math.max(2, fs / 64), P = [];
+    for (let y = 0; y < H; y += step) for (let x = 0; x < W; x += step) {
+      if (d[((y | 0) * W + (x | 0)) * 4 + 3] > 110)
+        P.push({ x, y, a: Math.random(), b: Math.min(1, .7 * x / W + .3 * Math.random()), s: Math.random() });
+    }
+
+    const T0 = 250, T1 = 1500, T2 = 2600, T3 = 4100;      // start of dissolve-in, shown, start of blow-away, end
+    let start = performance.now(), exited = false;
+    const skip = () => { const t = performance.now() - start; start = performance.now() - (t < T2 ? T2 : T3); };
+    addEventListener('pointerdown', skip); addEventListener('keydown', skip);
+
+    const ease = v => v * v * (3 - 2 * v), sz = step * 1.1;
+    (function tick(now) {
+      const t = now - start;
+      if (t >= T2 && !exited) { exited = true; onExit(); }
+      const p = ease(clamp((t - T0) / (T1 - T0), 0, 1)), q = ease(clamp((t - T2) / (T3 - T2), 0, 1));
+      ictx.clearRect(0, 0, W, H); ictx.fillStyle = C.text;
+      for (const pt of P) {
+        const li = clamp((p - pt.a * .8) / .2, 0, 1); if (li <= 0) continue;
+        const lo = clamp((q - pt.b * .72) / .28, 0, 1);
+        const alpha = Math.min(li, 1 - lo); if (alpha <= .02) continue;
+        const inv = 1 - li;
+        ictx.globalAlpha = alpha;
+        ictx.fillRect(pt.x + inv * (pt.s - .5) * 16 + lo * (50 + 260 * pt.s),
+                      pt.y + inv * (8 + 18 * pt.s) + lo * (pt.s - .6) * 70 + lo * lo * 30, sz, sz);
+      }
+      if (t >= T3) {
+        removeEventListener('pointerdown', skip); removeEventListener('keydown', skip);
+        ic.remove(); resolve(); return;
+      }
+      requestAnimationFrame(tick);
+    })(performance.now());
+  });
+}
+
+/* ---------- typewriter for the tagline ---------- */
+async function typeInto(el, text, speed) {
+  el.classList.add('typing');
+  for (let i = 1; i <= text.length; i++) { el.textContent = text.slice(0, i); await sleep(speed + Math.random() * speed * .6); }
+}
+async function eraseFrom(el, speed) {
+  let s = el.textContent;
+  while (s.length) { s = s.slice(0, -1); el.textContent = s; await sleep(speed); }
+}
+async function typeAll() {
+  const l1 = $('#l1'), l2 = $('#l2'), ph = CONFIG.phrases;
+  if (RM) { l1.textContent = CONFIG.tagline; l2.textContent = ph[ph.length - 1]; return; }
+  await typeInto(l1, CONFIG.tagline, 34); l1.classList.remove('typing'); await sleep(350);
+  for (let i = 0; i < ph.length; i++) {
+    await typeInto(l2, ph[i], 48);
+    if (i === ph.length - 1) break;
+    await sleep(900); await eraseFrom(l2, 18);
+  }
+  l2.classList.remove('typing');
+}
+
+/* ---------- go ---------- */
+async function start() {
+  readColors();
+  resize(true);
+  requestAnimationFrame(frame);
+
+  let seen = false;
+  try { seen = sessionStorage.getItem('ec-intro') === '1'; } catch (e) {}
+  if (RM || seen) {
+    cv.classList.add('instant', 'show'); document.body.classList.add('on');
+    tabStart = performance.now() - 2000; typeAll(); return;
+  }
+  await Promise.race([document.fonts.load('400 100px Cardo'), sleep(1500)]).catch(() => {});
+  await runIntro(() => {
+    cv.classList.add('show'); gust = 1; document.body.classList.add('on'); tabStart = performance.now();
+    setTimeout(typeAll, 700);
+  });
+  try { sessionStorage.setItem('ec-intro', '1'); } catch (e) {}
+}
+document.fonts.ready.then(() => document.querySelectorAll('.tablet').forEach(fixWidth));
+start();
+})();
+</script>
+</body>
+</html>

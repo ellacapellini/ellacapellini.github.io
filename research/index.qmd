@@ -1,0 +1,17 @@
+---
+title: "Research"
+subtitle: "Projects and ongoing work, newest first."
+listing:
+  contents:
+    - "*.qmd"
+    - "*/index.qmd"
+  type: custom
+  template: ../_templates/entries.ejs.md
+  sort: "date desc"
+  date-format: "MMM YYYY"
+  fields: [date, title, description, author, categories, repo, paper, demo, slides, pdf, source]
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  page-size: 50
+---
