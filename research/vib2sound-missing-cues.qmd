@@ -1,11 +1,11 @@
 ---
-title: "Adapting Vib2Sound to missing accelerometer cues"
+title: "Adapting Vib2Sound to missing and degraded accelerometer cues"
 date: 2026-06-02
 description: >
-  Vib2Sound separates overlapping zebra finch vocalisations using body-mounted
-  accelerometers and multichannel microphones. This project asks how the model can
-  stay robust when the accelerometer signal is partly or entirely missing, and which
-  strategies best preserve separation performance.
+  Vib2Sound separates overlapping zebra finch vocalisations using body-mounted accelerometers.
+  This project extends it to cue degradation along a continuous spectrum instead of simple
+  absence, with three approaches: a cascade that never underperforms the audio-only baseline,
+  training with realistic degradation, and a cross-modal contrastive loss.
 categories: [Speech ML, Neuroscience]
 repo: https://github.com/ellacapellini/Vib2Sound
 paper: https://doi.org/10.1101/2025.05.08.652866
@@ -14,9 +14,10 @@ paper: https://doi.org/10.1101/2025.05.08.652866
 Vib2Sound was introduced by Akahoshi, Wang, Cheng, Zai and Hahnloser (2025). The
 **Paper** link above is that original work; the **Code** link is this extension.
 
-**Research question.** How can the separation model be made robust to missing or
-degraded accelerometer signals, and what strategies best preserve separation
-performance under partial or total cue absence?
+**Approaches.** A cascade architecture that guarantees the model never underperforms the audio-only
+baseline; continuous degradation training with realistic noise augmentation (Gaussian noise, gain
+reduction, band masking); and a cross-modal correspondence contrastive loss that shapes
+identity-discriminative audio representations without any cost at inference time. Also a contribution
+to the BirdPark annotation pipeline.
 
-Carried out at the Institute of Neuroinformatics (University of Zurich and ETH Zurich),
-in the Hahnloser Lab.
+Semester research project in the Hahnloser Lab at ETH Zürich, supervised by Mai Akahoshi and Yuhang Wang.

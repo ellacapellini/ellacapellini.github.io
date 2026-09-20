@@ -1,0 +1,22 @@
+---
+title: "Hierarchical Bayesian TRF model comparison for speech encoding in iEEG"
+date: 2026-06-15
+description: >
+  A formal comparison of two hierarchical Bayesian temporal response function (TRF)
+  frameworks for intracranial EEG: a raised-cosine basis model with patient and electrode
+  random effects, and a hierarchical Gaussian Process model in which smoothness itself
+  varies by patient, electrode and word-level surprisal. Both are compared with standard
+  ridge-regression mTRF on held-out predictive accuracy and WAIC/LOO. The question is whether
+  prediction error reshapes the neural response through gain control or through predictive coding.
+categories: [Bayesian statistics, Neuroscience, Speech ML]
+---
+
+Semester research project in the Neural Dynamics Lab, Institute of Neuroinformatics (ETH Zürich),
+supervised by Prof. Dr. Timothée Proix, in collaboration with Prof. Dr. Balthasar Bickel (UZH and NCCR).
+
+**Models.** Seven model variants in total, compared on held-out predictive accuracy and on WAIC and
+PSIS-LOO. Word-level surprisal from GPT-2 enters as a predictor of the neural response to naturalistic
+speech (*The Little Prince* dataset), with an extension to phoneme-level surprisal.
+
+**Validation.** All code (Python: NumPy, SciPy, PyMC, MNE-Python) is validated against synthetic ground
+truth at each stage before it touches real data. It will be released on the lab's GitLab.

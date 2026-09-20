@@ -3,53 +3,88 @@ title: "CV"
 subtitle: "Ella Capellini"
 ---
 
-<!--
-  HOW THIS PAGE WORKS
-  Each entry is a "term" (the date, on the left) followed by a line starting with ":" (the details, on the right).
-  Keep the blank line between entries. Replace everything in [square brackets], and delete what you don't need.
+[Download as PDF](Ella-Capellini-CV.pdf){target="_blank"}
 
-  To offer a PDF too: put it in this folder, e.g. cv/Ella-Capellini-CV.pdf, and remove the comment marks around the link below.
--->
+## Research interests
 
-<!-- [Download as PDF](Ella-Capellini-CV.pdf) -->
+I am interested in the theoretical foundations of reliable evaluation and reasoning about learned systems, particularly where hierarchical structure, statistical dependence, and limited data complicate inference. My current research develops and formally compares hierarchical Bayesian models of neural responses to naturalistic speech. This work has involved identifying failures of standard cross-validation assumptions in temporally structured data, redesigning evaluation procedures around conditionally independent units, and validating implementations against synthetic ground truth. I am interested in extending this methodological perspective to AI safety: understanding when evaluations of complex AI systems provide reliable evidence, how their statistical assumptions can be justified, and how formal analysis can reveal failures that conventional evaluation may miss.
 
 ::: {.cv}
 
 ## Education
 
-[2024 – now]
-:   **[Degree, programme]**, ETH Zürich and University of Zürich  
-    [One line: focus, thesis, or notable courses.]
+09/2023 – now
+:   **MSc Neuroscience**, Carl von Ossietzky University of Oldenburg, Germany  
+    Relevant modules: Neuroscientific Data Analysis (Python and Matlab), Computational Neuroscience (Encoding/Decoding and Biophysical Modelling), Auditory Neuroscience, Language and Hearing, Psycholinguistics, Computational Intelligence I.
 
-[Year – Year]
-:   **[Earlier degree]**, [University]
+09/2020 – 09/2023
+:   **BSc Psychological Sciences**, Catholic University of the Sacred Heart, Milan, Italy  
+    Thesis: "The Neurophysiology of Hallucinatory Phenomena".
 
-## Research
+## Research experience
 
-[Year – now]
-:   **[Position or project]**, [Lab or institution]  
-    [What you did, in one or two lines.]
+04/2026 – now
+:   **Master thesis: Cross-linguistic generalisation of the prosodic hierarchy**  
+    Institute for the Interdisciplinary Study of Language Evolution (ISLE), University of Zürich. Prof. Dr. Martin Meyer (UZH) and Prof. Dr. Stefan Debener (Oldenburg), in collaboration with PD Dr. Elisa Pellegrino.  
+    An EEG study of cortical entrainment to Italian speech in Italian L1 listeners, asking whether the level-selective entrainment pattern found for German generalises to a related language with a different constraint ranking. [More](../research/prosodic-hierarchy-italian.qmd)
 
-## Projects
+06/2026 – now
+:   **Research assistant**, LiRi Lab, University of Zürich  
+    With Dr. Fivos Iliopoulos and Prof. Dr. Nathalie Giroud. Hyperscanning EEG experiments on neural synchrony during social interaction: experiment support and EEG preprocessing.
 
-2026
-:   **Adapting Vib2Sound to missing accelerometer cues**  
-    Robust separation of overlapping zebra finch vocalisations. [Code](https://github.com/ellacapellini/Vib2Sound)
+06/2026 – now
+:   **Hierarchical Bayesian TRF model comparison for speech encoding in iEEG**  
+    Semester research project, Neural Dynamics Lab, Institute of Neuroinformatics, ETH Zürich. Prof. Dr. Timothée Proix, in collaboration with Prof. Dr. Balthasar Bickel (UZH & NCCR). [More](../research/hierarchical-bayesian-trf.qmd)
+
+06/2026 – 09/2026
+:   **Adaptation of Vib2Sound for missing and degraded accelerometer cues**  
+    Semester research project, Hahnloser Lab, ETH Zürich (supervisors: Mai Akahoshi and Yuhang Wang). [More](../research/vib2sound-missing-cues.qmd)
 
 2025
-:   **Formulaic pattern-breaking in the Iliad**  
-    Information-theoretic analysis of Homeric formulae. [Code](https://github.com/ellacapellini/homeric-formula-deviation)
+:   **Independent research projects and seminar papers**, University of Oldenburg  
+    Bilingual processing and auditory perception (Prof. Dr. Esther Ruigendijk, summer 2025). Predictive control in auditory efferent systems (Dr. Go Ashida, summer 2025). Rhythmic typology and information packaging in German and Italian prosodic phrasing (Prof. Dr. Marcel Schlechtweg, March 2025). Morphology of, and code-switching in, the Manarolese dialect across three generations (Dr. Dobrinka Genevska-Hanke, January 2025).
+
+## Computational projects
 
 2025
-:   **Linear B Diachronic Phonological Mapper**  
-    Interactive tool for the phonological evolution of Mycenaean into Classical Greek. [Code](https://github.com/ellacapellini/Linear-B-Diachronic-Phonological-Mapper)
+:   **Homeric Formula Deviation Detector** (Python)  
+    Information-theoretic signatures of narrative salience in oral poetry, using surprisal analysis over 15,683 lines of Ancient Greek. [Code](https://github.com/ellacapellini/homeric-formula-deviation)
 
-## Skills
+2025
+:   **Linear B Diachronic Phonological Mapper** (JavaScript, Python)  
+    A toolkit for transcribing, parsing and visualising the phonological evolution of Mycenaean into Classical Greek. [Code](https://github.com/ellacapellini/Linear-B-Diachronic-Phonological-Mapper)
+
+## Conferences
+
+10 Sep 2026
+:   ZNZ Annual Symposium, Neuroscience Center Zürich, Zürich
+
+3–5 Nov 2025
+:   Descending Auditory Pathways: Multidisciplinary Approaches, Hanse-Wissenschaftskolleg, Delmenhorst
+
+## Work experience
+
+2020 – 2023
+:   **Research assistant**, Studio of Psychiatry and Psychotherapy of Dr. Alberto Caputo, Milan  
+    Assisted with forensic psychiatric assessments for court cases, conducted literature reviews, and managed multilingual patient communication.
+
+## Technical skills
+
+Statistical modelling
+:   Hierarchical Bayesian inference (PyMC, NUTS/HMC), formal model comparison (WAIC, PSIS-LOO), Gaussian Process regression, synthetic data validation and recovery testing, small-N and non-exchangeable data inference.
 
 Programming
-:   [e.g. Python, MATLAB, R]
+:   Python (NumPy, SciPy, PyTorch, scikit-learn, NLTK, spaCy, MNE), R, MATLAB, JavaScript.
+
+Neuroscience methods
+:   EEG/iEEG analysis, psychophysical testing, signal processing, acoustic analysis (Praat), neuroimaging pipelines (AFNI, FSL), experimental design.
 
 Languages
-:   [e.g. Italian, English, Ancient Greek]
+:   Italian (native), English (fluent), German (learner).
+
+## Additional courses
+
+MIT OpenCourseWare and others
+:   Signals and Systems and Sensory Systems (2024). Brain Mechanisms for Hearing and Speech, AFNI Training Bootcamp, fMRI Bootcamp, Brains, Minds and Machines Summer Course, Statistics for Applications (2025). Computational Neuroscience with Neuroblox, Introduction to Deep Learning and Hands-On Deep Learning (2026).
 
 :::

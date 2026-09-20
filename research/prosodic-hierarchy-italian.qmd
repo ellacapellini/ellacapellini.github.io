@@ -1,0 +1,25 @@
+---
+title: "Cross-linguistic generalisation of the prosodic hierarchy: cortical entrainment to Italian speech"
+date: 2026-04-01
+description: >
+  Does the level-selective cortical entrainment pattern established for German, where
+  phase-amplitude coupling tracks a top-down structure from intonational phrase to foot to
+  syllable, also appear in Italian? An EEG study with about 30 Italian L1 listeners uses a
+  parallel Italian stimulus set to ask whether a language with a different constraint
+  ranking shows the same entrainment hierarchy. Master thesis.
+categories: [Neuroscience, Psycholinguistics]
+---
+
+Master thesis at the Institute for the Interdisciplinary Study of Language Evolution (ISLE), University
+of Zürich. Supervised by Prof. Dr. Martin Meyer (UZH) and Prof. Dr. Stefan Debener (Oldenburg), in
+collaboration with PD Dr. Elisa Pellegrino.
+
+**Why Italian.** It shares the core prosodic architecture of German (free lexical stress, a full
+prosodic hierarchy, focus encoded through prominence) but ranks the constraints differently: German
+prioritises rhythmic regularity, Italian prioritises focus-driven phrasing. A difference in
+entrainment would therefore point to language-specific constraint ranking shaping how a shared
+hierarchical mechanism is expressed.
+
+**Design.** Purely neural (EEG), with audio-motor synchronisation as a modular predictor of individual
+differences. The core analysis is pairwise phase consistency in the theta, high delta and low delta
+bands, modelled with glmertree, with phase-amplitude coupling as an extension.

@@ -47,7 +47,7 @@ Useful to know:
 ### The CV
 
 Edit `cv/index.qmd`. Each entry is a date line, then a line starting with `:` for the details.
-To add a PDF, put it in `cv/` and uncomment the download link at the top.
+The PDF version is `cv/Ella-Capellini-CV.pdf`; replace the file to update it (keep the name).
 
 ## Preview on your computer
 
@@ -81,14 +81,25 @@ Later, for your own domain: *Settings → Pages → Custom domain*.
 
 ## The entrance
 
-`index.html` is your own file and Quarto copies it as it is. Its tablets point to `research/`,
-`notes/`, `notes/courses/`, `notes/videos/`, `notes/books/`, `notes/papers/`, `blog/` and `cv/`.
-If you rename or add a section, change the link there and in the menu in `_quarto.yml`.
+`index.html` is your own file and Quarto copies it as it is. Everything you would want to change is in
+the `CONFIG` block near the top of its script:
+
+- `eyebrow` (the small line above your name), `lede` (the sentence that is typed out) and `phrases`
+  (the words that rotate underneath; the last one stays).
+- `links`: the four icons. The CV icon and the CV tablet open the PDF in `cv/Ella-Capellini-CV.pdf`;
+  **to update your CV, replace that file** (keep the name). An empty `href` hides an icon.
+- `sections`: the tablets, and the branches that grow out of them. If you rename or add a section,
+  change the link there and in the menu in `_quarto.yml`.
+
+The light/dark switch (top right) remembers the visitor's choice and shares it with the other pages.
+On the first visit the tree fades in on a gust of wind; later visits skip that.
+
+The typeface is `--font` at the top of the styles in `index.html` (and the `<link>` above it).
 
 ## Changing how it looks
 
-- **Colours and fonts:** the top of `styles/light.scss` and `styles/dark.scss`. The values come
-  from the entrance. The shared layout rules are in `styles/shared.scss`.
+- **Colours and fonts:** the top of `styles/light.scss` and `styles/dark.scss` (the colours come
+  from the entrance; the font is also set in `assets/head.html`). Shared layout rules: `styles/shared.scss`.
 - **Menu and footer:** `_quarto.yml`. To add an email link to the footer, add
   `- icon: envelope` with `href: mailto:you@example.com` next to the GitHub one.
 - **How an entry looks in the lists:** `_templates/entries.ejs.md`.

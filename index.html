@@ -5,26 +5,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <title>Ella Capellini</title>
-<script>document.documentElement.classList.add('js')</script>
+<script>
+/* light or dark: the visitor's choice (shared with the rest of the site through the same key), else the system setting */
+(function () {
+  var d = document.documentElement, s = null;
+  d.classList.add('js');
+  try { s = localStorage.getItem('quarto-color-scheme'); } catch (e) {}
+  var dark = s ? s === 'alternate' : matchMedia('(prefers-color-scheme: dark)').matches;
+  d.dataset.theme = dark ? 'dark' : 'light';
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 /* ---------- palette: first light over a lake, and the same lake at night ---------- */
 :root {
-  --sky-top: #C3D1D0;  --sky-bot: #E9EDE3;
-  --bark: #3B3A30;     --stem: #5C775A;
-  --leaf-a: #6E8F6B;   --leaf-b: #8FAA83;   --leaf-c: #B4C6A2;
+  --sky-top: #C3D1D0;  --sky-bot: #E9EDE3;  --glow: rgba(255, 250, 226, .55);
+  --bark: #3B3A30;     --bark-dark: #22211A; --bark-lite: #6E694F;  --twig: #7A6C48;
+  --stem: #5C775A;
+  --leaf-a: #6E8F6B;   --leaf-b: #8FAA83;   --leaf-c: #B4C6A2;  --leaf-d: #A2B46C;  --leaf-e: #557A5A;
   --clay: #D9C8A5;     --ink: #2C2920;
   --text: #2A2B22;     --text-soft: #59604F;
   --focus: #2F5D8A;
-  --font: "Cardo", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  /* the typeface: change it here (and in the <link> above) */
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --sky-top: #0C171B;  --sky-bot: #1C2D2A;
-    --bark: #070D0F;     --stem: #5F8C77;
-    --leaf-a: #4F7C6B;   --leaf-b: #7BA88E;   --leaf-c: #B4D3B0;
+:root[data-theme="dark"] {
+  --sky-top: #0C171B;  --sky-bot: #1C2D2A;  --glow: rgba(150, 190, 190, .10);
+  --bark: #0F1A1C;     --bark-dark: #070D0F; --bark-lite: #2B4642;  --twig: #6F7B55;
+  --stem: #5F8C77;
+  --leaf-a: #4F7C6B;   --leaf-b: #7BA88E;   --leaf-c: #B4D3B0;  --leaf-d: #93B872;  --leaf-e: #3A6656;
+  --clay: #C9B891;     --ink: #1F1B13;
+  --text: #DCE6DA;     --text-soft: #9DB2A4;
+  --focus: #8FBFEA;
+}
+@media (prefers-color-scheme: dark) {          /* only used if scripts are off */
+  :root:not([data-theme]) {
+    --sky-top: #0C171B;  --sky-bot: #1C2D2A;  --glow: rgba(150, 190, 190, .10);
+    --bark: #0F1A1C;     --bark-dark: #070D0F; --bark-lite: #2B4642;  --twig: #6F7B55;
+    --stem: #5F8C77;
+    --leaf-a: #4F7C6B;   --leaf-b: #7BA88E;   --leaf-c: #B4D3B0;  --leaf-d: #93B872;  --leaf-e: #3A6656;
     --clay: #C9B891;     --ink: #1F1B13;
     --text: #DCE6DA;     --text-soft: #9DB2A4;
     --focus: #8FBFEA;
@@ -39,12 +60,13 @@ body {
   touch-action: none;               /* a finger drag is wind, not scroll */
   font-family: var(--font);
   color: var(--text);
-  background: linear-gradient(to bottom, var(--sky-top), var(--sky-bot) 78%);
+  background:
+    radial-gradient(90vmax 70vmax at 14% -8%, var(--glow), transparent 62%),   /* light coming through the leaves */
+    linear-gradient(to bottom, var(--sky-top), var(--sky-bot) 78%);
 }
 
 canvas { position: fixed; inset: 0; pointer-events: none; }
 #tree  { z-index: 1; }
-#intro { z-index: 5; }
 .js #tree { opacity: 0; transition: opacity 1800ms ease; }
 .js #tree.show { opacity: 1; }
 .js #tree.instant { transition: none; }
@@ -62,12 +84,22 @@ canvas { position: fixed; inset: 0; pointer-events: none; }
   bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(20px, 4vh, 44px));
   max-width: min(36rem, calc(100vw - 40px));
 }
-.id h1 {
-  margin: 0 0 .3em; font-weight: 400; line-height: 1.05; letter-spacing: .005em;
-  font-size: clamp(30px, 4.2vw, 52px);
+.id { max-width: min(46rem, calc(100vw - 40px)); }
+.id::before {                                   /* a soft clearing in the foliage behind the words */
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  inset: -3.5rem -5rem -2.5rem -4rem;
+  background: radial-gradient(ellipse 62% 58% at 42% 52%,
+    color-mix(in srgb, var(--sky-bot) 92%, transparent) 35%, color-mix(in srgb, var(--sky-bot) 55%, transparent) 62%, transparent 100%);
 }
-.id p { margin: 0; min-height: 1.5em; line-height: 1.5; font-size: clamp(16px, 1.3vw + 8px, 19px); }
-.id .l2 { font-style: italic; color: var(--text-soft); }
+.id .eyebrow { margin: 0 0 .6em; font-size: clamp(13px, .45vw + 11px, 16px); line-height: 1.4; color: var(--text-soft); letter-spacing: .01em; }
+.id h1 {
+  margin: 0 0 .26em; font-weight: 600; line-height: 1.02; letter-spacing: -.028em;
+  font-size: clamp(44px, 6.6vw, 96px);
+}
+.id .lede { display: grid; max-width: 34em; margin: 0; line-height: 1.5; font-size: clamp(16px, .55vw + 12px, 20px); }
+.id .lede > span { grid-area: 1 / 1; }                  /* the invisible copy reserves the final height, so nothing shifts while typing */
+.id .lede .ghost { visibility: hidden; }
+.id .l2 { margin: .15em 0 0; min-height: 1.5em; line-height: 1.5; font-size: clamp(16px, .55vw + 12px, 20px); font-style: italic; color: var(--text-soft); }
 .js .id { opacity: 0; transition: opacity 1000ms ease; }
 .js body.on .id { opacity: 1; }
 .js body.deep .id { opacity: 0; pointer-events: none; }
@@ -85,6 +117,37 @@ body.crumb-on .crumb { opacity: 1; visibility: visible; transition: opacity 800m
 }
 .crumb .quiet { color: var(--text-soft); font-style: italic; text-decoration: none; }
 .crumb :focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+
+/* links under the last phrase: GitHub, email, CV, LinkedIn (line icons from Feather, MIT) */
+.id .links { display: flex; gap: .25rem; margin: .7rem 0 0 -.6rem; }
+.id .links a {
+  display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+  color: var(--text-soft); transition: color 200ms ease, transform 200ms ease;
+}
+.id .links a:hover { color: var(--text); transform: translateY(-2px); }
+.id .links a:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; color: var(--text); }
+.id .links svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.js .id .links { opacity: 0; visibility: hidden; transition: opacity 900ms ease 1500ms, visibility 0s 1500ms; }
+.js body.on .id .links { opacity: 1; visibility: visible; }
+.js body.on.deep .id .links { opacity: 0; visibility: hidden; transition: opacity 300ms ease, visibility 0s 300ms; }
+
+/* light / dark switch, top right (shares its setting with the other pages) */
+.theme {
+  display: none; position: fixed; z-index: 6; place-items: center; width: 42px; height: 42px; padding: 0; cursor: pointer;
+  top: calc(env(safe-area-inset-top, 0px) + 14px); right: calc(env(safe-area-inset-right, 0px) + 14px);
+  color: var(--text); border: 1px solid color-mix(in srgb, var(--text) 20%, transparent); border-radius: 50%;
+  background: color-mix(in srgb, var(--sky-bot) 70%, transparent);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  transition: opacity 900ms ease, transform 200ms ease;
+}
+.js .theme { display: grid; opacity: 0; visibility: hidden; }
+.js body.on .theme { opacity: 1; visibility: visible; }
+.theme:hover { transform: rotate(18deg); }
+.theme:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.theme .sun { display: none; }
+:root[data-theme="dark"] .theme .sun { display: block; }
+:root[data-theme="dark"] .theme .moon { display: none; }
 
 .typing::after {
   content: ""; display: inline-block; width: 1px; height: 1em; margin-left: 2px;
@@ -111,7 +174,7 @@ body.crumb-on .crumb { opacity: 1; visibility: visible; transition: opacity 800m
   margin-left: -3.5px; border: 1.5px solid var(--stem); border-radius: 50%;
 }
 .slab {
-  display: block; max-width: 9.5em; padding: .45em 1.1em .55em; text-wrap: balance;
+  display: block; max-width: 11.5em; padding: .45em 1.1em .55em; text-wrap: balance;
   clip-path: polygon(6% 0, 94% 0, 100% 50%, 94% 100%, 6% 100%, 0 50%);
   background:
     repeating-linear-gradient(to bottom, transparent 0 .62em, rgba(70, 50, 20, .14) .62em calc(.62em + 1px)),
@@ -132,11 +195,18 @@ body.crumb-on .crumb { opacity: 1; visibility: visible; transition: opacity 800m
 <canvas id="tree" aria-hidden="true"></canvas>
 <div class="mist" aria-hidden="true"></div>
 
+<button type="button" class="theme" id="theme" aria-label="Toggle dark mode" title="Toggle dark mode">
+  <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+
 <header class="id">
+  <p class="eyebrow" id="eyebrow">MSc Neuroscience · Oldenburg · UZH · ETH Zürich</p>
   <h1>Ella Capellini</h1>
-  <p class="sr">Formal modelling and reliable evaluation of learned systems. Bayesian statistics, speech ML, neuroscience, Ancient Greek and Linear B.</p>
-  <p id="l1" aria-hidden="true"></p>
+  <p class="sr" id="desc"></p>
+  <p id="l1" class="lede" aria-hidden="true"><span class="ghost"></span><span class="typed"></span></p>
   <p id="l2" class="l2" aria-hidden="true"></p>
+  <nav class="links" id="links" aria-label="Elsewhere"></nav>
 </header>
 
 <div class="crumb" id="crumb">
@@ -148,11 +218,11 @@ body.crumb-on .crumb { opacity: 1; visibility: visible; transition: opacity 800m
 <noscript>
   <nav class="ns" aria-label="Sections">
     <a href="research/">Research</a><a href="notes/">Notes &amp; Courses &amp; Resources</a><a href="blog/">Blog</a>
-    <a href="https://github.com/ellacapellini">Code</a><a href="cv/">CV</a>
+    <a href="https://github.com/ellacapellini">Code</a><a href="cv/Ella-Capellini-CV.pdf">CV</a>
+    <a href="mailto:ella.capellini@uzh.ch">Email</a>
+    <a href="https://www.linkedin.com/in/ella-capellini/">LinkedIn</a>
   </nav>
 </noscript>
-
-<canvas id="intro" aria-hidden="true"></canvas>
 
 <script>
 (() => {
@@ -164,9 +234,18 @@ body.crumb-on .crumb { opacity: 1; visibility: visible; transition: opacity 800m
    without `children` it simply opens its page. Children can have children too.
    ===================================================================== */
 const CONFIG = {
-  tagline: 'Formal modelling & reliable evaluation of learned systems',
-  phrases: ['Bayesian statistics', 'Speech ML', 'Neuroscience',
+  eyebrow: 'MSc Neuroscience · Oldenburg · UZH · ETH Zürich',
+  lede: 'I build hierarchical Bayesian models of how the brain tracks naturalistic speech, and I study when evaluations of learned systems, AI included, can actually be trusted.',
+  phrases: ['EEG & intracranial recordings', 'hierarchical Bayesian inference', 'prosody & cortical entrainment',
             'Ancient Greek & Linear B', 'probably on a trail somewhere'],   // last one stays on screen
+  description: 'Neuroscience student in Oldenburg, Zürich (UZH and ETH). Hierarchical Bayesian models of neural responses to speech, reliable evaluation of learned systems, EEG, Ancient Greek and Linear B.',
+  // Icons under the last phrase. An empty `href` hides that icon.
+  links: [
+    { label: 'GitHub',   icon: 'github',   href: 'https://github.com/ellacapellini', external: true },
+    { label: 'Email',    icon: 'mail',     href: 'mailto:ella.capellini@uzh.ch' },
+    { label: 'CV (PDF)', icon: 'file',     href: 'cv/Ella-Capellini-CV.pdf', external: true },
+    { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/in/ella-capellini/', external: true },
+  ],
   sections: [
     { label: 'Research', href: 'research/' },
     { label: 'Notes & Courses & Resources', href: 'notes/', children: [
@@ -177,7 +256,7 @@ const CONFIG = {
     ]},
     { label: 'Blog', href: 'blog/' },
     { label: 'Code', href: 'https://github.com/ellacapellini', external: true },
-    { label: 'CV',   href: 'cv/' },
+    { label: 'CV',   href: 'cv/Ella-Capellini-CV.pdf', external: true },   // opens the PDF
   ],
 };
 /* ===================================================================== */
@@ -190,20 +269,27 @@ const approach = (v, t, d) => v < t ? Math.min(t, v + d) : Math.max(t, v - d);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- colours come from the CSS variables, so dark mode just works ---------- */
-const rootStyle = getComputedStyle(document.documentElement);
+/* ---------- colours come from the CSS variables, so light and dark just work ---------- */
+const root = document.documentElement, rootStyle = getComputedStyle(root);
 let C = {};
 function readColors() {
   const g = n => rootStyle.getPropertyValue(n).trim();
-  C = { bark: g('--bark'), stem: g('--stem'), text: g('--text'),
-        leaves: [g('--leaf-a'), g('--leaf-b'), g('--leaf-c')] };
+  C = { bark: g('--bark'), barkDark: g('--bark-dark'), barkLite: g('--bark-lite'), twig: g('--twig'), stem: g('--stem'),
+        text: g('--text'), leaves: ['--leaf-a', '--leaf-b', '--leaf-c', '--leaf-d', '--leaf-e'].map(g) };
   if (stack.length) paintBranches(stack[0]);
 }
-matchMedia('(prefers-color-scheme: dark)').addEventListener('change', readColors);
+const stored = () => { try { return localStorage.getItem('quarto-color-scheme'); } catch (e) { return null; } };
+function setTheme(dark, remember) {
+  root.dataset.theme = dark ? 'dark' : 'light';
+  if (remember) { try { localStorage.setItem('quarto-color-scheme', dark ? 'alternate' : 'default'); } catch (e) {} }
+  readColors();
+}
+$('#theme').addEventListener('click', () => setTheme(root.dataset.theme !== 'dark', true));
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => { if (stored() === null) setTheme(e.matches, false); });
 
 /* ---------- state ---------- */
 const cv = $('#tree'), ctx = cv.getContext('2d'), nav = $('#tablets');
-let W = 0, H = 0, DPR = 1;
+let W = 0, H = 0, DPR = 1, leafK = 1;
 const stack = [];                       // scenes: [home tree, branch, sub-branch, ...]
 let busy = false, wantDepth = 0, hist = 0, afterSettle = null, tabStart = 0;
 const SEG = 13, G = 0.32, DAMP = 0.98, ITER = 6, STIFF = 0.014, K = 0.07;
@@ -213,11 +299,12 @@ const top = () => stack[stack.length - 1];
 /* home tree: limbs as cubic Béziers in viewport fractions — trunk at the right edge,
    crown arching left, so the bottom-left stays free for your name */
 const LIMBS = [
-  { p: [[1.03, .34], [.92, .03], [.46, -.04], [-.04, .11]], w0: .032, w1: .003, wt: .60 },
-  { p: [[1.00, .36], [.90, .15], [.66, .11], [.34, .21]],   w0: .016, w1: .002, wt: .25 },
-  { p: [[.99, .24],  [.86, .07], [.74, .02], [.55, .04]],   w0: .012, w1: .002, wt: .15 },
+  { p: [[1.03, .34], [.92, .03], [.46, -.04], [-.04, .11]], w0: .032, w1: .003, wt: .66 },
+  { p: [[1.00, .36], [.90, .15], [.66, .11], [.34, .21]],   w0: .016, w1: .002, wt: .22 },
+  { p: [[.99, .24],  [.86, .07], [.74, .02], [.55, .04]],   w0: .012, w1: .002, wt: .12 },
 ];
-const BOTTOMS     = [.58, .42, .66, .50, .74, .36];   // how far each home tablet hangs (fraction of height)
+const BOTTOMS        = [.44, .30, .48, .60, .72, .36];   // how far each home tablet hangs (fraction of height); the first ones sit above the name
+const BOTTOMS_NARROW = [.50, .30, .56, .40, .62, .36];   // phones
 const SUB_BOTTOMS = [.50, .64, .44, .72, .57];
 
 function bez(p, t) {
@@ -273,30 +360,32 @@ function makeStrand(ax, ay, len, o = {}) {
   const n = Math.max(4, Math.round(len / SEG) + 1);
   const s = { n, m: n, ax, ay, t: 0, vis: 1, ph: Math.random() * 6.28, back: !!o.back, cat: !!o.cat, rot: 0,
     x: new Float32Array(n), y: new Float32Array(n), px: new Float32Array(n), py: new Float32Array(n),
-    lc: new Uint8Array(n), ll: new Float32Array(n), la: new Float32Array(n) };
+    lc: new Uint8Array(n), ll: new Float32Array(n), lk: new Float32Array(n * 4) };
   for (let i = 0; i < n; i++) {
     s.x[i] = s.px[i] = ax + (Math.random() - .5) * 2;
     s.y[i] = s.py[i] = ay + i * SEG;
-    const r = Math.random();
-    s.lc[i] = r < .35 ? 0 : r < .75 ? 1 : 2;
-    s.ll[i] = Math.random() < .9 ? 8 + Math.random() * 7 : 0;
-    s.la[i] = .22 + Math.random() * .38;
+    const r = Math.random();                                   // five greens, from yellow-green to deep
+    s.lc[i] = r < .26 ? 0 : r < .50 ? 1 : r < .64 ? 2 : r < .82 ? 3 : 4;
+    s.ll[i] = Math.random() < .96 ? (11 + Math.random() * 9) * leafK : 0;
+    const a = .38 + Math.random() * .34;                       // how far the leaf leans away from the twig (radians)
+    s.lk[i * 4] = Math.cos(a); s.lk[i * 4 + 1] = Math.sin(a); s.lk[i * 4 + 2] = Math.cos(a * 1.25); s.lk[i * 4 + 3] = Math.sin(a * 1.25);
   }
   return s;
 }
 
-/* hang filler strands from the limbs, then one long strand + tablet per node */
+/* hang filler strands from the limbs, then one long strand + tablet per node.
+   Anchors are spaced evenly along each limb, with a random jitter: full, but never a bare stretch. */
 function populate(sc, o) {
   const total = sc.limbs.reduce((a, L) => a + L.wt, 0);
-  let made = 0, tries = 0;
-  while (made < o.nFill && tries++ < o.nFill * 8) {
-    let r = Math.random() * total, L = sc.limbs[0];
-    for (const l of sc.limbs) { if ((r -= l.wt) <= 0) { L = l; break; } }
-    const idx = (Math.random() * L.s.length) | 0, pt = L.s[idx], t = idx / (L.s.length - 1);
-    if (pt.x < o.xmin || pt.x > o.xmax || t < o.tmin) continue;
-    const bottom = H * (o.fill[0] + o.fill[1] * Math.pow(Math.random(), .75));
-    const s = makeStrand(pt.x, pt.y, Math.max(70, bottom - pt.y), { back: Math.random() < .35 });
-    s.t = t; sc.strands.push(s); made++;
+  for (const L of sc.limbs) {
+    const nL = Math.round(o.nFill * L.wt / total), N = L.s.length - 1, i0 = Math.ceil(o.tmin * N);
+    for (let j = 0; j < nL; j++) {
+      const idx = Math.min(N, Math.floor(i0 + (j + Math.random()) / nL * (N - i0))), pt = L.s[idx];
+      if (pt.x < o.xmin || pt.x > o.xmax) continue;
+      const bottom = H * (o.fill[0] + o.fill[1] * Math.pow(Math.random(), .75));
+      const s = makeStrand(pt.x, pt.y, Math.max(70, bottom - pt.y), { back: Math.random() < .4 });
+      s.t = idx / N; sc.strands.push(s);
+    }
   }
   const k = sc.nodes.length, L0 = sc.limbs[0], j0 = Math.floor(o.tmin * (L0.s.length - 1));
   sc.nodes.forEach((node, i) => {
@@ -312,15 +401,30 @@ function populate(sc, o) {
   sc.front = sc.strands.filter(s => !s.back);
 }
 
+/* where the name block sits, so the first tablets can hang above it instead of over it */
+function heroBox() {
+  const id = $('.id'), h1 = id.querySelector('h1'), rg = document.createRange();
+  rg.selectNodeContents(h1);
+  return { top: id.getBoundingClientRect().top,
+           right: Math.max(rg.getBoundingClientRect().right, id.querySelector('.lede').getBoundingClientRect().right) };
+}
+
 function buildRoot() {
   nav.innerHTML = '';
   stack.length = 0; wantDepth = 0; busy = false; afterSettle = null;
   document.body.classList.remove('deep', 'crumb-on');
-  const sc = newScene(null, CONFIG.sections);
+  const sc = newScene(null, CONFIG.sections), k = CONFIG.sections.length;
   sc.limbs = LIMBS.map(L => ({ pa: L.p.map(([x, y]) => [x * W, y * H]), w0: L.w0, w1: L.w1, wt: L.wt }));
   sc.limbs.forEach(sampleLimb);
-  populate(sc, { nFill: clamp(Math.round(W / 8), 46, 150), xmin: 0, xmax: W * .97, tmin: 0,
-                 fill: [.46, .38], catRange: [W * .14, W * .78], bottoms: BOTTOMS });
+  const hero = heroBox(), catRange = [W * .14, W * .78];
+  const catX = i => lerp(catRange[0], catRange[1], k > 1 ? i / (k - 1) : .5);
+  const over = i => catX(i) - 60 < hero.right;                        // this tablet hangs in front of the name block
+  let bottoms = (W < 700 ? BOTTOMS_NARROW : BOTTOMS).slice(0, k);
+  const deepest = Math.max(0, ...bottoms.filter((_, i) => over(i)));
+  const fit = deepest > 0 ? clamp((hero.top - 58) / (H * deepest), .45, 1) : 1;
+  bottoms = bottoms.map((b, i) => over(i) ? b * fit : b);
+  populate(sc, { nFill: clamp(Math.round(W / (W < 700 ? 5.5 : 3.8)), 90, 260), xmin: 0, xmax: W * .97, tmin: 0,
+                 fill: [.46, .38], catRange, bottoms });
   stack.push(sc);
   paintBranches(sc);
 }
@@ -332,37 +436,122 @@ function buildBranch(parent, idx) {
   sc.limbs = [{ pa: [[x0, y0], [x0 + .30 * Ln, y0 - .07 * H], [x0 + .65 * Ln, y0 - .04 * H], [x1, y0 + .05 * H]],
                 w0: .016, w1: .0025, wt: 1 }];
   sc.limbs.forEach(sampleLimb);
-  populate(sc, { nFill: clamp(Math.round(Ln / 9), 20, 80), xmin: x0, xmax: x1, tmin: .06,
+  populate(sc, { nFill: clamp(Math.round(Ln / 5), 36, 150), xmin: x0, xmax: x1, tmin: .06,
                  fill: [.36, .36], catRange: [x0 + .20 * Ln, x0 + .90 * Ln], bottoms: SUB_BOTTOMS });
   return sc;
 }
 
-/* limbs: painted once for the home tree, redrawn as they grow for branches */
-function drawLimbs(c, sc, upto) {
-  c.strokeStyle = C.bark; c.lineCap = 'round';
-  const scale = Math.max(W, 900);
-  for (const L of sc.limbs) {
-    const N = L.s.length - 1, lim = Math.floor(N * upto);
-    for (let i = 0; i < lim; i++) {
-      c.lineWidth = Math.max(1.5, lerp(L.w0, L.w1, Math.pow(i / N, .8)) * scale);
-      c.beginPath(); c.moveTo(L.s[i].x, L.s[i].y); c.lineTo(L.s[i + 1].x, L.s[i + 1].y); c.stroke();
+/* ---------- bark ----------
+   Limbs are tapering tubes, lit from the upper left: a dark body, a mid tone and a pale lit edge,
+   then broken fissures along the grain, knots, and a few bare twiglets. */
+const LIGHT = { x: -.5, y: -.85 };
+
+function makeFur(ws, n) {
+  let wm = 0; for (const v of ws) wm += v; wm /= ws.length;
+  const count = wm < 7 ? 0 : clamp(Math.round(wm / 3.2), 4, 24), fur = [];
+  for (let f = 0; f < count; f++) {
+    const runs = []; let i = Math.floor(Math.random() * 14);
+    while (i < n) { const len = 10 + Math.floor(Math.random() * 40); runs.push([i, Math.min(n, i + len)]); i += len + 4 + Math.floor(Math.random() * 22); }
+    fur.push({ u: Math.random() * 1.7 - .85, amp: .04 + Math.random() * .08, fq: .15 + Math.random() * .3, ph: Math.random() * 6.3,
+               a: .25 + Math.random() * .3, lite: Math.random() < .28, k: .05 + Math.random() * .06, runs });
+  }
+  return fur;
+}
+function makeTube(pts, ws) {
+  const n = pts.length - 1, x = new Float32Array(n + 1), y = new Float32Array(n + 1);
+  const nx = new Float32Array(n + 1), ny = new Float32Array(n + 1);
+  let side = 0;
+  for (let i = 0; i <= n; i++) {
+    x[i] = pts[i].x; y[i] = pts[i].y;
+    const a = pts[Math.max(0, i - 1)], b = pts[Math.min(n, i + 1)];
+    let tx = b.x - a.x, ty = b.y - a.y; const l = Math.sqrt(tx * tx + ty * ty) || 1; tx /= l; ty /= l;
+    nx[i] = -ty; ny[i] = tx; side += nx[i] * LIGHT.x + ny[i] * LIGHT.y;
+  }
+  if (side < 0) for (let i = 0; i <= n; i++) { nx[i] = -nx[i]; ny[i] = -ny[i]; }   // one consistent lit side
+  return { n, x, y, nx, ny, w: Float32Array.from(ws), fur: makeFur(ws, n) };
+}
+function paintTube(g, P, upto, A) {
+  const lim = Math.max(2, Math.floor(P.n * upto));
+  const band = (ua, ub, col, al) => {
+    g.beginPath();
+    for (let i = 0; i <= lim; i++) {
+      const o = P.w[i] * .5 * ub, px = P.x[i] + P.nx[i] * o, py = P.y[i] + P.ny[i] * o;
+      if (i) g.lineTo(px, py); else g.moveTo(px, py);
+    }
+    for (let i = lim; i >= 0; i--) { const o = P.w[i] * .5 * ua; g.lineTo(P.x[i] + P.nx[i] * o, P.y[i] + P.ny[i] * o); }
+    g.closePath(); g.globalAlpha = A * al; g.fillStyle = col; g.fill();
+  };
+  band(-1, 1, C.barkDark, 1);
+  band(-.55, 1, C.bark, 1);
+  band(.15, .95, C.barkLite, .5);
+  g.lineCap = 'round'; g.lineJoin = 'round';
+  for (const f of P.fur) {
+    g.strokeStyle = f.lite ? C.barkLite : C.barkDark; g.globalAlpha = A * f.a;
+    for (const [i0, i1] of f.runs) {
+      if (i0 >= lim) break;
+      g.lineWidth = clamp(P.w[i0] * f.k, .7, 2.6); g.beginPath();
+      for (let i = i0; i <= Math.min(i1, lim); i++) {
+        const o = P.w[i] * .5 * (f.u + f.amp * Math.sin(i * f.fq + f.ph)), px = P.x[i] + P.nx[i] * o, py = P.y[i] + P.ny[i] * o;
+        if (i === i0) g.moveTo(px, py); else g.lineTo(px, py);
+      }
+      g.stroke();
     }
   }
+  g.globalAlpha = 1;
+}
+function drawLimbs(c, sc, upto, A) {
+  const scale = Math.max(W, 900);
+  for (const L of sc.limbs) {
+    if (!L.tube) {
+      const N = L.s.length - 1, ws = [];
+      for (let i = 0; i <= N; i++) ws.push(Math.max(1.5, lerp(L.w0, L.w1, Math.pow(i / N, .8)) * scale));
+      L.tube = makeTube(L.s, ws);
+    }
+    paintTube(c, L.tube, upto, A);
+  }
+}
+function seeded(seed) {                                          // small deterministic random: the tree repaints identically in light and dark
+  return () => { seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+                 t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+function knots(g, P, rnd) {
+  for (let j = 0; j < 5; j++) {
+    const i = Math.floor(P.n * (.12 + rnd() * .7)), o = P.w[i] * .5 * (rnd() * 1.2 - .6);
+    const cx = P.x[i] + P.nx[i] * o, cy = P.y[i] + P.ny[i] * o, r = P.w[i] * (.05 + rnd() * .05);
+    g.globalAlpha = .55; g.fillStyle = C.barkDark; g.beginPath(); g.ellipse(cx, cy, r * .7, r * 1.3, .2, 0, 6.283); g.fill();
+    g.globalAlpha = .35; g.strokeStyle = C.barkLite; g.lineWidth = 1; g.beginPath(); g.ellipse(cx - 1, cy - 1, r * .7, r * 1.3, .2, 3.4, 5.9); g.stroke();
+  }
+  g.globalAlpha = 1;
+}
+function twiglets(g, sc, rnd) {                                         // short bare shoots along the limbs, where the curtain begins
+  g.lineCap = 'round'; g.strokeStyle = C.bark;
+  for (const L of sc.limbs) {
+    const N = L.s.length - 1, count = Math.round(22 * L.wt);
+    for (let j = 0; j < count; j++) {
+      const p = L.s[8 + Math.floor(rnd() * (N - 16))], ang = (rnd() - .5) * .9, len = 9 + rnd() * 20;
+      const dx = Math.sin(ang), dy = Math.cos(ang);
+      g.globalAlpha = .5; g.lineWidth = .9 + rnd() * .6;
+      g.beginPath(); g.moveTo(p.x, p.y); g.quadraticCurveTo(p.x + dx * len * .5, p.y + len * .45, p.x + dx * len, p.y + dy * len); g.stroke();
+    }
+  }
+  g.globalAlpha = 1;
 }
 function paintBranches(sc) {
   const b = document.createElement('canvas');
   b.width = W * DPR; b.height = H * DPR;
   const g = b.getContext('2d'); g.setTransform(DPR, 0, 0, DPR, 0, 0);
-  g.strokeStyle = C.bark; g.lineCap = 'round';
-  const tw = clamp(W * .085, 30, 130), steps = 40;                   // trunk, tapering upwards
-  const q = t => { const u = 1 - t;
-    return [u*u*W*1.02 + 2*u*t*W*.99 + t*t*W*1.005, u*u*H*1.05 + 2*u*t*H*.62 + t*t*H*.32]; };
-  for (let i = 0; i < steps; i++) {
-    const a = q(i / steps), c = q((i + 1) / steps);
-    g.lineWidth = lerp(tw, tw * .55, i / steps);
-    g.beginPath(); g.moveTo(a[0], a[1]); g.lineTo(c[0], c[1]); g.stroke();
+  const tw = clamp(W * .085, 30, 130), steps = 48, pts = [], ws = [];      // trunk: flares at the foot, tapers upwards
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps, u = 1 - t;
+    pts.push({ x: u * u * W * 1.02 + 2 * u * t * W * .99 + t * t * W * 1.005, y: u * u * H * 1.05 + 2 * u * t * H * .62 + t * t * H * .32 });
+    ws.push(lerp(tw * 1.3, tw * .5, Math.pow(t, .7)));
   }
-  drawLimbs(g, sc, 1);
+  if (!sc.trunk) sc.trunk = makeTube(pts, ws);
+  paintTube(g, sc.trunk, 1, 1);
+  if (!sc.seed) sc.seed = (Math.random() * 1e9) | 0;
+  knots(g, sc.trunk, seeded(sc.seed));
+  drawLimbs(g, sc, 1, 1);
+  twiglets(g, sc, seeded(sc.seed + 1));
   sc.branches = b;
 }
 
@@ -446,11 +635,12 @@ function stepStrand(s, t, lmx, lmy, lvx, lvy, R, R2) {
     const dx = x[i] - lmx, dy = y[i] - lmy, d2 = dx * dx + dy * dy;
     if (d2 < R2) { const f = 1 - Math.sqrt(d2) / R, ff = f * f * K; x[i] += lvx * ff; y[i] += lvy * ff * .5; }
   }
-  for (let it = 0; it < ITER; it++) {
+  const iters = s.back ? 3 : ITER;                          // faded background strands need fewer solver passes
+  for (let it = 0; it < iters; it++) {
     x[0] = s.ax; y[0] = s.ay;
     for (let i = 0; i < n - 1; i++) {
       const dx = x[i + 1] - x[i], dy = y[i + 1] - y[i];
-      const d = Math.hypot(dx, dy) || .0001, diff = (d - SEG) / d;
+      const d = Math.sqrt(dx * dx + dy * dy) || .0001, diff = (d - SEG) / d;   // sqrt: same result as hypot, far faster
       if (i === 0) { x[1] -= dx * diff; y[1] -= dy * diff; }
       else { const h = .5 * diff; x[i] += dx * h; y[i] += dy * h; x[i + 1] -= dx * h; y[i + 1] -= dy * h; }
     }
@@ -475,30 +665,44 @@ function stepAll(t, Ts) {
 }
 
 /* ---------- drawing ---------- */
-function drawStrands(list, alpha, stemW, leafW) {
+const LEAF_ALPHA = [.92, .92, .84, .95, .8];      // slight differences in opacity read as depth
+function lens(p, bx, by, dx, dy, L) {              // a slender willow leaf: base, two curved sides, tip
+  const ex = bx + dx * L, ey = by + dy * L, mx = bx + dx * L * .5, my = by + dy * L * .5, w = L * .21;
+  p.moveTo(bx, by);
+  p.quadraticCurveTo(mx - dy * w, my + dx * w, ex, ey);
+  p.quadraticCurveTo(mx + dy * w, my - dx * w, bx, by);
+}
+function drawStrands(list, alpha, stemW, ls) {
   if (!list.length || alpha < .01) return;
-  ctx.globalAlpha = alpha; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-  ctx.strokeStyle = C.stem; ctx.lineWidth = stemW; ctx.beginPath();
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const old = new Path2D(), young = new Path2D();     // twigs: browner and thicker near the limb, green and fine at the tips
   for (const s of list) {
-    const { x, y, m } = s; if (m < 2) continue;
-    ctx.moveTo(x[0], y[0]);
-    for (let i = 1; i < m - 1; i++) ctx.quadraticCurveTo(x[i], y[i], (x[i] + x[i + 1]) / 2, (y[i] + y[i + 1]) / 2);
-    ctx.lineTo(x[m - 1], y[m - 1]);
+    const { x, y, m, n } = s; if (m < 2) continue;
+    const k = Math.min(m - 2, Math.max(2, (n * .3) | 0));
+    old.moveTo(x[0], y[0]);
+    for (let i = 1; i <= k; i++) old.quadraticCurveTo(x[i], y[i], (x[i] + x[i + 1]) / 2, (y[i] + y[i + 1]) / 2);
+    young.moveTo((x[k] + x[k + 1]) / 2, (y[k] + y[k + 1]) / 2);
+    for (let i = k + 1; i < m - 1; i++) young.quadraticCurveTo(x[i], y[i], (x[i] + x[i + 1]) / 2, (y[i] + y[i + 1]) / 2);
+    young.lineTo(x[m - 1], y[m - 1]);
   }
-  ctx.stroke();
-  const paths = [new Path2D(), new Path2D(), new Path2D()];
+  ctx.globalAlpha = alpha;
+  ctx.strokeStyle = C.twig; ctx.lineWidth = stemW * 1.35; ctx.stroke(old);
+  ctx.strokeStyle = C.stem; ctx.lineWidth = stemW;        ctx.stroke(young);
+
+  const P = [new Path2D(), new Path2D(), new Path2D(), new Path2D(), new Path2D()];
   for (const s of list) {
-    const { x, y, n, m, lc, ll, la } = s; if (m < 2) continue;
+    const { x, y, n, m, lc, ll, lk } = s; if (m < 3) continue;
     const end = Math.min(m - 1, s.cat ? n - 3 : n - 1);
     for (let i = 2; i < end; i++) {
       const L = ll[i]; if (!L) continue;
-      const a = Math.atan2(y[i + 1] - y[i - 1], x[i + 1] - x[i - 1]), o = la[i], p = paths[lc[i]];
-      p.moveTo(x[i], y[i]); p.lineTo(x[i] + Math.cos(a + o) * L,        y[i] + Math.sin(a + o) * L);
-      p.moveTo(x[i], y[i]); p.lineTo(x[i] + Math.cos(a - o * 1.3) * L * .8, y[i] + Math.sin(a - o * 1.3) * L * .8);
+      const dx = x[i + 1] - x[i - 1], dy = y[i + 1] - y[i - 1], inv = 1 / (Math.sqrt(dx * dx + dy * dy) || 1);
+      const ca = dx * inv, sa = dy * inv, k = i * 4, p = P[lc[i]];        // unit direction of the twig here
+      lens(p, x[i], y[i], ca * lk[k] - sa * lk[k + 1], sa * lk[k] + ca * lk[k + 1], L * ls);                 // leaf from the node, leaning one way
+      lens(p, (x[i] + x[i + 1]) * .5, (y[i] + y[i + 1]) * .5,
+           ca * lk[k + 2] + sa * lk[k + 3], sa * lk[k + 2] - ca * lk[k + 3], L * .82 * ls);                   // leaf from halfway on, leaning the other: alternate
     }
   }
-  ctx.lineWidth = leafW;
-  for (let k = 0; k < 3; k++) { ctx.strokeStyle = C.leaves[k]; ctx.stroke(paths[k]); }
+  for (let c = 0; c < 5; c++) { ctx.globalAlpha = alpha * LEAF_ALPHA[c]; ctx.fillStyle = C.leaves[c]; ctx.fill(P[c]); }
   ctx.globalAlpha = 1;
 }
 
@@ -513,11 +717,11 @@ function draw(Ts) {
       s.m = s.vis <= 0 ? 0 : Math.max(2, Math.round(s.vis * s.n));
     }
     ctx.setTransform(DPR * T.s, 0, 0, DPR * T.s, DPR * T.tx, DPR * T.ty);
-    drawStrands(sc.back,  .45 * T.a, .8, 2);
-    drawStrands(sc.front, T.a, 1.1, 2.4);
-    drawStrands(sc.cats,  T.a, 2, 2.4);
+    drawStrands(sc.back,  .45 * T.a, .8, .85);
+    drawStrands(sc.front, T.a, 1.1, 1);
+    drawStrands(sc.cats,  T.a, 2, 1.05);
     if (sc.branches) { ctx.globalAlpha = T.a; ctx.drawImage(sc.branches, 0, 0, W, H); ctx.globalAlpha = 1; }
-    else { ctx.globalAlpha = T.a; drawLimbs(ctx, sc, gE); ctx.globalAlpha = 1; }
+    else drawLimbs(ctx, sc, gE, T.a);
   }
   ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
   updateTablets(Ts);
@@ -587,63 +791,10 @@ function resize(force) {
   DPR = Math.min(devicePixelRatio || 1, 2);
   cv.width = nw * DPR; cv.height = nh * DPR;
   cv.style.width = nw + 'px'; cv.style.height = nh + 'px';
-  W = nw; H = nh;
+  W = nw; H = nh; leafK = clamp(W / 1150, .72, 1.12);
   if (force || !sameShape) buildRoot();
 }
 let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => resize(false), 150); });
-
-/* ---------- intro: your name dissolves in from specks, then blows away like leaves ---------- */
-function runIntro(onExit) {
-  return new Promise(resolve => {
-    const ic = $('#intro'), ictx = ic.getContext('2d');
-    ic.width = W * DPR; ic.height = H * DPR; ictx.setTransform(DPR, 0, 0, DPR, 0, 0);
-
-    const name = $('.id h1').textContent.trim();
-    const off = document.createElement('canvas'); off.width = W; off.height = H;
-    const o = off.getContext('2d');
-    const font = s => `400 ${s}px Cardo, "Palatino Linotype", Palatino, Georgia, serif`;
-    let fs = Math.min(W * .14, 160);
-    o.font = font(fs);
-    const w = o.measureText(name).width;
-    if (w > W * .86) { fs *= W * .86 / w; o.font = font(fs); }
-    o.textAlign = 'center'; o.textBaseline = 'middle'; o.fillStyle = '#000';
-    o.fillText(name, W / 2, H * .46);
-    const d = o.getImageData(0, 0, W, H).data;
-
-    const step = Math.max(2, fs / 64), P = [];
-    for (let y = 0; y < H; y += step) for (let x = 0; x < W; x += step) {
-      if (d[((y | 0) * W + (x | 0)) * 4 + 3] > 110)
-        P.push({ x, y, a: Math.random(), b: Math.min(1, .7 * x / W + .3 * Math.random()), s: Math.random() });
-    }
-
-    const T0 = 250, T1 = 1500, T2 = 2600, T3 = 4100;      // start of dissolve-in, shown, start of blow-away, end
-    let start = performance.now(), exited = false;
-    const skip = () => { const t = performance.now() - start; start = performance.now() - (t < T2 ? T2 : T3); };
-    addEventListener('pointerdown', skip); addEventListener('keydown', skip);
-
-    const ease = v => v * v * (3 - 2 * v), sz = step * 1.1;
-    (function tick(now) {
-      const t = now - start;
-      if (t >= T2 && !exited) { exited = true; onExit(); }
-      const p = ease(clamp((t - T0) / (T1 - T0), 0, 1)), q = ease(clamp((t - T2) / (T3 - T2), 0, 1));
-      ictx.clearRect(0, 0, W, H); ictx.fillStyle = C.text;
-      for (const pt of P) {
-        const li = clamp((p - pt.a * .8) / .2, 0, 1); if (li <= 0) continue;
-        const lo = clamp((q - pt.b * .72) / .28, 0, 1);
-        const alpha = Math.min(li, 1 - lo); if (alpha <= .02) continue;
-        const inv = 1 - li;
-        ictx.globalAlpha = alpha;
-        ictx.fillRect(pt.x + inv * (pt.s - .5) * 16 + lo * (50 + 260 * pt.s),
-                      pt.y + inv * (8 + 18 * pt.s) + lo * (pt.s - .6) * 70 + lo * lo * 30, sz, sz);
-      }
-      if (t >= T3) {
-        removeEventListener('pointerdown', skip); removeEventListener('keydown', skip);
-        ic.remove(); resolve(); return;
-      }
-      requestAnimationFrame(tick);
-    })(performance.now());
-  });
-}
 
 /* ---------- typewriter for the tagline ---------- */
 async function typeInto(el, text, speed) {
@@ -655,9 +806,9 @@ async function eraseFrom(el, speed) {
   while (s.length) { s = s.slice(0, -1); el.textContent = s; await sleep(speed); }
 }
 async function typeAll() {
-  const l1 = $('#l1'), l2 = $('#l2'), ph = CONFIG.phrases;
-  if (RM) { l1.textContent = CONFIG.tagline; l2.textContent = ph[ph.length - 1]; return; }
-  await typeInto(l1, CONFIG.tagline, 34); l1.classList.remove('typing'); await sleep(350);
+  const l1 = $('#l1 .typed'), l2 = $('#l2'), ph = CONFIG.phrases;
+  if (RM) { l1.textContent = CONFIG.lede; l2.textContent = ph[ph.length - 1]; return; }
+  await typeInto(l1, CONFIG.lede, 20); l1.classList.remove('typing'); await sleep(350);
   for (let i = 0; i < ph.length; i++) {
     await typeInto(l2, ph[i], 48);
     if (i === ph.length - 1) break;
@@ -666,24 +817,46 @@ async function typeAll() {
   l2.classList.remove('typing');
 }
 
+/* ---------- icons under the tagline ---------- */
+const ICONS = {
+  github: '<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>',
+  mail: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
+  file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>',
+  linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>',
+};
+function buildLinks() {
+  const bar = $('#links');
+  for (const l of CONFIG.links) {
+    if (!l.href) continue;
+    const a = document.createElement('a');
+    a.href = l.href; a.title = l.label; a.setAttribute('aria-label', l.label);
+    if (l.external) { a.target = '_blank'; a.rel = 'noopener'; }
+    a.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[l.icon] || ''}</svg>`;
+    bar.appendChild(a);
+  }
+}
+buildLinks();
+
 /* ---------- go ---------- */
 async function start() {
+  $('#eyebrow').textContent = CONFIG.eyebrow;
+  $('#desc').textContent = CONFIG.description;
+  $('#l1 .ghost').textContent = CONFIG.lede;                   // invisible copy: reserves the space the typed sentence will fill
+  await Promise.race([Promise.all([document.fonts.load('600 40px Inter'), document.fonts.load('400 16px Inter')]), sleep(1500)]).catch(() => {});
   readColors();
   resize(true);
   requestAnimationFrame(frame);
 
   let seen = false;
-  try { seen = sessionStorage.getItem('ec-intro') === '1'; } catch (e) {}
+  try { seen = sessionStorage.getItem('ec-seen') === '1'; } catch (e) {}
   if (RM || seen) {
     cv.classList.add('instant', 'show'); document.body.classList.add('on');
     tabStart = performance.now() - 2000; typeAll(); return;
   }
-  await Promise.race([document.fonts.load('400 100px Cardo'), sleep(1500)]).catch(() => {});
-  await runIntro(() => {
-    cv.classList.add('show'); gust = 1; document.body.classList.add('on'); tabStart = performance.now();
-    setTimeout(typeAll, 700);
-  });
-  try { sessionStorage.setItem('ec-intro', '1'); } catch (e) {}
+  await sleep(150);                                            // first visit: the tree fades in on a gust of wind, then the words
+  cv.classList.add('show'); gust = 1; document.body.classList.add('on'); tabStart = performance.now();
+  setTimeout(typeAll, 900);
+  try { sessionStorage.setItem('ec-seen', '1'); } catch (e) {}
 }
 document.fonts.ready.then(() => document.querySelectorAll('.tablet').forEach(fixWidth));
 start();

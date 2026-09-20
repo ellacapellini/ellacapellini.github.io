@@ -3,11 +3,12 @@ project:
   output-dir: _site
   resources:
     - index.html            # your willow entrance, copied to the site untouched
+    - cv/Ella-Capellini-CV.pdf   # opened by the CV tablet and icon on the entrance
 
 website:
   title: "Ella Capellini"
   site-url: https://ellacapellini.github.io
-  description: "Formal modelling and reliable evaluation of learned systems. Bayesian statistics, speech ML, neuroscience, Ancient Greek and Linear B."
+  description: "Neuroscience student in Oldenburg, Zürich (UZH and ETH). Hierarchical Bayesian models of neural responses to speech, reliable evaluation of learned systems, EEG, Ancient Greek and Linear B."
   favicon: assets/favicon.svg
   open-graph: true
   draft-mode: gone          # pages with `draft: true` are left out of the live site
@@ -41,6 +42,9 @@ website:
   page-footer:
     left: "Ella Capellini"
     right:
+      - icon: envelope
+        href: mailto:ella.capellini@uzh.ch
+        aria-label: Email
       - icon: github
         href: https://github.com/ellacapellini
         aria-label: GitHub
