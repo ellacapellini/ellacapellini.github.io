@@ -10,6 +10,7 @@ categories: [Speech ML]
 # demo: https://
 # slides: https://
 # pdf: my-paper.pdf
+# greek: true        # about Ancient Greek? gives the title the Greek-letter scramble
 # draft: true        # uncomment to keep this page off the live site
 ---
 

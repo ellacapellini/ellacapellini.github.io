@@ -1,15 +1,15 @@
 ---
-title: "Articles & papers"
-subtitle: "Papers I have read, with summaries."
+title: "Courses"
+subtitle: "Notes and exercises from university courses."
 listing:
   contents:
     - "*.qmd"
     - "*/index.qmd"
   type: custom
-  template: ../../_templates/entries.ejs.md
+  template: ../_templates/entries.ejs.md
   sort: "date desc"
   date-format: "MMM YYYY"
-  fields: [date, title, description, author, repo, paper, demo, slides, pdf, source]
+  fields: [date, title, description, author, greek, repo, paper, demo, slides, pdf, source]
   sort-ui: false
   filter-ui: false
   page-size: 50

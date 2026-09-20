@@ -1,12 +1,12 @@
 ---
-title: "Research"
-subtitle: "Projects and ongoing work, newest first."
+title: "Resources"
+subtitle: "Videos, lectures, books and papers, with my notes."
 listing:
   contents:
     - "*.qmd"
     - "*/index.qmd"
-  type: custom
   template: ../_templates/entries.ejs.md
+  type: custom
   sort: "date desc"
   date-format: "MMM YYYY"
   fields: [date, title, description, author, categories, greek, repo, paper, demo, slides, pdf, source]

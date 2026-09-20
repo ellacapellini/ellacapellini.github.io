@@ -1,6 +1,6 @@
 <script>
-/* Titles in the lists scramble into Greek letters for a moment, then settle: the same
-   effect as the tablets on the entrance. Hover or keyboard focus only; off if the visitor
+/* Titles of entries flagged `greek: true` scramble into Greek letters for a moment, then settle:
+   the same effect as the tablets on the entrance. Hover or keyboard focus only; off if the visitor
    has asked their system for reduced motion.
    Listens on the whole document, because Quarto re-creates list entries after the page loads. */
 (function () {
@@ -25,7 +25,7 @@
     }, 32);
   }
 
-  function titleLink(node) { return node && node.closest ? node.closest('.listing-title a') : null; }
+  function titleLink(node) { return node && node.closest ? node.closest('.listing-title.greek a') : null; }   // only entries flagged `greek: true`
 
   document.addEventListener('pointerover', function (e) {
     var a = titleLink(e.target);

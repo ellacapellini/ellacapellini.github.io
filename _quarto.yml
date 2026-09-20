@@ -20,20 +20,10 @@ website:
     left:
       - text: Research
         href: research/index.qmd
-      - text: Notes
-        menu:
-          - text: All notes
-            href: notes/index.qmd
-          - text: University courses
-            href: notes/courses/index.qmd
-          - text: Videos & lectures
-            href: notes/videos/index.qmd
-          - text: Books
-            href: notes/books/index.qmd
-          - text: Articles & papers
-            href: notes/papers/index.qmd
-      - text: Blog
-        href: blog/index.qmd
+      - text: Courses
+        href: courses/index.qmd
+      - text: Resources
+        href: resources/index.qmd
       - text: Code
         href: https://github.com/ellacapellini
       - text: CV

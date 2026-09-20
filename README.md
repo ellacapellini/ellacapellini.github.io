@@ -1,6 +1,6 @@
 # ellacapellini.github.io
 
-The willow entrance (`index.html`) and, behind it, Research, Notes, Blog and CV. Built with
+The willow entrance (`index.html`) and, behind it, Research, Courses, Resources and CV. Built with
 [Quarto](https://quarto.org): every page is a small text file, and the lists write themselves.
 
 ## Adding things
@@ -12,8 +12,8 @@ The quickest way, from a terminal in this folder:
 
 ```
 python3 new.py research "Title of the project"
-python3 new.py blog     "Title of the post"
-python3 new.py courses  "Bayesian Statistics"     # also: videos, books, papers
+python3 new.py courses  "Bayesian Statistics"
+python3 new.py videos   "A lecture worth watching"     # also: books, papers (these go to resources/)
 ```
 
 It creates the file with today's date in place. Open it and edit. (Without the script: copy the
@@ -24,25 +24,29 @@ You can also do it entirely on github.com: *Add file → Create new file*, type 
 | Where | What goes at the top of the file |
 |---|---|
 | `research/` | `title`, `date`, `description` (the abstract), `categories`, and any of `repo`, `paper`, `demo`, `slides`, `pdf` |
-| `notes/courses/` | `title`, `date`, `description`, optional `repo` or `pdf`. Notes go in the body. |
-| `notes/videos/` | `title`, `date`, `author` (speaker), `description`, `source` (link to the video) |
-| `notes/books/` | `title`, `date`, `author`, `description` |
-| `notes/papers/` | `title`, `date`, `author` (paper authors), `description`, `paper` (link) |
-| `blog/` | `title`, `date`, `description`, `categories` |
+| `courses/` | `title`, `date`, `description`, optional `repo` or `pdf`. Notes go in the body. |
+| `resources/` | `title`, `date`, `description`, `categories` (`Video`, `Book` or `Paper`; the templates set it), `author`, and `source` or `paper` for the link |
 
 The date is only used for sorting and for the label on the left. Each `repo`, `paper`, ... you add
 becomes a link under the abstract, on the list and on the entry's own page. Topic tags come from
-`categories`; every distinct tag gets a filter on the Research and Notes pages.
+`categories`; every distinct tag gets a filter on the Research and Resources pages.
 
 Useful to know:
 
+- **The Greek-letter scramble** on a title (when hovering) only happens for entries with `greek: true`
+  at the top: today the Homer and Linear B projects. Add it to anything else about Ancient Greek.
 - **Hide something without deleting it:** add `draft: true` to its top lines.
 - **Maths:** `$p(\theta \mid y)$` inline, `$$ ... $$` on its own line.
 - **Images:** put the image next to the file and write `![caption](figure.png)`.
-- **A course with several pages:** make a folder, e.g. `notes/courses/pai/`, with an `index.qmd`
+- **A course with several pages:** make a folder, e.g. `courses/pai/`, with an `index.qmd`
   (the course, which appears in the list) and one file per lecture next to it.
-- **Example of everything you can write:** `blog/example-post.qmd`. It is a draft, so it never goes live.
-  Delete it when you like.
+
+### The blog
+
+There is no blog on the site for now. It is parked in the folder `_blog` (folders starting with `_`
+are not published), with its list page, a template and an example post that shows maths, code and
+callouts. To bring it back: rename `_blog` to `blog`, add `- text: Blog` and `href: blog/index.qmd`
+to the menu in `_quarto.yml`, and a `{ label: 'Blog', href: 'blog/' }` line to `sections` in `index.html`.
 
 ### The CV
 
@@ -84,8 +88,10 @@ Later, for your own domain: *Settings → Pages → Custom domain*.
 `index.html` is your own file and Quarto copies it as it is. Everything you would want to change is in
 the `CONFIG` block near the top of its script:
 
-- `eyebrow` (the small line above your name), `lede` (the sentence that is typed out) and `phrases`
-  (the words that rotate underneath; the last one stays).
+- `eyebrow` (the small line above your name), `lede` (the sentence under your name, shown at once) and `phrases`
+  (typed out one after another underneath; the last one stays).
+- `tree`: `false` (as shipped) shows only the leaves, hanging from the top edge; `true` brings back the
+  trunk and limbs they hang from.
 - `links`: the four icons. The CV icon and the CV tablet open the PDF in `cv/Ella-Capellini-CV.pdf`;
   **to update your CV, replace that file** (keep the name). An empty `href` hides an icon.
 - `sections`: the tablets, and the branches that grow out of them. If you rename or add a section,

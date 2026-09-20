@@ -2,8 +2,8 @@
 """Create a new page from the template of the right section.
 
     python3 new.py research "Title of the project"
-    python3 new.py blog     "Title of the post"
-    python3 new.py courses  "Bayesian Statistics"      (also: videos, books, papers)
+    python3 new.py courses  "Bayesian Statistics"
+    python3 new.py videos   "A lecture worth watching"   (also: books, papers; these go to resources/)
 
 The file is created with today's date already filled in. Open it, edit the few lines at the
 top, and write below them. Nothing else to register: the section's list page picks it up.
@@ -15,13 +15,12 @@ import sys
 import unicodedata
 
 ROOT = pathlib.Path(__file__).resolve().parent
-SECTIONS = {
-    "research": "research",
-    "blog": "blog",
-    "courses": "notes/courses",
-    "videos": "notes/videos",
-    "books": "notes/books",
-    "papers": "notes/papers",
+SECTIONS = {                      # kind: (folder, template)
+    "research": ("research", "_template.qmd"),
+    "courses": ("courses", "_template.qmd"),
+    "videos": ("resources", "_template-video.qmd"),
+    "books": ("resources", "_template-book.qmd"),
+    "papers": ("resources", "_template-paper.qmd"),
 }
 
 
@@ -37,8 +36,9 @@ def main() -> int:
         return 1
 
     section, title = sys.argv[1], sys.argv[2].strip()
-    folder = ROOT / SECTIONS[section]
-    template = folder / "_template.qmd"
+    folder_name, template_name = SECTIONS[section]
+    folder = ROOT / folder_name
+    template = folder / template_name
     if not template.exists():
         print(f"Missing template: {template}")
         return 1

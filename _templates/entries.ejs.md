@@ -26,7 +26,7 @@ const showTablets = P.tablets !== false;
 ::: {.body}
 
 ```{=html}
-<h3 class="no-anchor listing-title"><a href="<%- item.path %>" class="no-external"><%= item.title %></a></h3>
+<h3 class="no-anchor listing-title<%= item.greek ? ' greek' : '' %>"><a href="<%- item.path %>" class="no-external"><%= item.title %></a></h3>
 <% if (item.author) { %><div class="listing-author"><%= [].concat(item.author).join(', ') %></div><% } %>
 ```
 

@@ -7,6 +7,7 @@ description: >
   given its context, and asks whether high-surprisal deviations cluster at narrative
   climaxes such as deaths and armour exchanges. Work in progress.
 categories: [Digital humanities, Psycholinguistics]
+greek: true          # this entry gets the Greek-letter scramble on its title
 repo: https://github.com/ellacapellini/homeric-formula-deviation
 ---
 
