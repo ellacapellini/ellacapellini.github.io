@@ -7,6 +7,7 @@ description: >
   syllable, also appear in Italian? An EEG study with about 30 Italian L1 listeners uses a
   parallel Italian stimulus set to ask whether a language with a different constraint
   ranking shows the same entrainment hierarchy. Master thesis.
+image: assets/prodic-hierarchy-italian.jpg
 categories: [Neuroscience, Psycholinguistics]
 ---
 

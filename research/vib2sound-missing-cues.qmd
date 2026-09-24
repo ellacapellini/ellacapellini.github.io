@@ -6,6 +6,7 @@ description: >
   This project extends it to cue degradation along a continuous spectrum instead of simple
   absence, with three approaches: a cascade that never underperforms the audio-only baseline,
   training with realistic degradation, and a cross-modal contrastive loss.
+image: assets/vib2sound-missing-cues.jpg
 categories: [Speech ML, Neuroscience]
 repo: https://github.com/ellacapellini/Vib2Sound
 paper: https://doi.org/10.1101/2025.05.08.652866

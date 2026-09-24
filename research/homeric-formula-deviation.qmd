@@ -6,6 +6,7 @@ description: >
   information-theoretic analysis of the Iliad measures how surprising each formula is
   given its context, and asks whether high-surprisal deviations cluster at narrative
   climaxes such as deaths and armour exchanges. Work in progress.
+image: assets/homeric-formula-deviation.jpg
 categories: [Digital humanities, Psycholinguistics]
 greek: true          # this entry gets the Greek-letter scramble on its title
 repo: https://github.com/ellacapellini/homeric-formula-deviation

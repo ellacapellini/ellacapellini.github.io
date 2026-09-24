@@ -8,6 +8,7 @@ description: >
   varies by patient, electrode and word-level surprisal. Both are compared with standard
   ridge-regression mTRF on held-out predictive accuracy and WAIC/LOO. The question is whether
   prediction error reshapes the neural response through gain control or through predictive coding.
+image: assets/hierarchical-bayesian-trf.jpg
 categories: [Bayesian statistics, Neuroscience, Speech ML]
 ---
 

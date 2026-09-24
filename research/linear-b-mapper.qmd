@@ -5,6 +5,7 @@ description: >
   An interactive web tool for transcribing, analysing and visualising the phonological
   evolution of Linear B (Mycenaean Greek, c. 1450 to 1200 BCE) into Classical Greek
   (c. 800 to 400 BCE).
+image: assets/linear-b-mapper.jpg
 categories: [Digital humanities, Ancient Greek]
 greek: true          # this entry gets the Greek-letter scramble on its title
 repo: https://github.com/ellacapellini/Linear-B-Diachronic-Phonological-Mapper

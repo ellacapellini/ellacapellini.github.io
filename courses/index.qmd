@@ -5,14 +5,12 @@ listing:
   contents:
     - "*.qmd"
     - "*/index.qmd"
-  type: custom
-  template: ../_templates/entries.ejs.md
+  type: grid
+  grid-columns: 2
+  image-height: 220px
   sort: "date desc"
   date-format: "MMM YYYY"
-  fields: [date, title, description, author, greek, repo, paper, demo, slides, pdf, source]
+  categories: false
   sort-ui: false
   filter-ui: false
-  page-size: 50
-  template-params:
-    tablets: false
 ---
