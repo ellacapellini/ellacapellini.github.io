@@ -7,15 +7,11 @@ listing:
     - courses.qmd
     - videos.qmd
     - websites.qmd
-  template: ../_templates/entries.ejs.md
   type: grid
   grid-columns: 2
   image-height: 220px
-  sort: "date desc"
-  date-format: "MMM YYYY"
-  fields: [date, title, description, author, categories, greek, repo, paper, demo, slides, pdf, source]
+  sort: false
   categories: false
   sort-ui: false
   filter-ui: false
-  page-size: 50
 ---
