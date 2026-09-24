@@ -1,0 +1,20 @@
+---
+title: "Classical Reception & Popular Culture"
+description: "6 books"
+toc: false
+---
+
+[← Books](../books.qmd)
+
+- *The Reception of Ancient Virtues and Vices in Modern Popular Culture: Beauty, Bravery, Blood and Glory*, Eran Almagor & Lisa Maurice
+  <details><summary>My thoughts</summary>How ancient ideas of virtue reappear in films, games and TV.</details>
+- *Tracking Classical Monsters in Popular Culture*, Liz Gloyn
+  <details><summary>My thoughts</summary>A fun look at how Medusa, the Minotaur and friends live on in modern media.</details>
+- *Ancient Greece on British Television*, Fiona Hobden
+  <details><summary>My thoughts</summary>Traces how the ancient world has been portrayed on the small screen.</details>
+- *Classics for All: Reworking Antiquity in Mass Culture*, Dunstan Lowe & Kim Shahabudin
+  <details><summary>My thoughts</summary>Shows how antiquity gets reinvented for wide audiences.</details>
+- *Once and Future Antiquities in Science Fiction*, Brett M. Rogers & B. Eldon Stevens
+  <details><summary>My thoughts</summary>Where classics meets sci-fi. A cool and unusual angle.</details>
+- *Critical Ancient World Studies: The Case for Forgetting Classics*, Mathura Umachandran & Marchella Ward
+  <details><summary>My thoughts</summary>A provocative argument for rethinking how we study the ancient world.</details>

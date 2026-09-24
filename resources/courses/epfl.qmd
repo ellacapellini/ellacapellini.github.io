@@ -1,0 +1,10 @@
+---
+title: "EPFL"
+description: "1 course"
+toc: false
+---
+
+[← Open Courses](../courses.qmd)
+
+- [Artificial Neural Networks and Deep Learning (video lectures), Wulfram Gerstner](https://lcnwww.epfl.ch/gerstner/VideoLecturesANN-Gerstner.html)
+  <details><summary>My thoughts</summary>A rigorous, well-structured course that connects artificial networks to biological ones.</details>

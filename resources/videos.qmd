@@ -2,79 +2,51 @@
 title: "Video Resources"
 description: "Lectures and channels I use for learning."
 image: assets/videos.jpg
-toc: true
-toc-depth: 3
+toc: false
+css: ../styles/topic-cards.css
 ---
 
-## Maths, Statistics & Computer Science
-
-- [Mike X Cohen] (https://www.youtube.com/@mikexcohen1)
-  <details><summary>My thoughts</summary>Great for linear algebra, signal processing and data analysis with a neuroscience flavour. Very clear, very thorough.</details>
-- [The Organic Chemistry Tutor] (https://www.youtube.com/@TheOrganicChemistryTutor)
-  <details><summary>My thoughts</summary>My go-to when I need a topic explained step by step. Tons of worked examples, whatever the subject.</details>
-- [3Blue1Brown](https://www.youtube.com/@3blue1brown)
-  <details><summary>My thoughts</summary>Beautiful visual intuition for maths and neural networks. Watch it before the formal version.</details>
-- [CS50: Introduction to Computer Science] (https://www.youtube.com/@cs50)
-  <details><summary>My thoughts</summary>The best gentle introduction to CS I know. Lectures are engaging and the problem sets are great practice.</details>
-- [Introduction to Statistical Learning](https://www.youtube.com/watch?v=5N9V07EIfIg&list=PLOg0ngHtcqbPTlZzRHA2ocQZqB1D_qZ5V)
-  <details><summary>My thoughts</summary>A friendly, practical intro to regression, classification and resampling. Pairs perfectly with the book.</details>
-- [Theory of Computation](https://www.youtube.com/watch?v=9syvZr-9xwk&list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY)
-  <details><summary>My thoughts</summary>Automata, grammars and Turing machines explained clearly. Also a nice bridge to formal linguistics.</details>
-
-## Machine Learning & NLP
-
-- [CS224N: Natural Language Processing with Deep Learning (Stanford)] (https://www.youtube.com/watch?v=DzpHeXVSC5I&list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-  <details><summary>My thoughts</summary>The reference course for modern NLP, from word vectors to transformers. Demanding but worth it.</details>
-
-## AI Safety
-
-- [AI Evaluation Programme: Capabilities and Safety](https://www.youtube.com/@aievaluationorg)
-  <details><summary>My thoughts</summary>Good for seeing how people actually test what AI models can do and where they fail. Very relevant to my interests.</details>
-
-## Linguistics & Language Evolution
-
-### Introductions
-
-- [Introduction to Linguistics](https://www.youtube.com/watch?v=Mvy5hjAWeZw&list=PLUl4u3cNGP63BZGNOqrF2qf_yxOjuG35j)
-  <details><summary>My thoughts</summary>A solid starting point covering phonetics through syntax and semantics. Good for building foundations.</details>
-- [Language, Mind and Brain: the cognitive biology of language](https://www.youtube.com/watch?v=z6rVdlSfmYo)
-  <details><summary>My thoughts</summary>Looks at language as a biological capacity rather than just a system of rules. Made me think differently about what language even is.</details>
-
-### Language evolution
-
-- [How humans got language, Simon Kirby](https://www.youtube.com/watch?v=ZIen7jJhvPM)
-  <details><summary>My thoughts</summary>Shows how language structure can emerge through cultural transmission. Simple experiments, big ideas.</details>
-- [Language evolution, big gods and rituals, Russell Gray](https://www.youtube.com/watch?v=RGML2mMAaEI)
-  <details><summary>My thoughts</summary>Uses phylogenetic methods borrowed from biology to study language and culture. A fun mix of disciplines.</details>
-
-### Language learning & processing
-
-- [A computational approach to early language bootstrapping](https://www.youtube.com/watch?v=oclbYbGbxSE)
-  <details><summary>My thoughts</summary>How models can explain the way babies get a foothold in language. Sits right where linguistics meets ML.</details>
-- [Ecological language: a multimodal approach to language learning and processing, Gabriella Vigliocco](https://aovivo.abralin.org/en/lives/gabriella-vigliocco-2/)
-  <details><summary>My thoughts</summary>A reminder that real language is gesture, sound and context, not just text. Great counterpoint to text-only models.</details>
-
-## Cognition & Neuroscience
-
-### Language and the brain
-
-- [Brain-based language networks, Evelina Fedorenko](https://www.youtube.com/watch?v=pWnR1aIfXTs)
-  <details><summary>My thoughts</summary>Fascinating evidence that language has its own dedicated brain network. A must-watch for neuro-linguistics.</details>
-- [Language and thought, Asifa Majid](https://www.youtube.com/watch?v=fuPsNAXi1W8)
-  <details><summary>My thoughts</summary>Explores how much the language you speak shapes the way you perceive the world. Cross-linguistic examples are great.</details>
-- [The neurocognitive consequences of bilingualism, Mirjana Bozic](https://www.youtube.com/watch?v=TgSzvvCrLno)
-  <details><summary>My thoughts</summary>What speaking two languages does to the brain, with the myths separated from the evidence.</details>
-
-### Brain, ageing & computation
-
-- [The resilient brain: cognition and ageing, Lorraine Tyler](https://www.youtube.com/watch?v=y4GaxxlJHFs)
-  <details><summary>My thoughts</summary>A hopeful take on how the brain adapts as we age.</details>
-- [How to study the brain from a computational view, Peter Dayan](https://www.youtube.com/watch?v=CttxFk4BYrM)
-  <details><summary>My thoughts</summary>A clear overview of what computational models can and cannot tell us about the brain.</details>
-- [Science meets music, Peter Dayan](https://www.youtube.com/watch?v=xdKAJkNZYUM)
-  <details><summary>My thoughts</summary>A lighter talk on why music affects us the way it does, seen through learning and prediction.</details>
-
-### Research methods
-
-- [Science: how not to do it, Bob Carlyon](https://www.youtube.com/watch?v=8DGqAj6tWgk)
-  <details><summary>My thoughts</summary>Funny and useful. A good checklist of research pitfalls to avoid in my own work.</details>
+```{=html}
+<div class="topic-grid">
+<a class="topic-card" href="videos/maths-statistics-and-computer-science.html">
+  <div class="topic-media"><div class="topic-img" style="background-image: url('assets/topics/videos-maths-statistics-and-computer-science.jpg'), url('assets/videos.jpg');"></div></div>
+  <div class="topic-body">
+    <span class="topic-title">Maths, Statistics &amp; Computer Science</span>
+    <span class="topic-meta">6 videos</span>
+    <div class="topic-peek"><ul><li>Mike X Cohen</li><li>The Organic Chemistry Tutor</li><li>3Blue1Brown</li><li>CS50: Introduction to Computer Science</li><li>Introduction to Statistical Learning</li><li class="more">and 1 more</li></ul></div>
+  </div>
+</a>
+<a class="topic-card" href="videos/machine-learning-and-nlp.html">
+  <div class="topic-media"><div class="topic-img" style="background-image: url('assets/topics/videos-machine-learning-and-nlp.jpg'), url('assets/videos.jpg');"></div></div>
+  <div class="topic-body">
+    <span class="topic-title">Machine Learning &amp; NLP</span>
+    <span class="topic-meta">1 video</span>
+    <div class="topic-peek"><ul><li>CS224N: Natural Language Processing with Deep Learning (Stanford)</li></ul></div>
+  </div>
+</a>
+<a class="topic-card" href="videos/ai-safety.html">
+  <div class="topic-media"><div class="topic-img" style="background-image: url('assets/topics/videos-ai-safety.jpg'), url('assets/videos.jpg');"></div></div>
+  <div class="topic-body">
+    <span class="topic-title">AI Safety</span>
+    <span class="topic-meta">1 video</span>
+    <div class="topic-peek"><ul><li>AI Evaluation Programme: Capabilities and Safety</li></ul></div>
+  </div>
+</a>
+<a class="topic-card" href="videos/linguistics-and-language-evolution.html">
+  <div class="topic-media"><div class="topic-img" style="background-image: url('assets/topics/videos-linguistics-and-language-evolution.jpg'), url('assets/videos.jpg');"></div></div>
+  <div class="topic-body">
+    <span class="topic-title">Linguistics &amp; Language Evolution</span>
+    <span class="topic-meta">6 videos · Introductions, Language evolution, Language learning &amp; processing</span>
+    <div class="topic-peek"><ul><li>Introduction to Linguistics</li><li>Language, Mind and Brain: the cognitive biology of language</li><li>How humans got language, Simon Kirby</li><li>Language evolution, big gods and rituals, Russell Gray</li><li>A computational approach to early language bootstrapping</li><li class="more">and 1 more</li></ul></div>
+  </div>
+</a>
+<a class="topic-card" href="videos/cognition-and-neuroscience.html">
+  <div class="topic-media"><div class="topic-img" style="background-image: url('assets/topics/videos-cognition-and-neuroscience.jpg'), url('assets/videos.jpg');"></div></div>
+  <div class="topic-body">
+    <span class="topic-title">Cognition &amp; Neuroscience</span>
+    <span class="topic-meta">7 videos · Language and the brain, Brain, ageing &amp; computation, Research methods</span>
+    <div class="topic-peek"><ul><li>Brain-based language networks, Evelina Fedorenko</li><li>Language and thought, Asifa Majid</li><li>The neurocognitive consequences of bilingualism, Mirjana Bozic</li><li>The resilient brain: cognition and ageing, Lorraine Tyler</li><li>How to study the brain from a computational view, Peter Dayan</li><li class="more">and 2 more</li></ul></div>
+  </div>
+</a>
+</div>
+```

@@ -1,0 +1,10 @@
+---
+title: "AI Safety"
+description: "1 video"
+toc: false
+---
+
+[← Video Resources](../videos.qmd)
+
+- [AI Evaluation Programme: Capabilities and Safety](https://www.youtube.com/@aievaluationorg)
+  <details><summary>My thoughts</summary>Good for seeing how people actually test what AI models can do and where they fail. Very relevant to my interests.</details>

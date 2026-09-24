@@ -1,0 +1,21 @@
+---
+title: "Linguistics"
+description: "4 books"
+toc: false
+---
+
+[← Books](../books.qmd)
+
+## Historical linguistics
+
+- *Historical Linguistics: An Introduction*, Lyle Campbell
+  <details><summary>My thoughts</summary>The standard textbook. Clear on sound change, comparative method and reconstruction.</details>
+- *Trask's Historical Linguistics*, Robert McColl Millar
+  <details><summary>My thoughts</summary>Readable and full of examples. A good companion to Campbell.</details>
+- *Linguistic Reconstruction*, Anthony Fox
+  <details><summary>My thoughts</summary>Goes deeper into how reconstruction actually works, and what its limits are.</details>
+
+## Indo-European
+
+- *Indo-European Language and Culture: An Introduction*, Benjamin Fortson
+  <details><summary>My thoughts</summary>The go-to overview of Indo-European languages, covering grammar, sound laws and culture together.</details>

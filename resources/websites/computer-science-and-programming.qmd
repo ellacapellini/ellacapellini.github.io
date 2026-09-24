@@ -1,0 +1,16 @@
+---
+title: "Computer Science & Programming"
+description: "4 websites"
+toc: false
+---
+
+[← Website Resources](../websites.qmd)
+
+- [GeeksforGeeks](https://www.geeksforgeeks.org)
+  <details><summary>My thoughts</summary>Quick, practical explanations and code examples. Great for looking things up fast.</details>
+- [freeCodeCamp](https://www.freecodecamp.org)
+  <details><summary>My thoughts</summary>Free, hands-on learning paths and long tutorials. Perfect for learning by doing.</details>
+- [Free Computer Books](https://freecomputerbooks.com)
+  <details><summary>My thoughts</summary>A handy directory of free textbooks and lecture notes on almost any CS topic.</details>
+- [Stanford Engineering Everywhere (Stanford)](https://see.stanford.edu)
+  <details><summary>My thoughts</summary>Full Stanford engineering and CS courses, available for free.</details>

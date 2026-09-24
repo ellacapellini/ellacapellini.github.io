@@ -1,0 +1,18 @@
+---
+title: "Ancient Religion"
+description: "5 books"
+toc: false
+---
+
+[← Books](../books.qmd)
+
+- *On Greek Religion*, J. Bremmer
+  <details><summary>My thoughts</summary>A concise, insightful overview of how Greek religion actually worked.</details>
+- *The Matter of the Gods: Religion and the Roman Empire*, C. Ando
+  <details><summary>My thoughts</summary>Makes a strong case for how Roman religion functioned across the Empire.</details>
+- *The Gods in Epic: Poets and Critics of the Classical Tradition*, D. Feeney
+  <details><summary>My thoughts</summary>Looks at how epic poets handle the gods. Great for literature and religion together.</details>
+- *From Jupiter to Christ: On the History of Religion in the Roman Imperial Period*, J. Rüpke
+  <details><summary>My thoughts</summary>Traces religious change across the Empire, up to the rise of Christianity.</details>
+- *The Gods, the State, and the Individual: Reflections on Civic Religion in Rome*, J. Scheid
+  <details><summary>My thoughts</summary>Explains Roman religion as a civic practice rather than personal belief.</details>

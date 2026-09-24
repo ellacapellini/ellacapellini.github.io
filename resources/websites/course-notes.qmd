@@ -1,0 +1,10 @@
+---
+title: "Course Notes"
+description: "1 website"
+toc: false
+---
+
+[← Website Resources](../websites.qmd)
+
+- [Peter Stran: ETH course notes](https://www.peterstran.com)
+  <details><summary>My thoughts</summary>Clean, well-organised notes for ETH courses. Very handy for revision.</details>

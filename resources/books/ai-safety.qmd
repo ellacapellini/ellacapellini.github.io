@@ -1,0 +1,10 @@
+---
+title: "AI Safety"
+description: "1 book"
+toc: false
+---
+
+[← Books](../books.qmd)
+
+- [Introduction to AI Safety, Ethics, and Society](https://www.aisafetybook.com), Dan Hendrycks ([my notes](../ai-safety-book.qmd))
+  <details><summary>My thoughts</summary>A broad, accessible framework for thinking about AI risk. It links technical ideas with ethics and policy.</details>

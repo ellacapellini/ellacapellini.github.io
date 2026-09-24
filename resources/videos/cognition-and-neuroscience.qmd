@@ -1,0 +1,30 @@
+---
+title: "Cognition & Neuroscience"
+description: "7 videos"
+toc: false
+---
+
+[← Video Resources](../videos.qmd)
+
+## Language and the brain
+
+- [Brain-based language networks, Evelina Fedorenko](https://www.youtube.com/watch?v=pWnR1aIfXTs)
+  <details><summary>My thoughts</summary>Fascinating evidence that language has its own dedicated brain network. A must-watch for neuro-linguistics.</details>
+- [Language and thought, Asifa Majid](https://www.youtube.com/watch?v=fuPsNAXi1W8)
+  <details><summary>My thoughts</summary>Explores how much the language you speak shapes the way you perceive the world. Cross-linguistic examples are great.</details>
+- [The neurocognitive consequences of bilingualism, Mirjana Bozic](https://www.youtube.com/watch?v=TgSzvvCrLno)
+  <details><summary>My thoughts</summary>What speaking two languages does to the brain, with the myths separated from the evidence.</details>
+
+## Brain, ageing & computation
+
+- [The resilient brain: cognition and ageing, Lorraine Tyler](https://www.youtube.com/watch?v=y4GaxxlJHFs)
+  <details><summary>My thoughts</summary>A hopeful take on how the brain adapts as we age.</details>
+- [How to study the brain from a computational view, Peter Dayan](https://www.youtube.com/watch?v=CttxFk4BYrM)
+  <details><summary>My thoughts</summary>A clear overview of what computational models can and cannot tell us about the brain.</details>
+- [Science meets music, Peter Dayan](https://www.youtube.com/watch?v=xdKAJkNZYUM)
+  <details><summary>My thoughts</summary>A lighter talk on why music affects us the way it does, seen through learning and prediction.</details>
+
+## Research methods
+
+- [Science: how not to do it, Bob Carlyon](https://www.youtube.com/watch?v=8DGqAj6tWgk)
+  <details><summary>My thoughts</summary>Funny and useful. A good checklist of research pitfalls to avoid in my own work.</details>

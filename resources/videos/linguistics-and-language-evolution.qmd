@@ -1,0 +1,28 @@
+---
+title: "Linguistics & Language Evolution"
+description: "6 videos"
+toc: false
+---
+
+[← Video Resources](../videos.qmd)
+
+## Introductions
+
+- [Introduction to Linguistics](https://www.youtube.com/watch?v=Mvy5hjAWeZw&list=PLUl4u3cNGP63BZGNOqrF2qf_yxOjuG35j)
+  <details><summary>My thoughts</summary>A solid starting point covering phonetics through syntax and semantics. Good for building foundations.</details>
+- [Language, Mind and Brain: the cognitive biology of language](https://www.youtube.com/watch?v=z6rVdlSfmYo)
+  <details><summary>My thoughts</summary>Looks at language as a biological capacity rather than just a system of rules. Made me think differently about what language even is.</details>
+
+## Language evolution
+
+- [How humans got language, Simon Kirby](https://www.youtube.com/watch?v=ZIen7jJhvPM)
+  <details><summary>My thoughts</summary>Shows how language structure can emerge through cultural transmission. Simple experiments, big ideas.</details>
+- [Language evolution, big gods and rituals, Russell Gray](https://www.youtube.com/watch?v=RGML2mMAaEI)
+  <details><summary>My thoughts</summary>Uses phylogenetic methods borrowed from biology to study language and culture. A fun mix of disciplines.</details>
+
+## Language learning & processing
+
+- [A computational approach to early language bootstrapping](https://www.youtube.com/watch?v=oclbYbGbxSE)
+  <details><summary>My thoughts</summary>How models can explain the way babies get a foothold in language. Sits right where linguistics meets ML.</details>
+- [Ecological language: a multimodal approach to language learning and processing, Gabriella Vigliocco](https://aovivo.abralin.org/en/lives/gabriella-vigliocco-2/)
+  <details><summary>My thoughts</summary>A reminder that real language is gesture, sound and context, not just text. Great counterpoint to text-only models.</details>

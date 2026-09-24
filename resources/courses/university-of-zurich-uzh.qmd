@@ -1,0 +1,23 @@
+---
+title: "University of Zurich (UZH)"
+description: "5 courses"
+toc: false
+---
+
+[← Open Courses](../courses.qmd)
+
+## Neuroscience & vision
+
+- [Systems Neuroscience, Daniel C. Kiper](https://tilde.ini.uzh.ch/~kiper/system_neurosci.html)
+  <details><summary>My thoughts</summary>Solid overview of how neural systems work, from sensory pathways up to cognition.</details>
+- [Biological and Computational Vision, Daniel Kiper](https://tilde.ini.uzh.ch/~kiper/comp_vis/index.html)
+  <details><summary>My thoughts</summary>Compares how brains and machines see. Really useful for the neuro-AI connection.</details>
+- [Consciousness: from philosophy to neuroscience, Daniel Kiper & guests](https://tilde.ini.uzh.ch/~kiper/consciousness.html)
+  <details><summary>My thoughts</summary>Big questions approached from several angles. Good food for thought.</details>
+
+## Linguistics
+
+- [Linguistic Typology in Evolutionary Perspective, Balthasar Bickel](https://www.isle.uzh.ch/en/bickel/presentations.html)
+  <details><summary>My thoughts</summary>Explains why languages vary and what that says about their history. Very data-driven.</details>
+- [Nature and Culture in Language Evolution, Balthasar Bickel](https://uzh.mediaspace.cast.switch.ch/error/error?from=6a8dbcd039bd7)
+  <details><summary>My thoughts</summary>Looks at how biology and culture together shape languages over time.</details>

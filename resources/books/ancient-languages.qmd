@@ -1,0 +1,25 @@
+---
+title: "Ancient Languages"
+description: "6 books"
+toc: false
+---
+
+[← Books](../books.qmd)
+
+## Latin
+
+- *The Regional Diversification of Latin 200 BC – AD 600*, J. N. Adams
+  <details><summary>My thoughts</summary>Shows how Latin varied across the Empire. Dense but a real eye-opener.</details>
+- *The Blackwell History of the Latin Language*, James Clackson & Geoffrey Horrocks
+  <details><summary>My thoughts</summary>A great single-volume history of Latin, from its origins to its descendants.</details>
+- *A Companion to the Latin Language*, James Clackson (ed.)
+  <details><summary>My thoughts</summary>Essays on many aspects of Latin. Good to dip into by topic.</details>
+- *Beyond Greek: The Beginnings of Latin Literature*, Denis Feeney
+  <details><summary>My thoughts</summary>How Roman literature grew out of Greek models while becoming its own thing.</details>
+
+## Mycenaean Greek
+
+- *The Mycenaean World*, John Chadwick
+  <details><summary>My thoughts</summary>A lively introduction to Mycenaean society, drawn from the Linear B tablets.</details>
+- *Linear B: An Introduction*, J. T. Hooker
+  <details><summary>My thoughts</summary>A practical guide to the script and the language behind it.</details>

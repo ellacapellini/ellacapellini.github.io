@@ -1,0 +1,12 @@
+---
+title: "Statistics & Anatomy"
+description: "2 websites"
+toc: false
+---
+
+[← Website Resources](../websites.qmd)
+
+- [Seeing Theory (Brown University)](https://seeing-theory.brown.edu)
+  <details><summary>My thoughts</summary>Interactive visualisations that make probability and statistics click. Beautifully done.</details>
+- [BioDigital Human](https://human.biodigital.com)
+  <details><summary>My thoughts</summary>An interactive 3D model of the human body. Great for exploring brain and anatomy.</details>

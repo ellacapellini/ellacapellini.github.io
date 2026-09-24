@@ -1,0 +1,43 @@
+---
+title: "Open Courses"
+description: "Freely available university courses."
+image: assets/courses.jpg
+toc: true
+toc-depth: 3
+---
+
+## Yale Open Courses
+
+- [Introduction to Ancient Greek History, Donald Kagan](https://oyc.yale.edu/classics/clcv-205)
+  <details><summary>My thoughts</summary>A masterful sweep from the Bronze Age to the fourth century BC. Kagan is an engaging lecturer.</details>
+- [Dante in Translation, Giuseppe Mazzotta](https://oyc.yale.edu/italian-language-and-literature/ital-310)
+  <details><summary>My thoughts</summary>Makes the Divine Comedy feel alive, with lots of context on medieval thought.</details>
+- [Philosophy and the Science of Human Nature, Tamar S. Gendler](https://oyc.yale.edu/philosophy/phil-181)
+  <details><summary>My thoughts</summary>Philosophy meets cognitive science. Great if you like asking what the mind is.</details>
+- [Death, Shelly Kagan](https://oyc.yale.edu/death/phil-176)
+  <details><summary>My thoughts</summary>Rigorous and surprisingly gripping. Makes you question what you think about mortality.</details>
+- [Fundamentals of Physics I and II, Ramamurti Shankar](https://oyc.yale.edu/physics/phys-200)
+  <details><summary>My thoughts</summary>A wonderfully clear physics course from a great teacher. Perfect for building real intuition.</details>
+
+## University of Zurich (UZH)
+
+### Neuroscience & vision
+
+- [Systems Neuroscience, Daniel C. Kiper](https://tilde.ini.uzh.ch/~kiper/system_neurosci.html)
+  <details><summary>My thoughts</summary>Solid overview of how neural systems work, from sensory pathways up to cognition.</details>
+- [Biological and Computational Vision, Daniel Kiper](https://tilde.ini.uzh.ch/~kiper/comp_vis/index.html)
+  <details><summary>My thoughts</summary>Compares how brains and machines see. Really useful for the neuro-AI connection.</details>
+- [Consciousness: from philosophy to neuroscience, Daniel Kiper & guests](https://tilde.ini.uzh.ch/~kiper/consciousness.html)
+  <details><summary>My thoughts</summary>Big questions approached from several angles. Good food for thought.</details>
+
+### Linguistics
+
+- [Linguistic Typology in Evolutionary Perspective, Balthasar Bickel](https://www.isle.uzh.ch/en/bickel/presentations.html)
+  <details><summary>My thoughts</summary>Explains why languages vary and what that says about their history. Very data-driven.</details>
+- [Nature and Culture in Language Evolution, Balthasar Bickel](https://uzh.mediaspace.cast.switch.ch/error/error?from=6a8dbcd039bd7)
+  <details><summary>My thoughts</summary>Looks at how biology and culture together shape languages over time.</details>
+
+## EPFL
+
+- [Artificial Neural Networks and Deep Learning (video lectures), Wulfram Gerstner](https://lcnwww.epfl.ch/gerstner/VideoLecturesANN-Gerstner.html)
+  <details><summary>My thoughts</summary>A rigorous, well-structured course that connects artificial networks to biological ones.</details>

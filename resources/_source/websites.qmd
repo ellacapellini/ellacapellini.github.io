@@ -1,0 +1,30 @@
+---
+title: "Website Resources"
+description: "Websites I find useful for studying."
+image: assets/websites.jpg
+toc: true
+toc-depth: 3
+---
+
+## Computer Science & Programming
+
+- [GeeksforGeeks](https://www.geeksforgeeks.org)
+  <details><summary>My thoughts</summary>Quick, practical explanations and code examples. Great for looking things up fast.</details>
+- [freeCodeCamp](https://www.freecodecamp.org)
+  <details><summary>My thoughts</summary>Free, hands-on learning paths and long tutorials. Perfect for learning by doing.</details>
+- [Free Computer Books](https://freecomputerbooks.com)
+  <details><summary>My thoughts</summary>A handy directory of free textbooks and lecture notes on almost any CS topic.</details>
+- [Stanford Engineering Everywhere (Standford)] (https://see.stanford.edu)
+  <details><summary>My thoughts</summary>Full Stanford engineering and CS courses, available for free.</details>
+
+## Statistics & Anatomy
+
+- [Seeing Theory (Brown University)](https://seeing-theory.brown.edu)
+  <details><summary>My thoughts</summary>Interactive visualisations that make probability and statistics click. Beautifully done.</details>
+- [BioDigital Human](https://human.biodigital.com)
+  <details><summary>My thoughts</summary>An interactive 3D model of the human body. Great for exploring brain and anatomy.</details>
+
+## Course Notes
+
+- [Peter Stran: ETH course notes](https://www.peterstran.com)
+  <details><summary>My thoughts</summary>Clean, well-organised notes for ETH courses. Very handy for revision.</details>
