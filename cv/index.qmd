@@ -20,6 +20,7 @@ I am interested in the theoretical foundations of reliable evaluation and reason
 09/2020 – 09/2023
 :   **BSc Psychological Sciences**, Catholic University of the Sacred Heart, Milan, Italy  
     Relevant modules: Fundamentals of Neurobiology and Genetics, Developmental Psychology, Clinical Psychology, Applied Cognitive Psychology, Neuropsychology and Anatomofunctional Base of Cognitive Processes, Psychology of Personality, Psychology of Adolescence, Methods and Techniques of Psychological Assessment and Interview, Research Methods in Psychology I and II, Psychometric Statistics, Dynamic Psychology, History of Contemporary  Philosophy, Theoretical Philosophy, Philosophy of History, History of Moral Doctrines. 
+    
     Thesis: "The Neurophysiology of Hallucinatory Phenomena".
 
 ## Research experience
@@ -48,17 +49,22 @@ I am interested in the theoretical foundations of reliable evaluation and reason
 
 2025
 :   **Independent research projects and seminar papers**, University of Oldenburg  
-    Bilingual processing and auditory perception (Prof. Dr. Esther Ruigendijk, summer 2025). Predictive control in auditory efferent systems (Dr. Go Ashida, summer 2025). Rhythmic typology and information packaging in German and Italian prosodic phrasing (Prof. Dr. Marcel Schlechtweg, March 2025). Morphology of, and code-switching in, the Manarolese dialect across three generations (Dr. Dobrinka Genevska-Hanke, January 2025).
+    Bilingual processing and auditory perception (Prof. Dr. Esther Ruigendijk, summer 2025). 
+    Predictive control in auditory efferent systems (Dr. Go Ashida, summer 2025). 
+    Rhythmic typology and information packaging in German and Italian prosodic phrasing (Prof. Dr. Marcel Schlechtweg, March 2025). 
+    Morphology of, and code-switching in, the Manarolese dialect across three generations (Dr. Dobrinka Genevska-Hanke, January 2025).
 
 ## Computational projects
 
 2025
 :   **Homeric Formula Deviation Detector** (Python)  
-    Information-theoretic signatures of narrative salience in oral poetry, using surprisal analysis over 15,683 lines of Ancient Greek. [Code](https://github.com/ellacapellini/homeric-formula-deviation)
+    Information-theoretic signatures of narrative salience in oral poetry, using surprisal analysis over 15,683 lines of Ancient Greek. Parsed 15,683 lines of Ancient Greek, extracted 581 character mentions, computed -log₂(P(formula|context)) using n-gram models. High-surprisal moments (4.34-6.07 bits) clustered at narrative climaxes (deaths, armour exchanges), suggesting systematic exploitation of prediction error—parallel to efficient coding in sensory neuroscience.
+    [Code](https://github.com/ellacapellini/homeric-formula-deviation)
 
 2025
 :   **Linear B Diachronic Phonological Mapper** (JavaScript, Python)  
-    A toolkit for transcribing, parsing and visualising the phonological evolution of Mycenaean into Classical Greek. [Code](https://github.com/ellacapellini/Linear-B-Diachronic-Phonological-Mapper)
+    A toolkit for transcribing, parsing and visualising the phonological evolution of Mycenaean into Classical Greek. Handles syllabogram-to-phoneme mapping, morphological boundaries, frequency analysis of sign co-occurrence patterns.
+    [Code](https://github.com/ellacapellini/Linear-B-Diachronic-Phonological-Mapper)
 
 ## Conferences
 
@@ -91,6 +97,6 @@ Languages
 ## Additional courses
 
 MIT OpenCourseWare and others
-:   Signals and Systems and Sensory Systems (2024). Brain Mechanisms for Hearing and Speech, AFNI Training Bootcamp, fMRI Bootcamp, Brains, Minds and Machines Summer Course, Statistics for Applications (2025). Computational Neuroscience with Neuroblox, Introduction to Deep Learning and Hands-On Deep Learning (2026).
+:   Signals and Systems and Sensory Systems (2024).Brain Mechanisms for Hearing and Speech, AFNI Training Bootcamp, fMRI Bootcamp, Brains, Minds and Machines Summer Course, Statistics for Applications (2025). Computational Neuroscience with Neuroblox, Introduction to Deep Learning and Hands-On Deep Learning (2026).
 
 :::
