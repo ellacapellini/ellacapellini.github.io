@@ -43,10 +43,8 @@ Useful to know:
 
 ### The blog
 
-There is no blog on the site for now. It is parked in the folder `_blog` (folders starting with `_`
-are not published), with its list page, a template and an example post that shows maths, code and
-callouts. To bring it back: rename `_blog` to `blog`, add `- text: Blog` and `href: blog/index.qmd`
-to the menu in `_quarto.yml`, and a `{ label: 'Blog', href: 'blog/' }` line to `sections` in `index.html`.
+There is no blog on the site for now. It is parked in the folder `_blog` (folders starting with `_` are not published), with its list page, a template and an example post that shows maths, code and
+callouts. To bring it back: rename `_blog` to `blog`, add `- text: Blog` and `href: blog/index.qmd` to the menu in `_quarto.yml`, and a `{ label: 'Blog', href: 'blog/' }` line to `sections` in `index.html`.
 
 ### The CV
 
@@ -88,13 +86,13 @@ Later, for your own domain: *Settings → Pages → Custom domain*.
 `index.html` is your own file and Quarto copies it as it is. Everything you would want to change is in
 the `CONFIG` block near the top of its script:
 
-- `eyebrow` (the small line above your name), `lede` (the sentence under your name, shown at once) and `phrases`
+- `eyebrow` (the small line above my name), `lede` (the sentence under my name, shown at once) and `phrases`
   (typed out one after another underneath; the last one stays).
 - `tree`: `false` (as shipped) shows only the leaves, hanging from the top edge; `true` brings back the
   trunk and limbs they hang from.
 - `links`: the four icons. The CV icon and the CV tablet open the PDF in `cv/Ella-Capellini-CV.pdf`;
   **to update your CV, replace that file** (keep the name). An empty `href` hides an icon.
-- `sections`: the tablets, and the branches that grow out of them. If you rename or add a section,
+- `sections`: the tablets, and the branches that grow out of them. If I rename or add a section,
   change the link there and in the menu in `_quarto.yml`.
 
 The light/dark switch (top right) remembers the visitor's choice and shares it with the other pages.

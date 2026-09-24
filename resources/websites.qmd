@@ -12,7 +12,7 @@ toc: false
   <details><summary>My thoughts</summary>Free, hands-on learning paths and long tutorials. Perfect for learning by doing.</details>
 - [Free Computer Books](https://freecomputerbooks.com)
   <details><summary>My thoughts</summary>A handy directory of free textbooks and lecture notes on almost any CS topic.</details>
-- Stanford Engineering Everywhere (Standford) (https://see.stanford.edu)
+- [Stanford Engineering Everywhere (Standford)] (https://see.stanford.edu)
   <details><summary>My thoughts</summary>Full Stanford engineering and CS courses, available for free.</details>
 
 ## Statistics & Anatomy

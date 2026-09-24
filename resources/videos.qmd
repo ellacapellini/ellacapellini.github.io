@@ -7,13 +7,13 @@ toc-depth: 3
 
 ## Maths, Statistics & Computer Science
 
-- Mike X Cohen (https://www.youtube.com/@mikexcohen1)
+- [Mike X Cohen] (https://www.youtube.com/@mikexcohen1)
   <details><summary>My thoughts</summary>Great for linear algebra, signal processing and data analysis with a neuroscience flavour. Very clear, very thorough.</details>
-- The Organic Chemistry Tutor (https://www.youtube.com/@TheOrganicChemistryTutor)
+- [The Organic Chemistry Tutor] (https://www.youtube.com/@TheOrganicChemistryTutor)
   <details><summary>My thoughts</summary>My go-to when I need a topic explained step by step. Tons of worked examples, whatever the subject.</details>
 - [3Blue1Brown](https://www.youtube.com/@3blue1brown)
   <details><summary>My thoughts</summary>Beautiful visual intuition for maths and neural networks. Watch it before the formal version.</details>
-- CS50: Introduction to Computer Science (https://www.youtube.com/@cs50)
+- [CS50: Introduction to Computer Science] (https://www.youtube.com/@cs50)
   <details><summary>My thoughts</summary>The best gentle introduction to CS I know. Lectures are engaging and the problem sets are great practice.</details>
 - [Introduction to Statistical Learning](https://www.youtube.com/watch?v=5N9V07EIfIg&list=PLOg0ngHtcqbPTlZzRHA2ocQZqB1D_qZ5V)
   <details><summary>My thoughts</summary>A friendly, practical intro to regression, classification and resampling. Pairs perfectly with the book.</details>
@@ -22,7 +22,7 @@ toc-depth: 3
 
 ## Machine Learning & NLP
 
-- CS224N: Natural Language Processing with Deep Learning (Stanford) (https://www.youtube.com/watch?v=DzpHeXVSC5I&list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [CS224N: Natural Language Processing with Deep Learning (Stanford)] (https://www.youtube.com/watch?v=DzpHeXVSC5I&list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
   <details><summary>My thoughts</summary>The reference course for modern NLP, from word vectors to transformers. Demanding but worth it.</details>
 
 ## AI Safety
