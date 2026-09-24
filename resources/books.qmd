@@ -1,7 +1,7 @@
-image: assets/books.jpg
 ---
 title: "Books"
 description: "My reading list, grouped by topic."
+image: assets/books.jpg
 toc: true
 toc-depth: 3
 ---
