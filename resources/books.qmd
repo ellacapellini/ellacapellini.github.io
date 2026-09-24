@@ -1,5 +1,4 @@
-image: ../resources/assets/books.jpg
-
+image: assets/books.jpg
 ---
 title: "Books"
 description: "My reading list, grouped by topic."
