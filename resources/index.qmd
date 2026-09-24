@@ -3,14 +3,18 @@ title: "Resources"
 subtitle: "Videos, lectures, books and papers, with my notes."
 listing:
   contents:
-    - "*.qmd"
-    - "*/index.qmd"
+    - books.qmd
+    - courses.qmd
+    - videos.qmd
+    - websites.qmd
   template: ../_templates/entries.ejs.md
-  type: custom
+  type: grid
+  grid-columns: 2
+  image-height: 220px
   sort: "date desc"
   date-format: "MMM YYYY"
   fields: [date, title, description, author, categories, greek, repo, paper, demo, slides, pdf, source]
-  categories: true
+  categories: false
   sort-ui: false
   filter-ui: false
   page-size: 50
