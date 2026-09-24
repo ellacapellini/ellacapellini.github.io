@@ -1,6 +1,7 @@
 ---
 title: "Video Resources"
 description: "Lectures and channels I use for learning."
+image: assets/videos.jpg
 toc: true
 toc-depth: 3
 ---
