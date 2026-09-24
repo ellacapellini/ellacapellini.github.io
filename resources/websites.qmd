@@ -1,7 +1,9 @@
 ---
 title: "Website Resources"
 description: "Websites I find useful for studying."
-toc: false
+image: assets/websites.jpg
+toc: true
+toc-depth: 3
 ---
 
 ## Computer Science & Programming
