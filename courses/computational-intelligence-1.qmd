@@ -2,7 +2,7 @@
 title: "Computational Intelligence 1"
 date: 2026-02-24
 description: >
-  Notes and exercises from the course INF535, Computational Intelligence 1.
+  Notes and exercises from the course INF535, Computational Intelligence 1, held by Prof. Dr. Oliver Kramer
 repo: https://github.com/ellacapellini/Computational-Intelligence-1-
 categories: [Course]
 ---

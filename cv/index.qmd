@@ -15,10 +15,11 @@ I am interested in the theoretical foundations of reliable evaluation and reason
 
 09/2023 – now
 :   **MSc Neuroscience**, Carl von Ossietzky University of Oldenburg, Germany  
-    Relevant modules: Neuroscientific Data Analysis (Python and Matlab), Computational Neuroscience (Encoding/Decoding and Biophysical Modelling), Auditory Neuroscience, Language and Hearing, Psycholinguistics, Computational Intelligence I.
+    Relevant modules: Neuroscientific Data Analysis (Python and Matlab), Computational Neuroscience (Encoding/Decoding and Biophysical Modelling), Auditory Neuroscience, Language and Hearing, Psycholinguistics, Computational Intelligence I, Introduction to Neurophysics, Neuroethology and Neurogenetics, Neurosensory Science and Behaviour. 
 
 09/2020 – 09/2023
 :   **BSc Psychological Sciences**, Catholic University of the Sacred Heart, Milan, Italy  
+    Relevant modules: Fundamentals of Neurobiology and Genetics, Developmental Psychology, Clinical Psychology, Applied Cognitive Psychology, Neuropsychology and Anatomofunctional Base of Cognitive Processes, Psychology of Personality, Psychology of Adolescence, Methods and Techniques of Psychological Assessment and Interview, Research Methods in Psychology I and II, Psychometric Statistics, Dynamic Psychology, History of Contemporary  Philosophy, Theoretical Philosophy, Philosophy of History, History of Moral Doctrines. 
     Thesis: "The Neurophysiology of Hallucinatory Phenomena".
 
 ## Research experience
@@ -26,19 +27,24 @@ I am interested in the theoretical foundations of reliable evaluation and reason
 04/2026 – now
 :   **Master thesis: Cross-linguistic generalisation of the prosodic hierarchy**  
     Institute for the Interdisciplinary Study of Language Evolution (ISLE), University of Zürich. Prof. Dr. Martin Meyer (UZH) and Prof. Dr. Stefan Debener (Oldenburg), in collaboration with PD Dr. Elisa Pellegrino.  
-    An EEG study of cortical entrainment to Italian speech in Italian L1 listeners, asking whether the level-selective entrainment pattern found for German generalises to a related language with a different constraint ranking. [More](../research/prosodic-hierarchy-italian.qmd)
+    Asks whether the level-selective cortical entrainment pattern established for German by Oderbolz et al. (2024) — in which phase-amplitude coupling tracks a top-down structure from intonational phrase to foot to syllable — generalises to Italian, a typologically related but constraint-divergent language. Rather than a cross-linguistic comparison design, the study constructs a parallel Italian stimulus set following the same manipulation logic as the original paradigm and tests whether the same entrainment hierarchy emerges when both stimuli and listeners are Italian L1. Italian is a theoretically motivated test case because it shares core prosodic architecture with German (free lexical stress, a full prosodic hierarchy, focus encoded through prominence) but differs in constraint ranking: German prioritises rhythmic regularity, while Italian prioritises focus-driven phrasing. A difference in entrainment profiles would therefore implicate language-specific constraint ranking in shaping the quantitative expression of an otherwise shared hierarchical mechanism. The design is purely neural (EEG, ~30 Italian L1 listeners recruited in Zurich), with audio-motor synchronisation as a modular individual-differences predictor. Core analysis: pairwise phase consistency at theta, high delta, and low delta bands via glmertree, with PAC/DAR modelling as an extension.
 
 06/2026 – now
 :   **Research assistant**, LiRi Lab, University of Zürich  
-    With Dr. Fivos Iliopoulos and Prof. Dr. Nathalie Giroud. Hyperscanning EEG experiments on neural synchrony during social interaction: experiment support and EEG preprocessing.
+    With Dr. Fivos Iliopoulos and Prof. Dr. Nathalie Giroud. 
+    Assisting with hyperscanning EEG experiments investigating neural synchrony during social interaction, with responsibilities spanning experiment support and EEG preprocessing. 
 
 06/2026 – now
 :   **Hierarchical Bayesian TRF model comparison for speech encoding in iEEG**  
-    Semester research project, Neural Dynamics Lab, Institute of Neuroinformatics, ETH Zürich. Prof. Dr. Timothée Proix, in collaboration with Prof. Dr. Balthasar Bickel (UZH & NCCR). [More](../research/hierarchical-bayesian-trf.qmd)
+    Semester research project, Neural Dynamics Lab, Institute of Neuroinformatics, ETH Zürich. Prof. Dr. Timothée Proix, in collaboration with Prof. Dr. Balthasar Bickel (UZH & NCCR). 
+    Designing and implementing a formal model comparison between two hierarchical Bayesian TRF frameworks for intracranial EEG: a raised-cosine basis-function model with patient/electrode random effects, and a hierarchical Gaussian Process model in which smoothness itself (kernel lengthscale and variance) is allowed to vary by patient, electrode, and word-level surprisal. Both are compared against standard ridge-regression mTRF via held-out predictive accuracy and WAIC/LOO across seven total model variants. Surprisal (GPT-2, word-level, extending to phoneme-level via recent phoneme-LM work) enters as a predictor of neural response to naturalistic speech (The Little Prince dataset), with an explicit focus on distinguishing gain-control from predictive-coding accounts of how prediction error reshapes the temporal response function. All code (Python: NumPy, SciPy, PyMC, MNE-Python) independently validated against synthetic ground truth at each stage before use on real data; to be released on the Neural Dynamics Lab GitLab.
+    [More](../research/hierarchical-bayesian-trf.qmd)
 
-06/2026 – 09/2026
+06/2026 – now
 :   **Adaptation of Vib2Sound for missing and degraded accelerometer cues**  
-    Semester research project, Hahnloser Lab, ETH Zürich (supervisors: Mai Akahoshi and Yuhang Wang). [More](../research/vib2sound-missing-cues.qmd)
+    Semester research project, Hahnloser Lab, ETH Zürich (supervisors: Mai Akahoshi and Yuhang Wang). 
+    Extending Vib2Sound — a deep learning model for zebra finch vocalisation separation conditioned on body-mounted accelerometer signals — to handle cue degradation across a continuous spectrum rather than binary absence. The project implements and evaluates three complementary approaches: a cascade architecture guaranteeing the model never underperforms the audio-only baseline, continuous degradation training with realistic noise augmentation (Gaussian noise, gain reduction, band masking), and a Cross-Modal Correspondence contrastive loss to shape identity-discriminative audio representations without inference cost. Additional contribution to the BirdPark annotation pipeline.
+    [More](../research/vib2sound-missing-cues.qmd)
 
 2025
 :   **Independent research projects and seminar papers**, University of Oldenburg  
