@@ -4,6 +4,7 @@ project:
   resources:
     - index.html            # your willow entrance, copied to the site untouched
     - cv/Ella-Capellini-CV.pdf   # opened by the CV tablet and icon on the entrance
+    - resources/assets/topics/*     # topic card images used as CSS backgrounds
 
 website:
   title: "Ella Capellini"
