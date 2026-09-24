@@ -7,7 +7,7 @@ description: >
 categories: [Book]
 toc: true
 source: https://www.aisafetybook.com
-draft: true
+draft: false
 ---
 
 ## Key Notes & Takeaways
