@@ -2,7 +2,7 @@
 title: "Neuroscientific Data Analysis with MATLAB"
 date: 2026-03-02
 description: >
-  Materials from NEU710, Neuroscientific Data Analysis with MATLAB. Held by Chrostoph Block and Prof. Dr. Jutta Kretzberg
+  Materials from NEU710, Neuroscientific Data Analysis with MATLAB, held by Chrostoph Block and Prof. Dr. Jutta Kretzberg
 image: assets/data-analysis.jpg
 repo: https://github.com/ellacapellini/neu710-Neuroscientific-Data-Analysis-with-MATLAB
 categories: [Course]
