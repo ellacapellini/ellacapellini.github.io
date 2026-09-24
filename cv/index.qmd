@@ -13,13 +13,17 @@ I am interested in the theoretical foundations of reliable evaluation and reason
 
 ## Education
 
+06/2026 – now
+:   **Visiting Graduate Student**, ETH Zürich & University of Zürich, Switzerland 
+    <u>Relevant modules</u>: *Probabilistic Artificial Intelligence, Learning in Deep Artificial and Biological Neuronal Netwroks, Neural Networks and Computational Complexity, Introduction to Neuroinformatics.*
+
 09/2023 – now
 :   **MSc Neuroscience**, Carl von Ossietzky University of Oldenburg, Germany  
-    Relevant modules: Neuroscientific Data Analysis (Python and Matlab), Computational Neuroscience (Encoding/Decoding and Biophysical Modelling), Auditory Neuroscience, Language and Hearing, Psycholinguistics, Computational Intelligence I, Introduction to Neurophysics, Neuroethology and Neurogenetics, Neurosensory Science and Behaviour. 
+    <u>Relevant modules</u>: *Neuroscientific Data Analysis (Python and Matlab), Computational Neuroscience (Encoding/Decoding and Biophysical Modelling), Auditory Neuroscience, Language and Hearing, Psycholinguistics, Computational Intelligence I, Introduction to Neurophysics, Neuroethology and Neurogenetics, Neurosensory Science and Behaviour.*
 
 09/2020 – 09/2023
 :   **BSc Psychological Sciences**, Catholic University of the Sacred Heart, Milan, Italy  
-    Relevant modules: Fundamentals of Neurobiology and Genetics, Developmental Psychology, Clinical Psychology, Applied Cognitive Psychology, Neuropsychology and Anatomofunctional Base of Cognitive Processes, Psychology of Personality, Psychology of Adolescence, Methods and Techniques of Psychological Assessment and Interview, Research Methods in Psychology I and II, Psychometric Statistics, Dynamic Psychology, History of Contemporary  Philosophy, Theoretical Philosophy, Philosophy of History, History of Moral Doctrines. 
+    <u>Relevant modules</u>: *Fundamentals of Neurobiology and Genetics, Developmental Psychology, Clinical Psychology, Applied Cognitive Psychology, Neuropsychology and Anatomofunctional Base of Cognitive Processes, Psychology of Personality, Psychology of Adolescence, Methods and Techniques of Psychological Assessment and Interview, Research Methods in Psychology I and II, Psychometric Statistics, Dynamic Psychology, History of Contemporary  Philosophy, Theoretical Philosophy, Philosophy of History, History of Moral Doctrines.* 
     
     Thesis: "The Neurophysiology of Hallucinatory Phenomena".
 
