@@ -22,10 +22,6 @@ toc-depth: 3
 - *Linguistic Reconstruction*, Anthony Fox
   <details><summary>My thoughts</summary>Goes deeper into how reconstruction actually works, and what its limits are.</details>
 
-### Indo-European
-
-- *Indo-European Language and Culture: An Introduction*, Benjamin Fortson
-  <details><summary>My thoughts</summary>The go-to overview of Indo-European languages, covering grammar, sound laws and culture together.</details>
 
 ## Ancient Languages
 
@@ -46,6 +42,11 @@ toc-depth: 3
   <details><summary>My thoughts</summary>A lively introduction to Mycenaean society, drawn from the Linear B tablets.</details>
 - *Linear B: An Introduction*, J. T. Hooker
   <details><summary>My thoughts</summary>A practical guide to the script and the language behind it.</details>
+
+### Indo-European
+
+- *Indo-European Language and Culture: An Introduction*, Benjamin Fortson
+  <details><summary>My thoughts</summary>The go-to overview of Indo-European languages, covering grammar, sound laws and culture together.</details>
 
 ## Ancient Religion
 
