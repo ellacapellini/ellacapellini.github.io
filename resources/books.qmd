@@ -1,0 +1,17 @@
+---
+title: "Introduction to AI Safety, Ethics, and Society"
+date: 2025-01-15
+author: Dan Hendrycks et al.
+description: >
+  Provides a comprehensive foundational framework for understanding AI risks, alignment methodologies, and governance.
+categories: [Book]
+toc: true
+source: https://www.aisafetybook.com
+draft: true
+---
+
+## Key Notes & Takeaways
+
+* **Core Premise:** Systematic risk management in AI requires addressing four distinct categories: malicious use, competitive pressures (race dynamics), structural risks, and alignment failure.
+* **Technical Insights:** Covers mechanistic interpretability, goal misgeneralization, and reward hacking with empirical case studies.
+* **Personal Takeaway:** Extremely valuable bridge between technical alignment research and high-level policy frameworks.
