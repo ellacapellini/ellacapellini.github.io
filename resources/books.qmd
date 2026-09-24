@@ -1,17 +1,75 @@
 ---
-title: "Introduction to AI Safety, Ethics, and Society"
-date: 2025-01-15
-author: Dan Hendrycks et al.
-description: >
-  Provides a comprehensive foundational framework for understanding AI risks, alignment methodologies, and governance.
-categories: [Book]
+title: "Books"
+description: "My reading list, grouped by topic."
 toc: true
-source: https://www.aisafetybook.com
-draft: false
+toc-depth: 3
 ---
 
-## Key Notes & Takeaways
+## AI Safety
 
-* **Core Premise:** Systematic risk management in AI requires addressing four distinct categories: malicious use, competitive pressures (race dynamics), structural risks, and alignment failure.
-* **Technical Insights:** Covers mechanistic interpretability, goal misgeneralization, and reward hacking with empirical case studies.
-* **Personal Takeaway:** Extremely valuable bridge between technical alignment research and high-level policy frameworks.
+- [Introduction to AI Safety, Ethics, and Society](https://www.aisafetybook.com), Dan Hendrycks ([my notes](ai-safety-book.qmd))
+  <details><summary>My thoughts</summary>A broad, accessible framework for thinking about AI risk. It links technical ideas with ethics and policy.</details>
+
+## Linguistics
+
+### Historical linguistics
+
+- *Historical Linguistics: An Introduction*, Lyle Campbell
+  <details><summary>My thoughts</summary>The standard textbook. Clear on sound change, comparative method and reconstruction.</details>
+- *Trask's Historical Linguistics*, Robert McColl Millar
+  <details><summary>My thoughts</summary>Readable and full of examples. A good companion to Campbell.</details>
+- *Linguistic Reconstruction*, Anthony Fox
+  <details><summary>My thoughts</summary>Goes deeper into how reconstruction actually works, and what its limits are.</details>
+
+### Indo-European
+
+- *Indo-European Language and Culture: An Introduction*, Benjamin Fortson
+  <details><summary>My thoughts</summary>The go-to overview of Indo-European languages, covering grammar, sound laws and culture together.</details>
+
+## Ancient Languages
+
+### Latin
+
+- *The Regional Diversification of Latin 200 BC – AD 600*, J. N. Adams
+  <details><summary>My thoughts</summary>Shows how Latin varied across the Empire. Dense but a real eye-opener.</details>
+- *The Blackwell History of the Latin Language*, James Clackson & Geoffrey Horrocks
+  <details><summary>My thoughts</summary>A great single-volume history of Latin, from its origins to its descendants.</details>
+- *A Companion to the Latin Language*, James Clackson (ed.)
+  <details><summary>My thoughts</summary>Essays on many aspects of Latin. Good to dip into by topic.</details>
+- *Beyond Greek: The Beginnings of Latin Literature*, Denis Feeney
+  <details><summary>My thoughts</summary>How Roman literature grew out of Greek models while becoming its own thing.</details>
+
+### Mycenaean Greek
+
+- *The Mycenaean World*, John Chadwick
+  <details><summary>My thoughts</summary>A lively introduction to Mycenaean society, drawn from the Linear B tablets.</details>
+- *Linear B: An Introduction*, J. T. Hooker
+  <details><summary>My thoughts</summary>A practical guide to the script and the language behind it.</details>
+
+## Ancient Religion
+
+- *On Greek Religion*, J. Bremmer
+  <details><summary>My thoughts</summary>A concise, insightful overview of how Greek religion actually worked.</details>
+- *The Matter of the Gods: Religion and the Roman Empire*, C. Ando
+  <details><summary>My thoughts</summary>Makes a strong case for how Roman religion functioned across the Empire.</details>
+- *The Gods in Epic: Poets and Critics of the Classical Tradition*, D. Feeney
+  <details><summary>My thoughts</summary>Looks at how epic poets handle the gods. Great for literature and religion together.</details>
+- *From Jupiter to Christ: On the History of Religion in the Roman Imperial Period*, J. Rüpke
+  <details><summary>My thoughts</summary>Traces religious change across the Empire, up to the rise of Christianity.</details>
+- *The Gods, the State, and the Individual: Reflections on Civic Religion in Rome*, J. Scheid
+  <details><summary>My thoughts</summary>Explains Roman religion as a civic practice rather than personal belief.</details>
+
+## Classical Reception & Popular Culture
+
+- *The Reception of Ancient Virtues and Vices in Modern Popular Culture: Beauty, Bravery, Blood and Glory*, Eran Almagor & Lisa Maurice
+  <details><summary>My thoughts</summary>How ancient ideas of virtue reappear in films, games and TV.</details>
+- *Tracking Classical Monsters in Popular Culture*, Liz Gloyn
+  <details><summary>My thoughts</summary>A fun look at how Medusa, the Minotaur and friends live on in modern media.</details>
+- *Ancient Greece on British Television*, Fiona Hobden
+  <details><summary>My thoughts</summary>Traces how the ancient world has been portrayed on the small screen.</details>
+- *Classics for All: Reworking Antiquity in Mass Culture*, Dunstan Lowe & Kim Shahabudin
+  <details><summary>My thoughts</summary>Shows how antiquity gets reinvented for wide audiences.</details>
+- *Once and Future Antiquities in Science Fiction*, Brett M. Rogers & B. Eldon Stevens
+  <details><summary>My thoughts</summary>Where classics meets sci-fi. A cool and unusual angle.</details>
+- *Critical Ancient World Studies: The Case for Forgetting Classics*, Mathura Umachandran & Marchella Ward
+  <details><summary>My thoughts</summary>A provocative argument for rethinking how we study the ancient world.</details>
