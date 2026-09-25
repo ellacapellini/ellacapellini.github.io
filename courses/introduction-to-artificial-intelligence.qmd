@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Artificial Intelligence"
-date: 2026-02-24
+date: 2026-03-24
 description: >
   Notes and exercises from the course Introduction to Artificial Intelligence. 
   Held by Prof. Dr. Oliver Kramer at the University of Oldenburg.

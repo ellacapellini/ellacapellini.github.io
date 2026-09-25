@@ -1,6 +1,6 @@
 ---
 title: "Learning in Deep Artificial and Biological Networks"
-date: 2026-02-24
+date: 2026-09-24
 description: >
   Notes and exercises from the course Learning in Deep Artificial and Biological Networks
   Held by Prof. Dr. Benhamin Grewe at the ETH Zürich.
