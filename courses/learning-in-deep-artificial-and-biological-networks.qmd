@@ -1,0 +1,12 @@
+---
+title: "Learning in Deep Artificial and Biological Networks"
+date: 2026-02-24
+description: >
+  Notes and exercises from the course Learning in Deep Artificial and Biological Networks
+  Held by Prof. Dr. Benhamin Grewe at the ETH Zürich.
+image: assets/learning-in-deep-artificial-and-biological-networks.jpg
+repo: https://github.com/ellacapellini/LearningInDeepArtificialAndBiologicalNetworks
+categories: [Course]
+---
+
+Notes and exercises are kept in [the repository](https://github.com/ellacapellini/LearningInDeepArtificialAndBiologicalNetworks).

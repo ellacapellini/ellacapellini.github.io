@@ -1,0 +1,12 @@
+---
+title: "Introduction to Neuroinformatics"
+date: 2026-02-24
+description: >
+  Notes and exercises from the course Introduction to Neuroinformatics
+  Held by Prof. Dr. Giacomo Indiveri, Prof. Dr. Valerio Mante, and Prof. Dr. Benjamin Grewe at the ETH Zürich.
+image: assets/introduction-to-neuroinformatics.jpg
+repo: https://github.com/ellacapellini/IntroductionToNeuroinformatics
+categories: [Course]
+---
+
+Notes and exercises are kept in [the repository](https://github.com/ellacapellini/IntroductionToNeuroinformatics).

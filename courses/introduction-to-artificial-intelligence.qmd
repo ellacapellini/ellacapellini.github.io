@@ -2,7 +2,8 @@
 title: "Introduction to Artificial Intelligence"
 date: 2026-02-24
 description: >
-  Notes and exercises from the course Introduction to Artificial Intelligence held by Prof. Dr. Oliver Kramer.
+  Notes and exercises from the course Introduction to Artificial Intelligence. 
+  Held by Prof. Dr. Oliver Kramer at the University of Oldenburg.
 image: assets/introduction-to-artificial-intelligence.jpg
 repo: https://github.com/ellacapellini/IntroductionToArtificialIntelligence.git
 categories: [Course]

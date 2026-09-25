@@ -2,7 +2,8 @@
 title: "Probabilistic Artificial Intelligence"
 date: 2026-02-24
 description: >
-  Notes and exercises from the course Probabilistic Artificial Intelligence held by Prof. Dr. Andreas Krause 
+  Notes and exercises from the course Probabilistic Artificial Intelligence.
+  Held by Prof. Dr. Andreas Krause at the ETH Zürich.
 image: assets/probabilistic-artificial-intelligence.jpg
 repo: https://github.com/ellacapellini/ProbabilisticArtificialIntelligence
 categories: [Course]

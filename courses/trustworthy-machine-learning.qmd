@@ -2,7 +2,8 @@
 title: "Trustworthy Machine Learning"
 date: 2026-02-24
 description: >
-  Notes and exercises from the course Trustworhty Machine Learning held by Prof. Dr. Nils Strodthoff.
+  Notes and exercises from the course Trustworhty Machine Learning.
+  Held by Prof. Dr. Nils Strodthoff at the University of Oldenburg. 
 image: assets/trustworthy-machine-learning.jpg
 repo: https://github.com/ellacapellini/TrustworthyMachineLearning
 categories: [Course]
