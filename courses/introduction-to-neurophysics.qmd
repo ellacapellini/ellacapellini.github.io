@@ -1,0 +1,12 @@
+---
+title: "Introduction to Neurophysics"
+date: 2026-09-24
+description: >
+  Notes and exercises from the course Introduction to Neurophysics. 
+  Held by Prof. Dr. Mathias Dietz and PD Dr. Jôrg Anemūller at the University of Oldenburg. 
+image: assets/introduction-to-neurophysics.jpg
+repo: https://github.com/ellacapellini/IntroductionToNeurophysics
+categories: [Course]
+---
+
+Notes and exercises are kept in [the repository](https://github.com/ellacapellini/IntroductionToNeurophysics).
