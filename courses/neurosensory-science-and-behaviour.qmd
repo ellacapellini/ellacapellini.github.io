@@ -1,0 +1,11 @@
+---
+title: "Neurosensory Science and Behaviour"
+date: 2025-12-08
+description: >
+  Assignments, notes and exercises from Neuroscience Science and Behaviour, held by Prof. Dr. Jörg Albert, Prof. Dr. Jan Clemens, Prof. Dr. Henrik Mouritsen, Dr. rer. nat. Thomas Effertz, and Dr. Ulrike Langemann held at the Univeristy of Oldenburg. 
+image: assets/neurosensory-science-and-behaviour.jpg
+repo: https://github.com/ellacapellini/NeurosensoryScienceAndBehaviour
+categories: [Course]
+---
+
+Assignments, notes and exercises are kept in [the repository](https://github.com/ellacapellini/NeurosensoryScienceAndBehaviour).
