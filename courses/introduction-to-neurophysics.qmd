@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Neurophysics"
-date: 2026-09-24
+date: 2024-11-24
 description: >
   Notes and exercises from the course Introduction to Neurophysics. 
   Held by Prof. Dr. Mathias Dietz and PD Dr. Jôrg Anemūller at the University of Oldenburg. 

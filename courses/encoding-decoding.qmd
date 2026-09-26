@@ -1,6 +1,6 @@
 ---
 title: "Computational Neuroscience: Encoding % Decoding"
-date: 2026-01-08
+date: 2025-01-08
 description: >
   Assignments, notes and exercises from NEU246, Computational Neuroscience:
   Encoding Decoding (2024/25), held by Prof. Dr. Jan Clemens and Prof. Dr. Martin Greschner at the Univeristy of Oldenburg. 
