@@ -75,3 +75,20 @@ toc-depth: 3
   <details><summary>My thoughts</summary>Where classics meets sci-fi. A cool and unusual angle.</details>
 - *Critical Ancient World Studies: The Case for Forgetting Classics*, Mathura Umachandran & Marchella Ward
   <details><summary>My thoughts</summary>A provocative argument for rethinking how we study the ancient world.</details>
+
+## Cognitive Science
+
+- [Bayesian Models of Cognition](url), T. Griffiths, C. Kemp, J. Tenenbaum
+- [Algorithms to Live By](url), B. Christian, T. Griffiths
+
+## Machine Learning
+
+- S. Russell, P. Norvig: *Artificial Intelligence, A Modern Approach* (4th edition)
+
+### Reinforcement Learning
+
+- [Gaussian Processes in Machine Learning](http://www.gaussianprocess.org/gpml/), C. Rasmussen, C.K.I. Williams
+- K. Murphy: *Machine Learning: A Probabilistic Perspective*
+- [Reinforcement Learning](http://incompleteideas.net/book/RLbook2020.pdf), R. Sutton, A. Barto
+- [Algorithms for Reinforcement Learning](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf), C. Szepesvári
+- [Bandit Algorithms](https://tor-lattimore.com/downloads/book/book.pdf), T. Lattimore, C. Szepesvári

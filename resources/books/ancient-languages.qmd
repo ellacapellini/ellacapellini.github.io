@@ -1,6 +1,6 @@
 ---
 title: "Ancient Languages"
-description: "6 books"
+description: "7 books"
 toc: false
 ---
 
@@ -23,3 +23,8 @@ toc: false
   <details><summary>My thoughts</summary>A lively introduction to Mycenaean society, drawn from the Linear B tablets.</details>
 - *Linear B: An Introduction*, J. T. Hooker
   <details><summary>My thoughts</summary>A practical guide to the script and the language behind it.</details>
+
+## Indo-European
+
+- *Indo-European Language and Culture: An Introduction*, Benjamin Fortson
+  <details><summary>My thoughts</summary>The go-to overview of Indo-European languages, covering grammar, sound laws and culture together.</details>

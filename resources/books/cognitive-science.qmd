@@ -1,0 +1,10 @@
+---
+title: "Cognitive Science"
+description: "2 books"
+toc: false
+---
+
+[← Books](../books.qmd)
+
+- [Bayesian Models of Cognition](url), T. Griffiths, C. Kemp, J. Tenenbaum
+- [Algorithms to Live By](url), B. Christian, T. Griffiths

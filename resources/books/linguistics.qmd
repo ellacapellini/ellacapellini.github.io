@@ -1,6 +1,6 @@
 ---
 title: "Linguistics"
-description: "4 books"
+description: "3 books"
 toc: false
 ---
 
@@ -14,8 +14,3 @@ toc: false
   <details><summary>My thoughts</summary>Readable and full of examples. A good companion to Campbell.</details>
 - *Linguistic Reconstruction*, Anthony Fox
   <details><summary>My thoughts</summary>Goes deeper into how reconstruction actually works, and what its limits are.</details>
-
-## Indo-European
-
-- *Indo-European Language and Culture: An Introduction*, Benjamin Fortson
-  <details><summary>My thoughts</summary>The go-to overview of Indo-European languages, covering grammar, sound laws and culture together.</details>

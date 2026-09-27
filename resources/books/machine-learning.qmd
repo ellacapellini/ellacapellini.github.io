@@ -1,0 +1,17 @@
+---
+title: "Machine Learning"
+description: "6 books"
+toc: false
+---
+
+[← Books](../books.qmd)
+
+- S. Russell, P. Norvig: *Artificial Intelligence, A Modern Approach* (4th edition)
+
+## Reinforcement Learning
+
+- [Gaussian Processes in Machine Learning](http://www.gaussianprocess.org/gpml/), C. Rasmussen, C.K.I. Williams
+- K. Murphy: *Machine Learning: A Probabilistic Perspective*
+- [Reinforcement Learning](http://incompleteideas.net/book/RLbook2020.pdf), R. Sutton, A. Barto
+- [Algorithms for Reinforcement Learning](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf), C. Szepesvári
+- [Bandit Algorithms](https://tor-lattimore.com/downloads/book/book.pdf), T. Lattimore, C. Szepesvári

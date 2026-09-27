@@ -20,16 +20,16 @@ css: ../styles/topic-cards.css
   <div class="topic-media"><div class="topic-img" style="background-image: url('assets/topics/books-linguistics.jpg'), url('assets/books.jpg');"></div></div>
   <div class="topic-body">
     <span class="topic-title">Linguistics</span>
-    <span class="topic-meta">4 books · Historical linguistics, Indo-European</span>
-    <div class="topic-peek"><ul><li>Historical Linguistics: An Introduction</li><li>Trask&#x27;s Historical Linguistics</li><li>Linguistic Reconstruction</li><li>Indo-European Language and Culture: An Introduction</li></ul></div>
+    <span class="topic-meta">3 books · Historical linguistics</span>
+    <div class="topic-peek"><ul><li>Historical Linguistics: An Introduction</li><li>Trask&#x27;s Historical Linguistics</li><li>Linguistic Reconstruction</li></ul></div>
   </div>
 </a>
 <a class="topic-card" href="books/ancient-languages.html">
   <div class="topic-media"><div class="topic-img" style="background-image: url('assets/topics/books-ancient-languages.jpg'), url('assets/books.jpg');"></div></div>
   <div class="topic-body">
     <span class="topic-title">Ancient Languages</span>
-    <span class="topic-meta">6 books · Latin, Mycenaean Greek</span>
-    <div class="topic-peek"><ul><li>The Regional Diversification of Latin 200 BC – AD 600</li><li>The Blackwell History of the Latin Language</li><li>A Companion to the Latin Language</li><li>Beyond Greek: The Beginnings of Latin Literature</li><li>The Mycenaean World</li><li class="more">and 1 more</li></ul></div>
+    <span class="topic-meta">7 books · Latin, Mycenaean Greek, Indo-European</span>
+    <div class="topic-peek"><ul><li>The Regional Diversification of Latin 200 BC – AD 600</li><li>The Blackwell History of the Latin Language</li><li>A Companion to the Latin Language</li><li>Beyond Greek: The Beginnings of Latin Literature</li><li>The Mycenaean World</li><li class="more">and 2 more</li></ul></div>
   </div>
 </a>
 <a class="topic-card" href="books/ancient-religion.html">
@@ -46,6 +46,22 @@ css: ../styles/topic-cards.css
     <span class="topic-title">Classical Reception &amp; Popular Culture</span>
     <span class="topic-meta">6 books</span>
     <div class="topic-peek"><ul><li>The Reception of Ancient Virtues and Vices in Modern Popular Culture: Beauty, Bravery, Blood and Glory</li><li>Tracking Classical Monsters in Popular Culture</li><li>Ancient Greece on British Television</li><li>Classics for All: Reworking Antiquity in Mass Culture</li><li>Once and Future Antiquities in Science Fiction</li><li class="more">and 1 more</li></ul></div>
+  </div>
+</a>
+<a class="topic-card" href="books/cognitive-science.html">
+  <div class="topic-media"><div class="topic-img" style="background-image: url('assets/topics/books-cognitive-science.jpg'), url('assets/books.jpg');"></div></div>
+  <div class="topic-body">
+    <span class="topic-title">Cognitive Science</span>
+    <span class="topic-meta">2 books</span>
+    <div class="topic-peek"><ul><li>Bayesian Models of Cognition</li><li>Algorithms to Live By</li></ul></div>
+  </div>
+</a>
+<a class="topic-card" href="books/machine-learning.html">
+  <div class="topic-media"><div class="topic-img" style="background-image: url('assets/topics/books-machine-learning.jpg'), url('assets/books.jpg');"></div></div>
+  <div class="topic-body">
+    <span class="topic-title">Machine Learning</span>
+    <span class="topic-meta">6 books · Reinforcement Learning</span>
+    <div class="topic-peek"><ul><li>S. Russell, P. Norvig: Artificial Intelligence, A Modern Approach (4th edition)</li><li>Gaussian Processes in Machine Learning</li><li>K. Murphy: Machine Learning: A Probabilistic Perspective</li><li>Reinforcement Learning</li><li>Algorithms for Reinforcement Learning</li><li class="more">and 1 more</li></ul></div>
   </div>
 </a>
 </div>
