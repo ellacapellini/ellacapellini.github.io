@@ -7,6 +7,7 @@ listing:
     - courses.qmd
     - videos.qmd
     - websites.qmd
+    - library.qmd
   type: grid
   grid-columns: 2
   image-height: 220px
