@@ -41,6 +41,21 @@ Useful to know:
 - **A course with several pages:** make a folder, e.g. `courses/pai/`, with an `index.qmd`
   (the course, which appears in the list) and one file per lecture next to it.
 
+### The Library (from Zotero)
+
+`resources/library.qmd` and `resources/library/` are **generated**, not written by hand. Every morning the
+[Mycelium](https://github.com/ellacapellini/Mycelium_Zotero) repo refreshes `library.json` from Zotero;
+an hour later this site rebuilds and `build_library.py` turns each top-level Zotero folder into a card and
+a page (subfolders become sections). To change what is there, change it in Zotero. Nothing to register.
+
+- **A picture for a folder:** save it as `resources/assets/topics/library-<folder-name>.jpg`, where the
+  name is the folder in lower case with dashes (`Prosody & Speech Perception` becomes
+  `library-prosody-and-speech-perception.jpg`). The script prints every name it looks for. Folders without a
+  picture use `resources/assets/library.jpg`.
+- **Preview locally:** run `python3 build_library.py` once, then `quarto preview`.
+- **Pin the order of the cards:** `ORDER` at the top of `build_library.py` (otherwise A to Z).
+- Items that are in no Zotero folder are not shown; the script tells you how many.
+
 ### The blog
 
 There is no blog on the site for now. It is parked in the folder `_blog` (folders starting with `_` are not published), with its list page, a template and an example post that shows maths, code and
