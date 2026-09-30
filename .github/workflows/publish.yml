@@ -5,6 +5,8 @@ name: Publish site
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "0 6 * * *"      # every morning, after the Zotero library refreshes (05:00 UTC)
   workflow_dispatch:          # also lets you run it by hand from the Actions tab
 
 permissions:
@@ -25,6 +27,9 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: 1.10.18     # the version this site was tested with
+
+      - name: Build the Library pages from Zotero
+        run: python3 build_library.py
 
       - name: Render
         run: quarto render

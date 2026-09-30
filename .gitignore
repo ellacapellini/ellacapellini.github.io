@@ -6,3 +6,7 @@
 __pycache__/
 
 **/*.quarto_ipynb
+
+# Library pages are generated from Zotero on every build (python3 build_library.py)
+/resources/library.qmd
+/resources/library/
