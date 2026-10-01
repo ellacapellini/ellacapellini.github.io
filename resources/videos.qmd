@@ -1,5 +1,5 @@
 ---
-title: "Video Resources"
+title: "Video"
 description: "Lectures and channels I use for learning."
 image: assets/videos.jpg
 toc: false

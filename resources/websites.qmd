@@ -1,5 +1,5 @@
 ---
-title: "Website Resources"
+title: "Websites"
 description: "Websites I find useful for studying."
 image: assets/websites.jpg
 toc: false
