@@ -2,7 +2,7 @@
 title: "Books"
 description: "My reading list, grouped by topic."
 image: assets/books.jpg
-toc: false
+toc: true
 css: ../styles/topic-cards.css
 ---
 
