@@ -3,7 +3,7 @@ title: "Website Resources"
 description: "Websites I find useful for studying."
 image: assets/websites.jpg
 toc: true
-toc-depth: 3
+toc-depth: 2
 ---
 
 ## Computer Science & Programming
@@ -23,8 +23,3 @@ toc-depth: 3
   <details><summary>My thoughts</summary>Interactive visualisations that make probability and statistics click. Beautifully done.</details>
 - [BioDigital Human](https://human.biodigital.com)
   <details><summary>My thoughts</summary>An interactive 3D model of the human body. Great for exploring brain and anatomy.</details>
-
-## Course Notes
-
-- [Peter Stran: ETH course notes](https://www.peterstran.com)
-  <details><summary>My thoughts</summary>Clean, well-organised notes for ETH courses. Very handy for revision.</details>

@@ -23,14 +23,4 @@ css: ../styles/topic-cards.css
     <span class="topic-meta">2 websites</span>
     <div class="topic-peek"><ul><li>Seeing Theory (Brown University)</li><li>BioDigital Human</li></ul></div>
   </div>
-</a>
-<a class="topic-card" href="websites/course-notes.html">
-  <div class="topic-media"><div class="topic-img" style="background-image: url('assets/topics/websites-course-notes.jpg'), url('assets/websites.jpg');"></div></div>
-  <div class="topic-body">
-    <span class="topic-title">Course Notes</span>
-    <span class="topic-meta">1 website</span>
-    <div class="topic-peek"><ul><li>Peter Stran: ETH course notes</li></ul></div>
-  </div>
-</a>
-</div>
 ```
