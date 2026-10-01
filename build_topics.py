@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Turn each resource list into a card hub + one page per topic.
 
-Keep editing your lists in resources/_source/<name>.qmd (books, videos,
+Keep editing your lists in resources/_source/<name>.qmd (videos,
 courses, websites), then run from the project root:
 
     python3 build_topics.py
@@ -21,7 +21,6 @@ RES = ROOT / "resources"
 SRC = RES / "_source"
 
 PAGES = {  # file name -> singular word used in the counts
-    "books": "book",
     "videos": "video",
     "courses": "course",
     "websites": "website",
@@ -126,7 +125,7 @@ def build(name, unit):
 
 def main():
     if not SRC.exists():
-        sys.exit("Create resources/_source/ and move books/videos/courses/websites.qmd into it first.")
+        sys.exit("Create resources/_source/ and move videos/courses/websites.qmd into it first.")
     (RES / "assets" / "topics").mkdir(parents=True, exist_ok=True)
     images = []
     for name, unit in PAGES.items():

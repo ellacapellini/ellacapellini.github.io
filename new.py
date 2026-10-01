@@ -3,7 +3,7 @@
 
     python3 new.py research "Title of the project"
     python3 new.py courses  "Bayesian Statistics"
-    python3 new.py videos   "A lecture worth watching"   (also: books, papers; these go to resources/)
+    python3 new.py videos   "A lecture worth watching"   (also: papers; these go to resources/)
 
 The file is created with today's date already filled in. Open it, edit the few lines at the
 top, and write below them. Nothing else to register: the section's list page picks it up.
@@ -19,7 +19,6 @@ SECTIONS = {                      # kind: (folder, template)
     "research": ("research", "_template.qmd"),
     "courses": ("courses", "_template.qmd"),
     "videos": ("resources", "_template-video.qmd"),
-    "books": ("resources", "_template-book.qmd"),
     "papers": ("resources", "_template-paper.qmd"),
 }
 

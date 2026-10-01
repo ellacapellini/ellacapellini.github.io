@@ -13,7 +13,7 @@ The quickest way, from a terminal in this folder:
 ```
 python3 new.py research "Title of the project"
 python3 new.py courses  "Bayesian Statistics"
-python3 new.py videos   "A lecture worth watching"     # also: books, papers (these go to resources/)
+python3 new.py videos   "A lecture worth watching"     # also: papers (these go to resources/)
 ```
 
 It creates the file with today's date in place. Open it and edit. (Without the script: copy the
@@ -25,7 +25,7 @@ You can also do it entirely on github.com: *Add file → Create new file*, type 
 |---|---|
 | `research/` | `title`, `date`, `description` (the abstract), `categories`, and any of `repo`, `paper`, `demo`, `slides`, `pdf` |
 | `courses/` | `title`, `date`, `description`, optional `repo` or `pdf`. Notes go in the body. |
-| `resources/` | `title`, `date`, `description`, `categories` (`Video`, `Book` or `Paper`; the templates set it), `author`, and `source` or `paper` for the link |
+| `resources/` | `title`, `date`, `description`, `categories` (`Video` or `Paper`; the templates set it), `author`, and `source` or `paper` for the link |
 
 The date is only used for sorting and for the label on the left. Each `repo`, `paper`, ... you add
 becomes a link under the abstract, on the list and on the entry's own page. Topic tags come from
