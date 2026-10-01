@@ -1,6 +1,7 @@
 project:
   type: website
   output-dir: _site
+  pre-render: python3 build_library.py   # redraws the Library pages from Zotero (also on `quarto preview`)
   resources:
     - index.html            # your willow entrance, copied to the site untouched
     - cv/Ella-Capellini-CV.pdf   # opened by the CV tablet and icon on the entrance

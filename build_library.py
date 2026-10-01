@@ -14,14 +14,19 @@ Run from the project root (the publish workflow does this for you before every b
 
 Don't edit the generated files by hand; change things in Zotero.
 
-Card images: drop  resources/assets/topics/library-<folder-name>.jpg  (the script prints the exact
-names it looks for). Folders without one fall back to resources/assets/library.jpg.
+Card images: drop  resources/assets/topics/library-<folder-name>.jpg  (also .jpeg .png .webp).
+The folder name is lower case, with "&" written as "and" and every other gap as a dash:
+"Prosody & Speech Perception" -> library-prosody-and-speech-perception.jpg. Only top-level Zotero folders get a
+card; folders you move around in Zotero are picked up automatically. The script reports image files that match
+no folder and folders that have no picture yet; those fall back to resources/assets/library.jpg.
 """
+import difflib
 import html
 import json
 import re
 import sys
 import urllib.request
+from urllib.parse import quote
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -36,6 +41,7 @@ ORDER = []        # pin cards to the front, e.g. ["Neural Dynamics & TRF Modelli
 PEEK_MAX = 5      # how many items the hover preview lists
 SUBS_IN_META = 3  # how many subfolder names the card shows under its title
 FENCE = "`" * 3
+IMG_EXTS = (".jpg", ".jpeg", ".png", ".webp")
 
 
 # ---------------------------------------------------------------- helpers
@@ -166,7 +172,31 @@ def build_tree(data):
     return top, unfiled
 
 
+# ---------------------------------------------------------------- images
+def image_index():
+    """slug -> file name for every resources/assets/topics/library-*.<image>, matched leniently
+    ("&" or "and", capitals and extra dashes don't matter)."""
+    idx = {}
+    for f in sorted((RES / "assets" / "topics").glob("library-*")):
+        if f.suffix.lower() in IMG_EXTS:
+            idx.setdefault(slugify(f.stem[len("library-"):]), f.name)
+    return idx
+
+
 # ---------------------------------------------------------------- pages
+def unique(base, used):
+    slug, k = base, 2
+    while slug in used:
+        slug, k = f"{base}-{k}", k + 1
+    used.add(slug)
+    return slug
+
+
+def assign_slugs(nodes, used_top):
+    for n in nodes:
+        n.slug = unique(slugify(n.name), used_top)
+
+
 def section(node, depth, lines):
     """Write a folder's own items, then its subfolders as ##/###/#### sections."""
     for it in sort_items(node.items):
@@ -176,7 +206,28 @@ def section(node, depth, lines):
         section(child, depth + 1, lines)
 
 
-def write_topic(node, slug):
+def card(node, href, imgdir, fallback, idx, peek_max=PEEK_MAX):
+    items = sort_items(node.everything())
+    peek = "".join(f"<li>{html.escape(re.sub(r'<[^>]+>', '', i.get('title', '')))}</li>" for i in items[:peek_max])
+    if len(items) > peek_max:
+        peek += f'<li class="more">and {len(items) - peek_max} more</li>'
+    subs = [c.name for c in node.children]
+    shown = ", ".join(subs[:SUBS_IN_META]) + (f" +{len(subs) - SUBS_IN_META} more" if len(subs) > SUBS_IN_META else "")
+    meta = plural(len(items), "item") + (" · " + shown if subs else "")
+    img = quote(f"{imgdir}/{idx[slugify(node.name)]}") if slugify(node.name) in idx else f"{imgdir}/library-{slugify(node.name)}.jpg"
+    return (
+        f'<a class="topic-card" href="{href}">\n'
+        f'  <div class="topic-media"><div class="topic-img" '
+        f"style=\"background-image: url('{img}'), url('{fallback}');\"></div></div>\n"
+        f'  <div class="topic-body">\n'
+        f'    <span class="topic-title">{html.escape(node.name)}</span>\n'
+        f'    <span class="topic-meta">{html.escape(meta)}</span>\n'
+        f'    <div class="topic-peek"><ul>{peek}</ul></div>\n'
+        f"  </div>\n</a>"
+    )
+
+
+def write_topic(node):
     n = len(node.everything())
     lines = []
     section(node, 2, lines)
@@ -187,35 +238,17 @@ def write_topic(node, slug):
         f"toc: true\ntoc-depth: 3\n---\n\n"
         f"[← Library](../library.qmd)\n\n" + "\n".join(lines).strip("\n") + "\n"
     )
-    (OUT / f"{slug}.qmd").write_text(page, encoding="utf-8")
-
-
-def card(node, slug):
-    items = sort_items(node.everything())
-    peek = "".join(f"<li>{html.escape(re.sub(r'<[^>]+>', '', i.get('title', '')))}</li>" for i in items[:PEEK_MAX])
-    if len(items) > PEEK_MAX:
-        peek += f'<li class="more">and {len(items) - PEEK_MAX} more</li>'
-    subs = [c.name for c in node.children]
-    shown = ", ".join(subs[:SUBS_IN_META]) + (f" +{len(subs) - SUBS_IN_META} more" if len(subs) > SUBS_IN_META else "")
-    meta = plural(len(items), "item") + (" · " + shown if subs else "")
-    img = f"assets/topics/library-{slug}.jpg"
-    return (
-        f'<a class="topic-card" href="library/{slug}.html">\n'
-        f'  <div class="topic-media"><div class="topic-img" '
-        f"style=\"background-image: url('{img}'), url('assets/library.jpg');\"></div></div>\n"
-        f'  <div class="topic-body">\n'
-        f'    <span class="topic-title">{html.escape(node.name)}</span>\n'
-        f'    <span class="topic-meta">{html.escape(meta)}</span>\n'
-        f'    <div class="topic-peek"><ul>{peek}</ul></div>\n'
-        f"  </div>\n</a>"
-    )
+    (OUT / f"{node.slug}.qmd").write_text(page, encoding="utf-8")
 
 
 def main():
     src = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_SOURCE
     try:
         data = read_source(src)
-    except Exception as e:  # keep the old site rather than publish an empty library
+    except Exception as e:
+        if (RES / "library.qmd").exists():  # offline? keep the pages from the last run
+            print(f"- library: could not reach {src} ({e}); keeping the existing pages")
+            return
         sys.exit(f"Could not read the library from {src}: {e}")
     top, unfiled = build_tree(data)
     if not top:
@@ -225,16 +258,13 @@ def main():
     for old in OUT.glob("*.qmd"):  # folders deleted in Zotero disappear from the site
         old.unlink()
     (RES / "assets" / "topics").mkdir(parents=True, exist_ok=True)
+    idx = image_index()
 
-    cards, images, used = [], [], set()
+    assign_slugs(top, set())
+    cards = []
     for node in top:
-        slug, k = slugify(node.name), 2
-        while slug in used:
-            slug, k = f"{slugify(node.name)}-{k}", k + 1
-        used.add(slug)
-        write_topic(node, slug)
-        cards.append(card(node, slug))
-        images.append(f"resources/assets/topics/library-{slug}.jpg")
+        write_topic(node)
+        cards.append(card(node, f"library/{node.slug}.html", "assets/topics", "assets/library.jpg", idx))
 
     total = len({i["key"] for n in top for i in n.everything()})
     hub = (
@@ -248,12 +278,23 @@ def main():
     )
     (RES / "library.qmd").write_text(hub, encoding="utf-8")
 
+    # ---- report
+    names = {n.slug: n.name for n in top}
     print(f"- library: hub + {len(top)} folder pages, {total} items")
     if unfiled:
         print(f"- {len(unfiled)} items are in no folder yet, so they are not shown (file them in Zotero)")
-    print("\nOptional card images (missing ones fall back to resources/assets/library.jpg):")
-    for i in images:
-        print("  ", i)
+    missing = [s for s in names if s not in idx]
+    if missing:
+        print("\nFolders still using the default picture (name the file like this, in resources/assets/topics/):")
+        for s in missing:
+            print(f"   library-{s}.jpg")
+    stray = [s for s in idx if s not in names]
+    if stray:
+        print("\nImage files that match no top-level folder (typo, wrong name, or a folder you renamed/moved in Zotero?):")
+        for s in stray:
+            near = difflib.get_close_matches(s, list(names), n=1, cutoff=0.6)
+            hint = f"   -> did you mean library-{near[0]}.jpg ?" if near else ""
+            print(f"   {idx[s]}{hint}")
 
 
 if __name__ == "__main__":
