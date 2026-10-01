@@ -8,6 +8,14 @@ css: ../styles/topic-cards.css
 
 ```{=html}
 <div class="topic-grid">
+<a class="topic-card" href="courses/mit.html">
+  <div class="topic-media"><div class="topic-img" style="background-image: url('assets/topics/courses-mit.jpg'), url('assets/courses.jpg');"></div></div>
+  <div class="topic-body">
+    <span class="topic-title">MIT OpenCourseWare</span>
+    <span class="topic-meta">34 courses · Maths, CS &amp; ML, Neuroscience, Biology, Humanities</span>
+    <div class="topic-peek"><ul><li>Linear Algebra (18.06), Gilbert Strang</li><li>Mathematics for Computer Science (6.042J)</li><li>Introduction to Algorithms (6.006)</li><li>Introduction to Neural Computation (9.40)</li><li>Signals and Systems (RES.6-007), Alan Oppenheim</li></ul></div>
+  </div>
+</a>
 <a class="topic-card" href="courses/yale-open-courses.html">
   <div class="topic-media"><div class="topic-img" style="background-image: url('assets/topics/courses-yale-open-courses.jpg'), url('assets/courses.jpg');"></div></div>
   <div class="topic-body">

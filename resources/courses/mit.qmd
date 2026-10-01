@@ -1,29 +1,12 @@
 ---
-title: "Open Courses"
-description: "Freely available university courses."
-image: assets/courses.jpg
-toc: true
-toc-depth: 3
+title: "MIT OpenCourseWare"
+date: 2026-10-01
+description: "Freely available MIT courses with lecture videos, assignments and notes."
 ---
-
-## Yale Open Courses
-
-- [Introduction to Ancient Greek History, Donald Kagan](https://oyc.yale.edu/classics/clcv-205)
-  <details><summary>My thoughts</summary>A masterful sweep from the Bronze Age to the fourth century BC. Kagan is an engaging lecturer.</details>
-- [Dante in Translation, Giuseppe Mazzotta](https://oyc.yale.edu/italian-language-and-literature/ital-310)
-  <details><summary>My thoughts</summary>Makes the Divine Comedy feel alive, with lots of context on medieval thought.</details>
-- [Philosophy and the Science of Human Nature, Tamar S. Gendler](https://oyc.yale.edu/philosophy/phil-181)
-  <details><summary>My thoughts</summary>Philosophy meets cognitive science. Great if you like asking what the mind is.</details>
-- [Death, Shelly Kagan](https://oyc.yale.edu/death/phil-176)
-  <details><summary>My thoughts</summary>Rigorous and surprisingly gripping. Makes you question what you think about mortality.</details>
-- [Fundamentals of Physics I and II, Ramamurti Shankar](https://oyc.yale.edu/physics/phys-200)
-  <details><summary>My thoughts</summary>A wonderfully clear physics course from a great teacher. Perfect for building real intuition.</details>
-
-## MIT OpenCourseWare
 
 All of these come with **lecture videos**, **assignments** and **notes**, which keeps me far more engaged than reading alone. Within each topic they run roughly from where I'd start to where I'd end up. All from [MIT OpenCourseWare](https://ocw.mit.edu/).
 
-### Mathematics
+## Mathematics
 
 - [Single Variable Calculus (18.01), David Jerison](https://ocw.mit.edu/courses/18-01-single-variable-calculus-fall-2006/)
   <details><summary>My thoughts</summary>A clear, no-nonsense rebuild of calculus from limits to integration. Almost everything else on this list leans on it.</details>
@@ -46,7 +29,7 @@ All of these come with **lecture videos**, **assignments** and **notes**, which 
 - [Nonlinear Programming (15.084J)](https://ocw.mit.edu/courses/15-084j-nonlinear-programming-spring-2004/)
   <details><summary>My thoughts</summary>The optimisation theory behind how models actually get fitted: constraints, convexity and algorithms.</details>
 
-### Computer Science and Machine Learning
+## Computer Science and Machine Learning
 
 - [Programming for the Puzzled (6.S095)](https://ocw.mit.edu/courses/6-s095-programming-for-the-puzzled-january-iap-2018/)
   <details><summary>My thoughts</summary>A short, playful course that teaches algorithmic thinking through puzzles. A fun way into programming ideas.</details>
@@ -63,14 +46,14 @@ All of these come with **lecture videos**, **assignments** and **notes**, which 
 - [Hands-On Deep Learning (15.773)](https://ocw.mit.edu/courses/15-773-hands-on-deep-learning-spring-2024/)
   <details><summary>My thoughts</summary>The practical companion: building and training models in code cements the theory.</details>
 
-### Signals and Systems
+## Signals and Systems
 
 - [Signals and Systems (RES.6-007), Alan Oppenheim](https://ocw.mit.edu/courses/res-6-007-signals-and-systems-spring-2011/)
   <details><summary>My thoughts</summary>The standard foundation for filtering, Fourier analysis and system response. Essential for any EEG or audio work.</details>
 - [Digital Signal Processing (RES.6-008)](https://ocw.mit.edu/courses/res-6-008-digital-signal-processing-spring-2011/)
   <details><summary>My thoughts</summary>Sampling, discrete transforms and filter design, directly relevant to preprocessing neural and acoustic data.</details>
 
-### Neuroscience and Cognition
+## Neuroscience and Cognition
 
 - [Philosophical Issues in Brain Science (24.08J)](https://ocw.mit.edu/courses/24-08j-philosophical-issues-in-brain-science-spring-2009/)
   <details><summary>My thoughts</summary>Asks what neuroscience can and cannot explain about mind and consciousness. Keeps the conceptual questions in view.</details>
@@ -89,7 +72,7 @@ All of these come with **lecture videos**, **assignments** and **notes**, which 
 - [AFNI Training Bootcamp (RES.9-006)](https://ocw.mit.edu/courses/res-9-006-afni-training-bootcamp-spring-2018/)
   <details><summary>My thoughts</summary>Hands-on training in a widely used neuroimaging analysis pipeline.</details>
 
-### Biology
+## Biology
 
 - [Fundamentals of Biology (7.01SC)](https://ocw.mit.edu/courses/7-01sc-fundamentals-of-biology-fall-2011/)
   <details><summary>My thoughts</summary>A well-structured entry point to molecular and cell biology, with problem sets that make it stick.</details>
@@ -98,7 +81,7 @@ All of these come with **lecture videos**, **assignments** and **notes**, which 
 - [Foundations of Computational and Systems Biology (7.91J)](https://ocw.mit.edu/courses/7-91j-foundations-of-computational-and-systems-biology-spring-2014/)
   <details><summary>My thoughts</summary>Applies modelling and computation to biological questions. Good for seeing how quantitative methods meet the life sciences.</details>
 
-### Language, Humanities and Social Science
+## Language, Humanities and Social Science
 
 - [Introduction to Linguistics (24.900)](https://ocw.mit.edu/courses/24-900-introduction-to-linguistics-spring-2022/)
   <details><summary>My thoughts</summary>Covers the core of the field, from sounds and structure to meaning. A good complement to my work on prosody.</details>
@@ -108,26 +91,3 @@ All of these come with **lecture videos**, **assignments** and **notes**, which 
   <details><summary>My thoughts</summary>Looks at how film retells myth. A nice change of pace from the technical courses.</details>
 - [Data Analysis for Social Scientists (14.310x)](https://ocw.mit.edu/courses/14-310x-data-analysis-for-social-scientists-spring-2023/)
   <details><summary>My thoughts</summary>Practical statistics and data analysis, with an emphasis on drawing sound conclusions from messy data.</details>
-
-## University of Zurich (UZH)
-
-### Neuroscience & vision
-
-- [Systems Neuroscience, Daniel C. Kiper](https://tilde.ini.uzh.ch/~kiper/system_neurosci.html)
-  <details><summary>My thoughts</summary>Solid overview of how neural systems work, from sensory pathways up to cognition.</details>
-- [Biological and Computational Vision, Daniel Kiper](https://tilde.ini.uzh.ch/~kiper/comp_vis/index.html)
-  <details><summary>My thoughts</summary>Compares how brains and machines see. Really useful for the neuro-AI connection.</details>
-- [Consciousness: from philosophy to neuroscience, Daniel Kiper & guests](https://tilde.ini.uzh.ch/~kiper/consciousness.html)
-  <details><summary>My thoughts</summary>Big questions approached from several angles. Good food for thought.</details>
-
-### Linguistics
-
-- [Linguistic Typology in Evolutionary Perspective, Balthasar Bickel](https://www.isle.uzh.ch/en/bickel/presentations.html)
-  <details><summary>My thoughts</summary>Explains why languages vary and what that says about their history. Very data-driven.</details>
-- [Nature and Culture in Language Evolution, Balthasar Bickel](https://uzh.mediaspace.cast.switch.ch/error/error?from=6a8dbcd039bd7)
-  <details><summary>My thoughts</summary>Looks at how biology and culture together shape languages over time.</details>
-
-## EPFL
-
-- [Artificial Neural Networks and Deep Learning (video lectures), Wulfram Gerstner](https://lcnwww.epfl.ch/gerstner/VideoLecturesANN-Gerstner.html)
-  <details><summary>My thoughts</summary>A rigorous, well-structured course that connects artificial networks to biological ones.</details>
