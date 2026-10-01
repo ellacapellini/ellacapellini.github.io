@@ -3,7 +3,6 @@ title: "Resources"
 subtitle: "Videos, lectures, books and papers, with my notes."
 listing:
   contents:
-    - books.qmd
     - courses.qmd
     - videos.qmd
     - websites.qmd
