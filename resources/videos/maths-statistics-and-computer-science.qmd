@@ -10,7 +10,7 @@ toc: false
   <details><summary>My thoughts</summary>Great for linear algebra, signal processing and data analysis with a neuroscience flavour. Very clear, very thorough.</details>
 - [The Organic Chemistry Tutor](https://www.youtube.com/@TheOrganicChemistryTutor)
   <details><summary>My thoughts</summary>My go-to when I need a topic explained step by step. Tons of worked examples, whatever the subject.</details>
-- [3Blue1Brown](https://www.youtube.com/@3blue1brown)
+- [Essence of Linear Algebra by 3Blue1Brown](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
   <details><summary>My thoughts</summary>Beautiful visual intuition for maths and neural networks. Watch it before the formal version.</details>
 - [CS50: Introduction to Computer Science](https://www.youtube.com/@cs50)
   <details><summary>My thoughts</summary>The best gentle introduction to CS I know. Lectures are engaging and the problem sets are great practice.</details>

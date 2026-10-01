@@ -12,11 +12,17 @@ toc: false
   <details><summary>My thoughts</summary>A solid starting point covering phonetics through syntax and semantics. Good for building foundations.</details>
 - [Language, Mind and Brain: the cognitive biology of language](https://www.youtube.com/watch?v=z6rVdlSfmYo)
   <details><summary>My thoughts</summary>Looks at language as a biological capacity rather than just a system of rules. Made me think differently about what language even is.</details>
+- [Fundamental Issues in Linguistics, Lecture 1, Noam Chomsky (MIT, 2019)](https://www.youtube.com/watch?v=r514RhgISv0&list=PLtVpg4ho5u9PH6w_TeLCvQ-xE-C_5zlZr&index=2) (first of a two-lecture series)
+  <details><summary>My thoughts</summary>Chomsky on the core question of the field: how finite means produce infinite expressions. Covers I-language, the shift away from behaviorism, and how simple operations like Merge can explain syntax. Dense, but essential for generative linguistics.</details>
+- [Lecture 2: Morphology, Part 1, Norvin Richards (MIT 24.900, Spring 2022)](https://www.youtube.com/watch?v=Mvy5hjAWeZw&list=PLtVpg4ho5u9PH6w_TeLCvQ-xE-C_5zlZr&index=8) (part of a full intro-to-linguistics course)
+  <details><summary>My thoughts</summary>A beginner-friendly start to the study of word structure, taken from a complete MIT course. A great entry point if you want linguistics from the ground up.</details>
 
 ## Language evolution
 
 - [How humans got language, Simon Kirby](https://www.youtube.com/watch?v=ZIen7jJhvPM)
   <details><summary>My thoughts</summary>Shows how language structure can emerge through cultural transmission. Simple experiments, big ideas.</details>
+- [The Evolution of Language, Guy Deutscher](https://www.youtube.com/watch?v=3j-BVkDEiTw&list=PLtVpg4ho5u9PH6w_TeLCvQ-xE-C_5zlZr&index=3)
+  <details><summary>My thoughts</summary>A look at how languages change and develop over time, from a historical linguist who writes for a general audience. A good complement to the more theoretical talks.</details>
 - [Language evolution, big gods and rituals, Russell Gray](https://www.youtube.com/watch?v=RGML2mMAaEI)
   <details><summary>My thoughts</summary>Uses phylogenetic methods borrowed from biology to study language and culture. A fun mix of disciplines.</details>
 
