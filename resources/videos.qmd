@@ -1,5 +1,5 @@
 ---
-title: "Video"
+title: "Video Resources"
 description: "Lectures and channels I use for learning."
 image: assets/videos.jpg
 toc: false
@@ -28,8 +28,8 @@ css: ../styles/topic-cards.css
   <div class="topic-media"><div class="topic-img" style="background-image: url('assets/topics/videos-ai-safety.jpg'), url('assets/videos.jpg');"></div></div>
   <div class="topic-body">
     <span class="topic-title">AI Safety</span>
-    <span class="topic-meta">1 video</span>
-    <div class="topic-peek"><ul><li>AI Evaluation Programme: Capabilities and Safety</li></ul></div>
+    <span class="topic-meta">2 videos</span>
+    <div class="topic-peek"><ul><li>AI Evaluation Programme: Capabilities and Safety</li><li>AI Surveillance and Freedom of Speech</li></ul></div>
   </div>
 </a>
 <a class="topic-card" href="videos/linguistics-and-language-evolution.html">

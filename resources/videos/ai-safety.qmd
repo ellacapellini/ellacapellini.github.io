@@ -1,6 +1,6 @@
 ---
 title: "AI Safety"
-description: "1 video"
+description: "2 videos"
 toc: false
 ---
 
@@ -8,3 +8,4 @@ toc: false
 
 - [AI Evaluation Programme: Capabilities and Safety](https://www.youtube.com/@aievaluationorg)
   <details><summary>My thoughts</summary>Good for seeing how people actually test what AI models can do and where they fail. Very relevant to my interests.</details>
+- [AI Surveillance and Freedom of Speech](https://www.youtube.com/watch?v=wytH7dPlCVw), Nym
